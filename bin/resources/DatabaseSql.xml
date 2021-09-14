@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Databases>
+	
+	<Database name="xyzb">
+		<sqlurl>jdbc:mysql://192.168.10.222:3306/xyu?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>root</sqlname>
+		<sqlpwd>offcn.com</sqlpwd>
+	</Database>
+	
+	<Database name="tk">
+		<sqlurl>jdbc:mysql://39.105.124.219:3312/tiku?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>testTest</sqlname>
+		<sqlpwd>7b467efW#$%f5c50aa3d</sqlpwd>
+	</Database>
+	
+	<Database name="nwn">
+		<sqlurl>jdbc:mysql://39.105.124.219:3312/nwn?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>nwnBeta</sqlname>
+		<sqlpwd>Beta@&amp;123</sqlpwd>
+	</Database>
+	<Database name="iip">
+		<sqlurl>jdbc:mysql://rm-2zevlk47ul0ovuci80o.mysql.rds.aliyuncs.com:3306/iip?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>iip</sqlname>
+		<sqlpwd>FJxhd@8EKxcjGEmtDfdxcsefRPz8V5i@</sqlpwd>
+	</Database>
+	
+	<Database name="zxkt">
+		<sqlurl>jdbc:mysql://rm-2zevlk47ul0ovuci80o.mysql.rds.aliyuncs.com:3306/zxkt?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>zxkt</sqlname>
+		<sqlpwd>WWCsss2131jjjjjJJJD</sqlpwd>
+	</Database>
+	
+</Databases>

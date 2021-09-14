@@ -1,0 +1,68 @@
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : 会前注册_1 Step 会前注册-正向用例 is running......
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,会前注册_1,http://39.107.81.164:9016/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-43019716014678016","BUid":"feifei","timeZone":1
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:1, serverValue:3026}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=149860399}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:2, serverValue:3027}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:3, serverValue:3028}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=19048000}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:4, serverValue:3029}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:5, serverValue:3030}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=14997600}
+INFO|2021/05/11 14:23|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:6, serverValue:3031}] to 39.107.81.164:27017
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"msg":"success"}
+INFO|2021/05/11 14:23|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=2
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 授权_1 Step 会前注册-正向用例 is running......
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,授权_1,http://39.107.81.164:9016/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-43019716014678016","BUid":"feifei","timeZone":1
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 授权_2 Step 授权-正向用例 is running......
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,授权_2,http://39.107.81.164:9016/moms/usrmgr/v1/getToken,Parameter="BUid":"feifei"
+INFO|2021/05/11 16:28|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=2
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 授权_1 Step 会前注册-正向用例 is running......
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,授权_1,http://39.107.81.164:9016/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-43019716014678016","BUid":"feifei","timeZone":1
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 授权_2 Step 授权-正向用例 is running......
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,授权_2,http://39.107.81.164:9016/moms/usrmgr/v1/getToken,Parameter="BUid":"feifei"
+INFO|2021/05/11 16:29|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=2
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 授权_1 Step 会前注册-正向用例 is running......
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,授权_1,http://39.107.81.164:9016/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-43019716014678016","BUid":"feifei","timeZone":1
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 授权_2 Step 授权-正向用例 is running......
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,授权_2,http://39.107.81.164:9016/moms/usrmgr/v1/getToken,Parameter="BUid":"feifei"
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"OK","data":{"tls_addr":"39.107.81.164:8090","ttl":1621024387777,"create_time":1620721987777,"s_UserToken":"750f5aa238aadf5c6ff336ac8681e169","MRId":"1-MR-48158070757355520","mId":"110755283","accountId":"CN-86-1-UA-48158070688669696"}}
+INFO|2021/05/11 16:33|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=2
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 授权_1 Step 会前注册-正向用例 is running......
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,授权_1,http://39.107.81.164:9016/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-43019716014678016","BUid":"feifei","timeZone":1
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 授权_2 Step 授权-正向用例 is running......
+INFO|2021/05/11 17:14|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,授权_2,http://39.107.81.164:9016/moms/usrmgr/v1/getToken,Parameter="BUid":"feifei"
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:1, serverValue:3055}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13303700}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:2, serverValue:3056}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:3, serverValue:3057}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=38556899}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:4, serverValue:3058}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[39.107.81.164:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:5, serverValue:3059}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=39.107.81.164:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 23]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17242201}
+INFO|2021/05/11 17:15|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:6, serverValue:3060}] to 39.107.81.164:27017
+INFO|2021/05/11 17:15|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"OK","data":{"tls_addr":"39.107.81.164:8090","ttl":1621026882234,"create_time":1620724482233,"s_UserToken":"345a5cd833b0a4c27779b09368b710c5","MRId":"1-MR-48158070757355520","mId":"110755283","accountId":"CN-86-1-UA-48158070688669696"}}
+INFO|2021/05/11 17:15|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

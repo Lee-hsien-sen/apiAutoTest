@@ -1,0 +1,80 @@
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://10.200.100.126:9001/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9471","describe":"测试企业-ff9471","timeZone":1
+ERROR|2021/04/15 10:07|=>TestProject.logError()[Log.java:40] : 请求超时,1次。
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://10.200.100.126:9001/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9471","describe":"测试企业-ff9471","timeZone":1
+ERROR|2021/04/15 10:07|=>TestProject.logError()[Log.java:40] : 请求超时,2次。
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://10.200.100.126:9001/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9471","describe":"测试企业-ff9471","timeZone":1
+ERROR|2021/04/15 10:07|=>TestProject.logError()[Log.java:40] : 请求超时,3次。
+INFO|2021/04/15 10:07|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://10.200.100.126:9001/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9471","describe":"测试企业-ff9471","timeZone":1
+ERROR|2021/04/15 10:08|=>TestProject.logError()[Log.java:40] : 请求超时,4次。
+INFO|2021/04/15 10:08|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://10.200.100.126:9001/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9471","describe":"测试企业-ff9471","timeZone":1
+ERROR|2021/04/15 10:08|=>TestProject.logError()[Log.java:40] : 请求超时,5次。
+INFO|2021/04/15 10:08|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff1893","describe":"测试企业-ff1893","timeZone":1
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38667710163357696"},"code":200,"msg":"success"}
+INFO|2021/04/15 10:14|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9035","describe":"测试企业-ff9035","timeZone":1
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38679710226485248"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:01|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff9656","describe":"测试企业-ff9656","timeZone":1
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38679820989665280"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:02|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff5385","describe":"测试企业-ff5385","timeZone":1
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38680065274318848"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:03|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff3555","describe":"测试企业-ff3555","timeZone":1
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38681120775114752"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:07|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff5782","describe":"测试企业-ff5782","timeZone":1
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38681766316249088"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:09|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff5280","describe":"测试企业-ff5280","timeZone":1
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38681875322015744"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:10|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff7897","describe":"测试企业-ff7897","timeZone":1
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38682377405370368"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:12|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:15|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:15|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:15|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:15|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff8394","describe":"测试企业-ff8394","timeZone":1
+INFO|2021/04/15 11:16|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38683285476380672"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:16|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:25|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:25|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:25|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:26|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff2123","describe":"测试企业-ff2123","timeZone":1
+INFO|2021/04/15 11:26|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38685806760595456"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:26|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 注册企业-正向用例 is running......
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_1,http://188.116.29.180:9002/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff4276","describe":"测试企业-ff4276","timeZone":1
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-38686883027390464"},"code":200,"msg":"success"}
+INFO|2021/04/15 11:30|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

@@ -1,0 +1,84 @@
+<project name="auto_test" default="testoutput" basedir=".">
+	<!-- Define <testng> task -->
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" >
+		<classpath>
+			<pathelement location="lib/testng-6.8.6.jar" />
+		</classpath>
+	</taskdef>
+	<property name="testoutputdir" location="test-output" />
+	<property name="srcdir" location="src" />
+	<property name="libdir" location="lib" />
+	<property name="full-compile" value="true" />
+	<property name="basedir" value="D:/workspace/auto_test/" />
+
+	<path id="classpath.test">
+		<fileset dir="${libdir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${testoutputdir}" />
+		<pathelement location="${srcdir}" />
+
+	</path>
+	<target name="clean">
+		<delete dir="${basedir}/bin" />
+
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${basedir}/bin" />
+		<javac srcdir="${srcdir}" encoding="UTF-8" destdir="${basedir}/bin" verbose="${full-compile}" classpathref="classpath.test" includeantruntime="off" debug="on" debuglevel="lines,vars,source" />
+
+	</target>
+
+	<path id="classes">
+		<fileset dir="${libdir}" includes="*jar"/>
+		<fileset dir="${libdir}" includes="*zip"/>
+		<pathelement location="${basedir}/bin/"/>
+	
+	</path>
+	
+	<!--如果testng里面没有配置reportng监听器，则使用这个方式，如果testng里面配置了 reportng监听器，那么就使用这个配置
+	<target name="runtest" depends="compile">
+		
+		<testng outputdir="${testoutputdir}" classpathref="classes"
+			useDefaultListeners="false" 
+			delegateCommandSystemProperties="true" haltOnFailure="true" 
+			listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter,org.testng.reporters.FailedReporter">
+			<sysproperty key="file.encoding" value="UTF-8" />
+			<xmlfileset dir="${basedir}" includes="testng.xml" />
+		</testng>
+		
+	</target>-->
+	
+	<!--如果testng里面配置了 reportng监听器，那么就使用这个配置-->
+	<target name="runtest" depends="compile">
+			<!---->
+			<testng outputdir="${testoutputdir}" classpathref="classes"
+				useDefaultListeners="false" >
+				<sysproperty key="file.encoding" value="UTF-8" />
+				<xmlfileset dir="${basedir}" includes="testng.xml" />
+			</testng>
+			
+		</target>
+
+	<target name="testoutput" depends="runtest">
+		<java classname="com.qingzi.testUtil.Mail" classpath="${basedir}/bin">
+			<sysproperty key="file.encoding" value="UTF-8" />
+			<classpath>
+				<pathelement location="lib/javax.mail.jar" />
+			</classpath>
+		</java>
+		<!--
+		
+		ui自动化测试报告部分
+		<xslt in="${testoutputdir}/testng-results.xml" style="${testoutputdir}/testng-results.xsl" out="${testoutputdir}/index.html ">
+
+			<param name="testNgXslt.outputDir" expression="${basedir}/testoutput/" />
+
+			<classpath refid="classpath.test" />
+
+		</xslt>
+		-->
+		
+	</target>
+</project>

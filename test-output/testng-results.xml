@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="4" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="8766" started-at="2021-08-18T03:31:08Z" finished-at="2021-08-18T03:31:17Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="8766" started-at="2021-08-18T03:31:08Z" finished-at="2021-08-18T03:31:17Z">
+      <class name="com.qingzi.test.ApiTest_qz">
+        <test-method status="PASS" signature="f(java.util.HashMap)[pri:0, instance:com.qingzi.test.ApiTest_qz@3b0143d3]" name="f" duration-ms="6200" started-at="2021-08-18T11:31:08Z" data-provider="renmai" finished-at="2021-08-18T11:31:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{msg=success, NO=6, Description=授权-正向用例, system=qingziUsrmgr, code=200, TCNO=创建会议_1, parameter="BUid":"60ab63e725706d5a9e959e0c", serviceUrl=/moms/usrmgr/v1/getToken, Request=post, Step=1, CleanDB=N, statusCode=200}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="PASS" signature="f(java.util.HashMap)[pri:0, instance:com.qingzi.test.ApiTest_qz@3b0143d3]" name="f" duration-ms="724" started-at="2021-08-18T11:31:15Z" data-provider="renmai" finished-at="2021-08-18T11:31:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{msg=success, NO=7, Description=注册企业-正向用例, system=qingziUsrmgr, code=200, TCNO=创建会议_2, parameter="name":"企业-ff16891000","describe":"测试企业-ff6659","timeZone":1, serviceUrl=/moms/usrmgr/v1/enterprise/register, Request=post, Step=2, CleanDB=N, statusCode=200}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="PASS" signature="f(java.util.HashMap)[pri:0, instance:com.qingzi.test.ApiTest_qz@3b0143d3]" name="f" duration-ms="612" started-at="2021-08-18T11:31:15Z" data-provider="renmai" finished-at="2021-08-18T11:31:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{msg=success, NO=8, Description=会前注册-正向用例, system=qingziUsrmgr, code=200, TCNO=创建会议_3, parameter="enterpriseId":"1-EP-83985609432190976","BUid":"60ab63e725706d5a9e959e0c","timeZone":1, serviceUrl=/moms/usrmgr/v1/registerMeeting, Request=post, Step=3, CleanDB=N, statusCode=200}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="FAIL" signature="f(java.util.HashMap)[pri:0, instance:com.qingzi.test.ApiTest_qz@3b0143d3]" name="f" duration-ms="721" started-at="2021-08-18T11:31:16Z" data-provider="renmai" finished-at="2021-08-18T11:31:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{msg=success, NO=9, Description=创建会议-正向用例, code=200, custom=title, serviceUrl=/moms/mtmgr/v1/mmc/createMeeting, Request=post, Step=4, CleanDB=Y, system=qingziMtmgr, TCNO=创建会议_4, parameter="enterpriseId":"1-EP-83985609432190976","os": "windows","MRId":"1-MR-79624387192389632","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[], statusCode=200}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [200,success,title] but found [{"data":{"meetingId":"1-M-83985614847057920","sdkAccountId":"101100494753569","sdkRoomId":"10012047586605","sdkAccountToken":"48b717e5829041beeff69079217931832dea32df188ab1f952961c6b002e364c","roomCode":"79624387169570816","maxParticipants":200,"maxTime":36000000,"quality":"Medium","hostAccountId":"CN-86-1-UA-52895296005488640","hostSDKId":"101100494753569","hostBUid":"60ab63e725706d5a9e959e0c","title":"会议-ff","beginTime":1629257476956,"videoStatus":0,"audioStatus":0,"unMuteNeedRequest":0,"pwd":"237485","status":"Running","lock":0,"newMeeting":true,"userAccountId":"CN-86-1-UA-52895296005488640","mId":"113856469","MRId":"1-MR-79624387192389632"},"code":200,"message":"SUCCESS"}]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [200,success,title] but found [{"data":{"meetingId":"1-M-83985614847057920","sdkAccountId":"101100494753569","sdkRoomId":"10012047586605","sdkAccountToken":"48b717e5829041beeff69079217931832dea32df188ab1f952961c6b002e364c","roomCode":"79624387169570816","maxParticipants":200,"maxTime":36000000,"quality":"Medium","hostAccountId":"CN-86-1-UA-52895296005488640","hostSDKId":"101100494753569","hostBUid":"60ab63e725706d5a9e959e0c","title":"会议-ff","beginTime":1629257476956,"videoStatus":0,"audioStatus":0,"unMuteNeedRequest":0,"pwd":"237485","status":"Running","lock":0,"newMeeting":true,"userAccountId":"CN-86-1-UA-52895296005488640","mId":"113856469","MRId":"1-MR-79624387192389632"},"code":200,"message":"SUCCESS"}]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at com.qingzi.test.ApiTest_qz.f(ApiTest_qz.java:95)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.qingzi.test.ApiTest_qz@3b0143d3]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-08-18T11:31:17Z" finished-at="2021-08-18T11:31:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.qingzi.test.ApiTest_qz -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

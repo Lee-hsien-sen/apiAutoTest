@@ -1,0 +1,108 @@
+package test;
+
+import java.io.ByteArrayOutputStream;  
+import java.io.DataOutputStream;  
+import java.io.IOException;  
+import java.io.InputStream;  
+import java.net.URL;  
+import java.security.KeyManagementException;  
+import java.security.NoSuchAlgorithmException;  
+import java.security.cert.CertificateException;  
+import java.security.cert.X509Certificate;  
+  
+import javax.net.ssl.HostnameVerifier;  
+import javax.net.ssl.HttpsURLConnection;  
+import javax.net.ssl.SSLContext;  
+import javax.net.ssl.SSLSession;  
+import javax.net.ssl.TrustManager;  
+import javax.net.ssl.X509TrustManager;  
+  
+public class HttpsUtil_Post_Json {  
+  
+    private static class TrustAnyTrustManager implements X509TrustManager {  
+  
+        public void checkClientTrusted(X509Certificate[] chain, String authType)  
+                throws CertificateException {  
+        }  
+  
+        public void checkServerTrusted(X509Certificate[] chain, String authType)  
+                throws CertificateException {  
+        }  
+  
+        public X509Certificate[] getAcceptedIssuers() {  
+            return new X509Certificate[] {};  
+        }  
+    }  
+  
+    private static class TrustAnyHostnameVerifier implements HostnameVerifier {  
+        public boolean verify(String hostname, SSLSession session) {  
+            return true;  
+        }  
+    }  
+  
+    /** 
+     * post��ʽ���������(httpsЭ��) ����json����
+     *  
+     * @param url 
+     *            �����ַ 
+     * @param content 
+     *            ���� 
+     * @param charset 
+     *            ���� 
+     * @return 
+     * @throws NoSuchAlgorithmException 
+     * @throws KeyManagementException 
+     * @throws IOException 
+     */  
+    
+    public static void main(String[] args) {
+    	try {
+			post("https://api.puhuifinance.com/datapi-blacklist-server/api/v1/batchQueryBlacklist/query",
+					"[{\"queryField\":\"id_no\",\"queryValue\":\"13910960649\"}]",
+					"utf-8");
+		} catch (KeyManagementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    public static byte[] post(String url, String content, String charset)  
+            throws NoSuchAlgorithmException, KeyManagementException,  
+            IOException {  
+        SSLContext sc = SSLContext.getInstance("SSL");  
+        sc.init(null, new TrustManager[] { new TrustAnyTrustManager() },  
+                new java.security.SecureRandom());  
+  
+        URL console = new URL(url);  
+        HttpsURLConnection conn = (HttpsURLConnection) console.openConnection();  
+        conn.setRequestProperty("Content-Type","application/json");
+        conn.setSSLSocketFactory(sc.getSocketFactory());  
+        
+        conn.setHostnameVerifier(new TrustAnyHostnameVerifier());  
+        conn.setDoOutput(true);  
+        conn.connect();  
+        DataOutputStream out = new DataOutputStream(conn.getOutputStream());  
+        out.write(content.getBytes(charset));  
+        // ˢ�¡��ر�  
+        out.flush();  
+        out.close();  
+        InputStream is = conn.getInputStream();  
+        if (is != null) {  
+            ByteArrayOutputStream outStream = new ByteArrayOutputStream();  
+            byte[] buffer = new byte[1024];  
+            int len = 0;  
+            while ((len = is.read(buffer)) != -1) {  
+                outStream.write(buffer, 0, len);  
+            }  
+            is.close();  
+            return outStream.toByteArray();  
+        }  
+        return null;  
+    }  
+  
+}  

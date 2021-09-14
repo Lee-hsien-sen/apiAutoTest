@@ -1,0 +1,267 @@
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=53
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:1, serverValue:2445}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=76706200}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:2, serverValue:2446}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,注册企业_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809665166,"create_time":1628217665166,"s_UserToken":"e1988c1ee60c23efa1639a6c76307097","MRId":"1-MR-52895296071962624","mId":"111034517","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,注册企业_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff8803","timeZone":1
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:3, serverValue:2447}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=70969300}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:4, serverValue:2448}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-79624332182245376"},"code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:5, serverValue:2449}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=78850200}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:6, serverValue:2450}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,会前注册_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809669402,"create_time":1628217669401,"s_UserToken":"03b0bd1ddc93ed356a0a6aeea489bd93","MRId":"1-MR-52895296071962624","mId":"111034517","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,会前注册_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff1333","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-79624347579535360"},"code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,会前注册_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624347579535360","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:7, serverValue:2451}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=90080400}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:8, serverValue:2452}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:9, serverValue:2453}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=98921600}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:10, serverValue:2454}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:11, serverValue:2455}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=198693700}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:12, serverValue:2456}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:13, serverValue:2457}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=201947300}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:14, serverValue:2458}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:15, serverValue:2459}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=66072600}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:16, serverValue:2460}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,创建会议_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809678040,"create_time":1628217678040,"s_UserToken":"bd93f010d5c3269100b93bb51a049e5f","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,创建会议_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff8055","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"id":"1-EP-79624383872847872"},"code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,创建会议_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,创建会议_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:17, serverValue:2461}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=115576600}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:18, serverValue:2462}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,通过会议室Id和密码进入会议_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809682830,"create_time":1628217682829,"s_UserToken":"2e6b074ec7e8c1bcbd23aaaa036fa673","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,通过会议室Id和密码进入会议_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff7336","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,通过会议室Id和密码进入会议_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,通过会议室Id和密码进入会议_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议_5 Step 通过会议室Id和密码进入会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 通过会议室Id和密码进入会议-正向用例,通过会议室Id和密码进入会议_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinMeetingByPwd,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","nickName":"昵称-ff","avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","mId":"null","pwd":"null","videoStatus":1,"audioStatus":0
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^[0-9]{9}""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:19, serverValue:2463}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=67416000}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:20, serverValue:2464}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,获得与会人列表_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809686526,"create_time":1628217686526,"s_UserToken":"489324a56bc357a390c053f058a02b6a","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,获得与会人列表_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff7000","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,获得与会人列表_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,获得与会人列表_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,获得与会人列表_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,获得与会人列表_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,获得与会人列表_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:28.751+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表_6 Step 获得与会人列表-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 获得与会人列表-正向用例,获得与会人列表_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/getParticipant,Parameter=meetingId=null&mId=null&offset=0&limit=10
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"getParticipant.mId: must match "^[0-9]{9}", getParticipant.meetingId: must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:21, serverValue:2465}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=68326700}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:22, serverValue:2466}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,校验成员是否在会议中_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809690513,"create_time":1628217690512,"s_UserToken":"58a46ce36c38246db56850ba8f28e8d9","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,校验成员是否在会议中_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff8998","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,校验成员是否在会议中_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,校验成员是否在会议中_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,校验成员是否在会议中_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,校验成员是否在会议中_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,校验成员是否在会议中_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:32.877+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中_6 Step 校验成员是否在会议中-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 校验成员是否在会议中-正向用例,校验成员是否在会议中_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/checkParticipant,Parameter="mId":"null","users":[{"dev":"1","userAccountId":"CN-86-1-UA-52895296005488640"}]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":{"list":[]},"code":200,"message":"SUCCESS"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:23, serverValue:2467}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=59849100}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:24, serverValue:2468}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,hostmute视频_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809694624,"create_time":1628217694624,"s_UserToken":"9e36ac78e1a87275629b700b3c040190","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,hostmute视频_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff2318","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,hostmute视频_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,hostmute视频_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute视频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute视频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute视频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:36.855+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_6 Step hostmute视频-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频-正向用例,hostmute视频_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/video,Parameter="meetingId":"null","os": "windows","enterpriseId":"1-EP-79624383872847872","status":1,"operated":{"dev":"1","userAccountId":"CN-86-1-UA-52895296005488640"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频_7 Step hostmute视频-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute视频-正向用例,hostmute视频_7,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/video,Parameter="meetingId":"null","os": "windows","enterpriseId":"1-EP-79624383872847872","status":0,"operated":{"dev":"1","userAccountId":"CN-86-1-UA-52895296005488640"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:25, serverValue:2469}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=59989900}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:26, serverValue:2470}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,hostmute音频_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809698813,"create_time":1628217698812,"s_UserToken":"0eb7ca683637cf91374d2a32858ce941","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,hostmute音频_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff7590","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,hostmute音频_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,hostmute音频_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:41.030+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_6 Step hostmute音频-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频-正向用例,hostmute音频_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/audio,Parameter="meetingId":"null","os": "windows","enterpriseId":"1-EP-79624383872847872","status":0,"operatedList":[{"dev":"1","userAccountId":"CN-86-1-UA-52895296005488640"}]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频_7 Step hostmute音频-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频-正向用例,hostmute音频_7,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/audio,Parameter="meetingId":"null","os": "windows","enterpriseId":"1-EP-79624383872847872","status":1,"operatedList":[{"dev":"1","userAccountId":"CN-86-1-UA-52895296005488640"}]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:27, serverValue:2471}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=60272800}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:28, serverValue:2472}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,hostmute音频all_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809703113,"create_time":1628217703113,"s_UserToken":"d8dd214e74c3a4432c2568ab1e5247e1","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,hostmute音频all_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff5331","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,hostmute音频all_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,hostmute音频all_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频all_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频all_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,hostmute音频all_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:45.328+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_6 Step hostmute音频all-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all-正向用例,hostmute音频all_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/audioAll,Parameter="meetingId":"null","enterpriseId":"1-EP-79624383872847872","status":1,"unMuteNeedRequest":0,"dev":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all_7 Step hostmute音频all-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : hostmute音频all-正向用例,hostmute音频all_7,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/audioAll,Parameter="meetingId":"null","enterpriseId":"1-EP-79624383872847872","status":0,"unMuteNeedRequest":0,"dev":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_1 Step 授权-正向用例 is running......
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster created with settings {hosts=[10.210.10.12:27018], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Cluster description not yet available. Waiting for 30000 ms before timing out
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:29, serverValue:2473}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>org.mongodb.driver.cluster.info()[SLF4JLogger.java:71] : Monitor thread successfully connected to server with description ServerDescription{address=10.210.10.12:27018, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 24]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=59595500}
+INFO|2021/08/06 10:41|=>org.mongodb.driver.connection.info()[SLF4JLogger.java:71] : Opened connection [connectionId{localValue:30, serverValue:2474}] to 10.210.10.12:27018
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 授权-正向用例,修改他人会议昵称_1,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/getToken,Parameter="BUid":"60ab63e725706d5a9e959e0c"
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":200,"message":"success","data":{"tls_addr":"94.74.122.180:8091","ttl":1630809707200,"create_time":1628217707200,"s_UserToken":"3f10501cdbf7d4b8d6a342019bb5b561","MRId":"1-MR-79624349439459328","mId":"137151956","accountId":"CN-86-1-UA-52895296005488640"}}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_2 Step 注册企业-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 注册企业-正向用例,修改他人会议昵称_2,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/enterprise/register,Parameter="name":"企业-ff89171000","describe":"测试企业-ff7960","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":null,"code":10006,"message":"DataExistedException:enterprise is exist!"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_3 Step 会前注册-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 会前注册-正向用例,修改他人会议昵称_3,https://t-m-hkg.crystalclear.dev/moms/usrmgr/v1/register,Parameter="enterpriseId":"1-EP-79624383872847872","BUid":"60ab63e725706d5a9e959e0c","timeZone":1
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"data":"success","code":200,"message":"success"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_4 Step 创建会议-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 创建会议-正向用例,修改他人会议昵称_4,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/createMeeting,Parameter="enterpriseId":"1-EP-79624383872847872","os": "windows","MRId":"1-MR-79624349439459328","nickName":"昵称-ff","title":"会议-ff","videoMute":1,"audioMute":0,"avatarUrl":"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg","timeZone":1,"invitees":[]
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":90000,"message":"invalid dev unKnow"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_5 Step 模拟入会-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,修改他人会议昵称_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,修改他人会议昵称_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 模拟入会-正向用例,修改他人会议昵称_5,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mmc/joinSuccess,Parameter=sdkRoomId=null&sdkAccountId=null
+ERROR|2021/08/06 10:41|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"timestamp":"2021-08-06T02:41:49.303+0000","status":404,"error":"Not Found","message":"Not Found","path":"/moms/mtmgr/v1/mmc/joinSuccess"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称_6 Step 修改他人会议昵称-正向用例 is running......
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 修改他人会议昵称-正向用例,修改他人会议昵称_6,https://t-m-hkg.crystalclear.dev/moms/mtmgr/v1/mcc/editName,Parameter="meetingId":"null","os":"android","enterpriseId":"1-EP-79624383872847872","operated":{"dev":"1","nickName":"昵称-ff-修改","userAccountId":"CN-86-1-UA-52895296005488640"}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : 返回结果={"code":20002,"message":"must match "^([1-9]-M-)([0-9]{17})""}
+INFO|2021/08/06 10:41|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

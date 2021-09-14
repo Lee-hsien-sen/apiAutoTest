@@ -1,0 +1,136 @@
+INFO|2020/06/18 15:03|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:03|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:03|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:18|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:18|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:18|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:20|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:20|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:20|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:22|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:26|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:26|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:26|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:31|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:31|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:31|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com/apiTest,Parameter="phone":"13200000069","passwd":"e10adc3949ba59abbe56e057f20f883e","passcode":"123456"
+ERROR|2020/06/18 15:32|=>TestProject.logError()[Log.java:40] : 请求超时,1次。
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com/apiTest,Parameter="phone":"13200000069","passwd":"e10adc3949ba59abbe56e057f20f883e","passcode":"123456"
+ERROR|2020/06/18 15:32|=>TestProject.logError()[Log.java:40] : 请求超时,2次。
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com/apiTest,Parameter="phone":"13200000069","passwd":"e10adc3949ba59abbe56e057f20f883e","passcode":"123456"
+ERROR|2020/06/18 15:32|=>TestProject.logError()[Log.java:40] : 请求超时,3次。
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:32|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.comwww.baidu.com,Parameter=
+ERROR|2020/06/18 15:33|=>TestProject.logError()[Log.java:40] : 请求超时,1次。
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.comwww.baidu.com,Parameter=
+ERROR|2020/06/18 15:33|=>TestProject.logError()[Log.java:40] : 请求超时,2次。
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.comwww.baidu.com,Parameter=
+ERROR|2020/06/18 15:33|=>TestProject.logError()[Log.java:40] : 请求超时,3次。
+INFO|2020/06/18 15:33|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 15:35|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:35|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:35|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:35|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.comwww.baidu.com,Parameter=
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com,Parameter=
+ERROR|2020/06/18 15:36|=>TestProject.logError()[Log.java:40] : 请求超时,1次。
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com,Parameter=
+ERROR|2020/06/18 15:36|=>TestProject.logError()[Log.java:40] : 请求超时,2次。
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com,Parameter=
+ERROR|2020/06/18 15:36|=>TestProject.logError()[Log.java:40] : 请求超时,3次。
+INFO|2020/06/18 15:36|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 15:43|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:43|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:43|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/06/18 15:44|=>TestProject.logInfo()[Log.java:35] : 注册-正向用例,调试框架_1,www.baidu.com,Parameter=
+INFO|2020/06/18 15:55|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:55|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:55|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 15:58|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 15:58|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 15:59|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:00|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:00|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:00|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:00|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:02|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:02|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:02|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:03|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:03|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:03|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:04|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:04|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:04|=>TestProject.logError()[Log.java:40] : 请求返回404次。
+INFO|2020/06/18 16:04|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:06|=>TestProject.logError()[Log.java:40] : 请求返回404第1次。
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:06|=>TestProject.logError()[Log.java:40] : 请求返回404第2次。
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-api.live.offcncloud.com/web/admin,Parameter=
+ERROR|2020/06/18 16:06|=>TestProject.logError()[Log.java:40] : 请求返回404第3次。
+INFO|2020/06/18 16:06|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:08|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:08|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:08|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:08|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:08|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:11|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:11|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:11|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:11|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:11|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:13|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:13|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:13|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:13|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : 返回结果=页面标题：中公直播-v1.0
+INFO|2020/06/18 16:17|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : 返回结果=页面标题：中公直播-v1.0
+INFO|2020/06/18 16:23|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:29|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:29|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:29|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:29|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:30|=>TestProject.logInfo()[Log.java:35] : 返回结果=页面标题：中公直播-v1.0
+INFO|2020/06/18 16:30|=>TestProject.logInfo()[Log.java:35] : ========测试结束========
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : 返回结果=页面标题：中公直播-v1.0
+INFO|2020/06/18 16:57|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

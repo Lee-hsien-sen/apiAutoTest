@@ -1,0 +1,4 @@
+INFO|2020/05/26 14:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
+INFO|2020/05/26 14:33|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
+INFO|2020/05/26 14:33|=>TestProject.logInfo()[Log.java:35] : 调试框架_1 Step 注册-正向用例 is running......
+INFO|2020/05/26 14:33|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

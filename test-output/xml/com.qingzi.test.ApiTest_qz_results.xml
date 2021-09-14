@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test"
+           tests="20"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="39.225">
+  <properties />
+  
+  
+            <testcase name="f" time="0.383" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.253" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.374" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.257" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.270" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.372" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.258" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="15.631" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.375" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.289" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.268" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.402" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.262" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.401" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.301" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.244" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="1.423" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.411" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="0.419" classname="com.qingzi.test.ApiTest_qz" />
+                <testcase name="f" time="7.632" classname="com.qingzi.test.ApiTest_qz" />
+      
+</testsuite>
