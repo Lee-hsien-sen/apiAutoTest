@@ -35,8 +35,9 @@ public class MongoDBUtil {
         		((system)map.get("qingziUsrmgr")).getMongoName(), 
         		((system)map.get("qingziUsrmgr")).getMongoPwd());*/
         MongoConf conf = new MongoConf(((system)map.get(data.get("system"))).getMongoUrl(),
-        		27018,
-        		((system)map.get(data.get("system"))).getAuthDb(), 
+//				port:30017, //北京
+        		27018,//香港
+        		((system)map.get(data.get("system"))).getAuthDb(),
         		((system)map.get(data.get("system"))).getMongoName(), 
         		((system)map.get(data.get("system"))).getMongoPwd());
         MongoClient client;
