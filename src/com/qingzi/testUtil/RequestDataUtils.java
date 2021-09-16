@@ -55,7 +55,7 @@ public class RequestDataUtils {
 //				RestAssured.config = ra.config().connectionConfig(RestAssured.config().getConnectionConfig().closeIdleConnectionsAfterEachResponse());
 			}
 //			ra.config = RestAssured.config().redirect(RedirectConfig.redirectConfig().followRedirects(false));
-		    RestAssured.useRelaxedHTTPSValidation();
+		    RestAssured.useRelaxedHTTPSValidation();//忽略香港ssl
 			RestAssured.config = RestAssured.config().encoderConfig(EncoderConfig.encoderConfig().encodeContentTypeAs("x-www-form-urlencoded", ContentType.ANY).defaultContentCharset("utf-8"));
 		return ra;
 	}
