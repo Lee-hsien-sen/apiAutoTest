@@ -44,7 +44,7 @@
 		<client_secret>bestbuy-acceptance</client_secret>
 		<grant_type>client_credentials</grant_type>
 		<isProduct>false</isProduct>
-<!--		 <RM_URI>192.168.201.10</RM_URI>  北京-->
+<!--		 <RM_URI>192.168.201.10</RM_URI>  北京测试环境-->
 		<RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>  <!-- 香港 -->
 		<RM_port></RM_port>
 		<RM_basePath></RM_basePath>
