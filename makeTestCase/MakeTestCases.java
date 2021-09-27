@@ -35,7 +35,7 @@ public class MakeTestCases {
 	
 	public static void main(String[] args) {
 
-		make("TestData/CaseMake.xls","Sheet1","post","xyzb");
+		make("TestData/CaseMake.xls","Sheet1","post","qingziMtmgr");
 	}
 	
 	
