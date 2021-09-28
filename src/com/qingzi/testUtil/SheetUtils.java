@@ -29,7 +29,6 @@ public class SheetUtils {
 	/**
 	 * @param fileName
 	 *            excel鏂囦欢鍚�
-	 * @param caseName
 	 *            sheet鍚�
 	 */
 	public SheetUtils(String fileName, String sheetName) {
@@ -123,6 +122,9 @@ public class SheetUtils {
 		try {
 //			System.out.println(getPath());
 			file = new File(getPath());
+			if(!file.exists()){
+				file.createNewFile();
+			}
 			Workbook rwb = Workbook.getWorkbook(file);
 			File tempfile = new File("TestData/"+fileName);
 			WritableWorkbook wwb = Workbook.createWorkbook(tempfile, rwb);
@@ -165,7 +167,7 @@ public class SheetUtils {
 			wwb.write();
 			wwb.close();
 			rwb.close();
-			file.delete();
+//			file.delete();
 			tempfile.renameTo(file);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -226,7 +228,7 @@ public class SheetUtils {
 			wwb.write();
 			wwb.close();
 			rwb.close();
-			file.delete();
+//			file.delete();
 			tempfile.renameTo(file);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
