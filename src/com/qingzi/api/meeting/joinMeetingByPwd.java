@@ -155,6 +155,8 @@ public class joinMeetingByPwd extends QZ implements API {
 				mId = docs.getString("mId");
 				//pwd
 				pwd = docs.getString("pwd");
+
+				sdkAccountId = jp.getString("data.sdkAccountId");
 				System.out.println(meetingId);
 				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
 					

@@ -52,7 +52,7 @@ public class audioRequest extends QZ implements API {
 		}
 		HashMap<String, String> userMap = new HashMap<String, String>();
 		userMap.put("dev", "1");
-		userMap.put("userAccountId", userAccountId);
+		userMap.put("userAccountId", sdkAccountId);
 		if(!operated.equals("") && operated.equals("code")){
 			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
 		}

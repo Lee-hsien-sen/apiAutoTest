@@ -65,8 +65,11 @@ public class createMeeting extends QZ implements API {
 			parameter = parameter.replace("\"title\":code", "\"title\":\""+ title + "\"");
 		}
 		if(!MRId.equals("") && MRId.equals("code")){
-			MRId = MR_Id; 
-			parameter = parameter.replace("\"MRId\":code", "\"MRId\":\""+ MRId + "\"");
+			//固定会议室
+			//MRId = MR_Id;
+			//临时会议
+			MRId = null;
+			parameter = parameter.replace("\"MRId\":code", "\"MRId\":"+ MRId + "");
 		}
 		
 		data.put("parameter", parameter);
