@@ -14,6 +14,8 @@ import org.bson.Document;
 import java.util.HashMap;
 
 /**
+ *@ClassName end
+ * @Description:TODO  用户结束会议
  * @Author yuxiaowei
  * @create 2021-09-28 20:13
  */
