@@ -30,7 +30,8 @@ public class QZ extends BasicsGM{
 	public static String title_meeting = "会议-ff";
 	public static String mId_meeting;//Mid 
 	public static String pwd_meeting;//pwd
-	
+	public static String sdkAccountId; //参会人AccountId
+
 
 	static{
 		//初始环境设置DNS
