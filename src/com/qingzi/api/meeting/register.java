@@ -124,7 +124,7 @@ public class register extends QZ implements API {
 				}
 			}
 			
-			if(msg.equals("success")){
+			if(msg.equals("SUCCESS")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
