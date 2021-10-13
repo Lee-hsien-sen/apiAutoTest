@@ -1,11 +1,9 @@
 package com.qingzi.process;
 
-import java.sql.DriverManager;
-import java.util.Random;
 
-import com.qingzi.system.system;
 import com.qingzi.testUtil.ReadProperties;
 
+import java.util.Random;
 
 public class QZ extends BasicsGM{
 	
@@ -41,7 +39,7 @@ public class QZ extends BasicsGM{
 //		}else{
 //			Log.logInfo("dns地址正确无需设置");
 //		}
-		String mysql_local_Online=ReadProperties.GetTestPropertyByKey("mysql_local_Online");
+		String mysql_local_Online= ReadProperties.GetTestPropertyByKey("mysql_local_Online");
 		//本地数据库连接
 		/*if(mysql_local_Online.equals("local")){
 			try {
