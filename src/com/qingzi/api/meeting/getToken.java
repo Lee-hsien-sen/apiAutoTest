@@ -36,7 +36,7 @@ public class getToken extends QZ implements API {
 	@Override
 	public void initialize(HashMap<String, Object> data) {
 		//根据邮箱查询BUid
-		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", "kongliuwsj123@163.com");
+		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", "wufeifei@qq.com");
 		BU_id = docs.getObjectId("_id").toString();
 //		System.out.println(BU_id);
 	}

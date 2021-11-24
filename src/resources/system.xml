@@ -32,7 +32,7 @@
 		<sqlname>master</sqlname>
 		<sqlpwd>EDCdd22LLZBCADF123</sqlpwd> -->
 		 <!--<mongoUrl>192.168.201.10</mongoUrl> 北京测试环境-->
-		<mongoUrl>192.168.200.206</mongoUrl><!--北京开发环境 -->
+		<mongoUrl>192.168.201.209</mongoUrl><!--北京开发环境 -->
 		<!--<mongoUrl>10.210.10.12</mongoUrl>--> <!--香港  -->
 		<mongoName>matrx_test</mongoName>
 		<mongoPwd>matrx_test</mongoPwd>

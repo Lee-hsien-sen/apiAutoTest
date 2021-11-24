@@ -114,7 +114,8 @@ public class createMeeting extends QZ implements API {
 		if (json.length() != 0) {
 			
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+			String code=StringUtils.decodeUnicode(jp.getString("code"));
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -143,7 +144,7 @@ public class createMeeting extends QZ implements API {
 				}
 			}
 			
-			if(msg.equals("SUCCESS")){
+			if(code.equals("200")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
