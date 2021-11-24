@@ -65,8 +65,8 @@ public class joinMeetingByPwd extends QZ implements API {
 			parameter = parameter.replace("\"mId\":code", "\"mId\":\""+ mId + "\"");
 		}
 		if(!pwd.equals("") && pwd.equals("code")){
-			pwd = pwd_meeting; 
-			parameter = parameter.replace("\"pwd\":code", "\"pwd\":\""+ pwd + "\"");
+			pwd = pwd_meeting;
+			parameter = parameter.replace("\"pwd\":code", "\"password\":\""+ pwd + "\"");
 		}
 		
 		data.put("parameter", parameter);
