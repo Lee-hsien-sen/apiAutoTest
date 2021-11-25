@@ -90,6 +90,8 @@ public class end extends QZ implements API {
         if (json.length() != 0) {
 
             String msg= StringUtils.decodeUnicode(jp.getString("message"));
+            String code= StringUtils.decodeUnicode(jp.getString("code"));
+
 
             if ((data.get("code") != null )
                     && ((jp.getString("code") == null) || (!jp.getString(
@@ -119,7 +121,7 @@ public class end extends QZ implements API {
                 }
             }
 
-            if(msg.equals("SUCCESS")){
+            if(code.equals("200")){
 
                 Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
                 String meetingId = docs.getString("_id");

@@ -12,6 +12,7 @@ import io.restassured.response.Response;
 import net.sf.json.JSONObject;
 import org.bson.Document;
 
+import javax.mail.search.FlagTerm;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,6 +29,7 @@ public class audioDisableAll extends QZ implements API {
     public String parameter; //参数集合
     public String meetingId; //解决方案会议室Id
     public String enterpriseId; //企业id
+    public String unMuteNeedRequest; //unMute是否需要请求，不传不修改
 
 
     @Override
@@ -41,6 +43,7 @@ public class audioDisableAll extends QZ implements API {
 
         enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
         meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
+        unMuteNeedRequest = MapUtil.getParameter(parameter,"unMuteNeedRequest").trim();
 
         if(!enterpriseId.equals("") && enterpriseId.equals("code")){
             enterpriseId = enterprise_Id;
@@ -49,6 +52,10 @@ public class audioDisableAll extends QZ implements API {
         if(!meetingId.equals("") && meetingId.equals("code")){
             meetingId = meeting_Id;
             parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+        }
+        if(!unMuteNeedRequest.equals("")&&unMuteNeedRequest.equals("code")){
+            unMuteNeedRequest = unMuteNeedRequest;
+            parameter = parameter.replace("\"unMuteNeedRequest\":code","\"unMuteNeedRequest\":\""+ unMuteNeedRequest + "\"");
         }
 
 
@@ -93,8 +100,9 @@ public class audioDisableAll extends QZ implements API {
         }
 
         if (json.length() != 0) {
+            String msg = StringUtils.decodeUnicode(jp.getString("message"));
+            String code= StringUtils.decodeUnicode(jp.getString("code"));
 
-            String msg= StringUtils.decodeUnicode(jp.getString("message"));
 
             if ((data.get("code") != null )
                     && ((jp.getString("code") == null) || (!jp.getString(
@@ -124,7 +132,7 @@ public class audioDisableAll extends QZ implements API {
                 }
             }
 
-            if(msg.equals("SUCCESS")){
+            if(code.equals("200")){
 
                 //是否是线上环境
 //				if (!isProduct) {

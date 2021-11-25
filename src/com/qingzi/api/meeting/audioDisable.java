@@ -51,7 +51,7 @@ public class audioDisable extends QZ implements API {
         }
         HashMap<String, String> userMap = new HashMap<String, String>();
         userMap.put("dev", "1");
-        userMap.put("userAccountId", userAccountId);
+        userMap.put("userId", userAccountId);
         if(!operated.equals("") && operated.equals("code")){
             parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
         }
@@ -99,6 +99,8 @@ public class audioDisable extends QZ implements API {
         if (json.length() != 0) {
 
             String msg= StringUtils.decodeUnicode(jp.getString("message"));
+            String code= StringUtils.decodeUnicode(jp.getString("code"));
+
 
             if ((data.get("code") != null )
                     && ((jp.getString("code") == null) || (!jp.getString(
@@ -128,7 +130,7 @@ public class audioDisable extends QZ implements API {
                 }
             }
 
-            if(msg.equals("SUCCESS")){
+            if(code.equals("200")){
 
                 //是否是线上环境
 //				if (!isProduct) {
