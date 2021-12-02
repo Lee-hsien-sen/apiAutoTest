@@ -1,39 +1,30 @@
 package com.qingzi.api.meeting;
 
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-
-import net.sf.json.JSONObject;
-
-import org.bson.Document;
-
-import com.fasterxml.jackson.core.sym.Name;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import java.util.HashMap;
 
 /**
  * 
- * @ClassName:  audioMute   
- * @Description:TODO  音频	
+ * @ClassName:  joinSuccess   
+ * @Description:TODO   非正常形式入会，为测会中接口提供模拟socket入会，不做测试 
  * @author: wff
- * @date:   2021年5月14日 下午7:03:41      
+ * @date:   2021年5月14日 上午11:32:02      
  * @Copyright:
  */
-public class audio extends QZ implements API {
+public class notify extends QZ implements API {
 	
 	public String parameter; //参数集合
-	public String meetingId; //解决方案会议室Id
-	public String enterpriseId; //企业id
-	public String operatedList; //与被操作人列表
+	public String ts; //时间戳
+	public String roomId; //媒体房间id
+	public String peerId; //媒体房间id
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -43,27 +34,21 @@ public class audio extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
-		enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
-		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-		operatedList = MapUtil.getParameter(parameter,"operatedList").trim();
-		if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-			enterpriseId = enterprise_Id; 
-			parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
+
+		ts = MapUtil.getParameter(parameter,"ts").trim();
+		roomId = MapUtil.getParameter(parameter,"roomId").trim();
+		peerId = MapUtil.getParameter(parameter,"peerId").trim();
+		if(!ts.equals("") && ts.equals("code")){
+			parameter = parameter.replace("\"ts\":code", "\"ts\":\""+ System.currentTimeMillis() + "\"");
 		}
-		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id; 
-			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+		if(!roomId.equals("") && roomId.equals("code")){
+			roomId = sdkRoomId;
+			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
 		}
-		if(!operatedList.equals("") && operatedList.equals("code")){
-			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("dev", "1");
-			userMap.put("userAccountId", userAccountId);
-			ArrayList<Object> userList = new ArrayList<Object>();
-			userList.add(JSONObject.fromObject(userMap));
-			parameter = parameter.replace("\"operatedList\":code", "\"operatedList\":"+ userList + "");
+		if(!peerId.equals("") && peerId.equals("code")){
+			peerId = sdkAccountId;
+			parameter = parameter.replace("\"peerId\":code", "\"peerId\":\""+ peerId + "\"");
 		}
-		
 		data.put("parameter", parameter);
 		return data;
 	}
@@ -107,8 +92,7 @@ public class audio extends QZ implements API {
 		if (json.length() != 0) {
 			
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			String code=StringUtils.decodeUnicode(jp.getString("code"));
-
+			
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -137,17 +121,16 @@ public class audio extends QZ implements API {
 				}
 			}
 			
-			if(code.equals("200")){
+			if(msg.equals("SUCCESS")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
 //					
 //				}
-				/*//接口返回meetingid
-				meeting_Id = jp.getString("data.meetingId");
-				m_Id = jp.getString("data.mId");
+				//接口返回meetingid
+				/*meeting_Id = jp.getString("data.meetingId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
-				sdk_RoomId = jp.getString("data.sdkRoomId");*/
+				sdk_RoomId = jp.getString("data.sdkRoomId");
 				
 				//查询新建会议的MRId
 				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
@@ -160,22 +143,20 @@ public class audio extends QZ implements API {
 				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
 					
 					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
+					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
 					String personalRoomId = doc.getString("personalRoomId");
 //					System.out.println(personalRoomId);
-					//删除企业
-					MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
 					//删除个人注册后创建的个人会议室
 					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
 					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
+					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
 					//删除会议记录
 					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meetingId);
 					//删除参会表
 					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
 					//删除新建会议
 					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				}
+				}*/
 			}
 			
 		}

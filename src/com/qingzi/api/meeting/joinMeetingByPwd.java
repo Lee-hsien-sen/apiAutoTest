@@ -113,7 +113,8 @@ public class joinMeetingByPwd extends QZ implements API {
 		if (json.length() != 0) {
 			
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+			String code=StringUtils.decodeUnicode(jp.getString("code"));
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -142,7 +143,7 @@ public class joinMeetingByPwd extends QZ implements API {
 				}
 			}
 			
-			if(msg.equals("SUCCESS")){
+			if(code.equals("200")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
@@ -154,9 +155,11 @@ public class joinMeetingByPwd extends QZ implements API {
 				//mid
 				mId = docs.getString("mId");
 				//pwd
-				pwd = docs.getString("pwd");
-
-				sdkAccountId = jp.getString("data.sdkAccountId");
+				pwd = docs.getString("password");
+				//mediaInfo  参会人Accountid
+				sdkAccountId = jp.getString("data.mediaInfo.sdkAccountId");
+				//mediaInfo 媒体房间id
+				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
 				System.out.println(meetingId);
 				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
 					
