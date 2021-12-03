@@ -22,13 +22,14 @@ public class QZ extends BasicsGM{
 	public static String userAccountId;//userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
-	public static String sdk_AccountId; //主持人id   createMeeting接口返回
+	public static String userId; //主持人id   createMeeting接口返回
 	public static String sdk_RoomId; //主持人房间id  createMeeting接口返回
 	public static String MR_Id;//MRId  会议室id
 	public static String title_meeting = "会议-ff" + new Random().nextInt(9000)+ 1000;
 	public static String mId_meeting;//Mid 
 	public static String pwd_meeting;//pwd
-	public static String sdkAccountId; //参会人AccountId
+	public static String sdkAccountId; // 媒体  参会人AccountId
+	public static String sdkRoomId;//mediaInfo 媒体房间id
 
 
 	static{

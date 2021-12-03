@@ -153,7 +153,7 @@ public class createMeeting extends QZ implements API {
 				//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");
-				sdk_AccountId = jp.getString("data.sdkAccountId");
+				userId = jp.getString("data.host.userId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");
 				
 				//查询新建会议的MRId

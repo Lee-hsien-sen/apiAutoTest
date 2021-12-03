@@ -51,7 +51,7 @@ public class videoKeep extends QZ implements API {
 		}
 		HashMap<String, String> userMap = new HashMap<String, String>();
 		userMap.put("dev", "1");
-		userMap.put("userAccountId", sdk_AccountId);
+		userMap.put("userAccountId", userId);
 		if(!operated.equals("") && operated.equals("code")){
 			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
 		}

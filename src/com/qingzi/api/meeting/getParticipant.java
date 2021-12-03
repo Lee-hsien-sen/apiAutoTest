@@ -40,15 +40,15 @@ public class getParticipant extends QZ implements API {
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
 		
-		meetingId = MapUtil.getParameter_get(parameter,"meetingId").trim();
-		mId = MapUtil.getParameter_get(parameter,"mId").trim();
+		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
+		mId = MapUtil.getParameter(parameter,"mId").trim();
 		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id; 
-			parameter = parameter.replace("meetingId=code", "meetingId="+ meetingId );
+			meetingId = meeting_Id;
+			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
 		}
 		if(!mId.equals("") && mId.equals("code")){
-			mId = m_Id; 
-			parameter = parameter.replace("mId=code", "mId="+ mId );
+			mId = m_Id;
+			parameter = parameter.replace("\"mId\":code", "\"mId\":\""+ mId + "\"");
 		}
 		
 		data.put("parameter", parameter);
