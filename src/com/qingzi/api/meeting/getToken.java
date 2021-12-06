@@ -32,11 +32,14 @@ public class getToken extends QZ implements API {
 	
 	public String parameter; //参数集合
 	public String BUid; //	用户三方唯一标识
+	public  String userName; //邮箱
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
+		parameter = MapUtil.getValue("parameter", data);
+		userName = MapUtil.getParameter(parameter,"userName").trim();
 		//根据邮箱查询BUid
-		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", "wufeifei@qq.com");
+		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", userName);
 		BU_id = docs.getObjectId("_id").toString();
 //		System.out.println(BU_id);
 	}
@@ -50,8 +53,10 @@ public class getToken extends QZ implements API {
 			BUid = BU_id;
 			parameter = parameter.replace("\"BUid\":code", "\"BUid\":\""+ BUid + "\"");
 		}
-		
-		data.put("parameter", parameter);
+
+		String[] parameter2 = parameter.split(",");
+
+		data.put("parameter", parameter2[0]);
 		return data;
 	}
 
