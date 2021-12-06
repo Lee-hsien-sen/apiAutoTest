@@ -3,6 +3,7 @@ package com.qingzi.process;
 
 import com.qingzi.testUtil.ReadProperties;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class QZ extends BasicsGM{
@@ -30,6 +31,7 @@ public class QZ extends BasicsGM{
 	public static String pwd_meeting;//pwd
 	public static String sdkAccountId; // 媒体  参会人AccountId
 	public static String sdkRoomId;//mediaInfo 媒体房间id
+	public static HashMap<String,String> s_UserToken_Other;// 参会人token
 
 
 	static{
