@@ -29,7 +29,7 @@ public class audioDisableAll extends QZ implements API {
     public String parameter; //参数集合
     public String meetingId; //解决方案会议室Id
     public String enterpriseId; //企业id
-    public String unMuteNeedRequest; //unMute是否需要请求，不传不修改
+    public String allowUnMute; //unMute是否需要请求，不传不修改
 
 
     @Override
@@ -43,7 +43,7 @@ public class audioDisableAll extends QZ implements API {
 
         enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
         meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-        unMuteNeedRequest = MapUtil.getParameter(parameter,"unMuteNeedRequest").trim();
+        allowUnMute = MapUtil.getParameter(parameter,"allowUnMute").trim();
 
         if(!enterpriseId.equals("") && enterpriseId.equals("code")){
             enterpriseId = enterprise_Id;
@@ -53,9 +53,9 @@ public class audioDisableAll extends QZ implements API {
             meetingId = meeting_Id;
             parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
         }
-        if(!unMuteNeedRequest.equals("")&&unMuteNeedRequest.equals("code")){
-            unMuteNeedRequest = unMuteNeedRequest;
-            parameter = parameter.replace("\"unMuteNeedRequest\":code","\"unMuteNeedRequest\":\""+ unMuteNeedRequest + "\"");
+        if(!allowUnMute.equals("")&&allowUnMute.equals("code")){
+            allowUnMute = allowUnMute;
+            parameter = parameter.replace("\"unMuteNeedRequest\":code","\"unMuteNeedRequest\":\""+ allowUnMute + "\"");
         }
 
 

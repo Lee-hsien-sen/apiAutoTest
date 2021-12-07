@@ -51,7 +51,7 @@ public class audioDisable extends QZ implements API {
         }
         HashMap<String, String> userMap = new HashMap<String, String>();
         userMap.put("dev", "1");
-        userMap.put("userId", userAccountId);
+        userMap.put("userAccountId", userAccountId);
         if(!operated.equals("") && operated.equals("code")){
             parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
         }

@@ -23,7 +23,6 @@ public class end extends QZ implements API {
 
     public String parameter; //参数集合
     public String meetingId; //解决方案会议室Id
-    public String enterpriseId; //企业id
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -34,13 +33,10 @@ public class end extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
+
         meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
 
-        if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-            enterpriseId = enterprise_Id;
-            parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
-        }
+
         if(!meetingId.equals("") && meetingId.equals("code")){
             meetingId = meeting_Id;
             parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
