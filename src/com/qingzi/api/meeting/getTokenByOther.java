@@ -132,7 +132,7 @@ public class getTokenByOther extends QZ implements API {
 				s_UserToken_Other = new HashMap<>();
 				s_UserToken_Other.put("firstToken",jp.getString("data.s_UserToken"));
 				System.out.println("s_UserToken_Other = " + s_UserToken_Other.get("firstToken"));
-				userAccountId = jp.getString("data.accountId");
+				userAccountIdByOther = jp.getString("data.accountId");
 				MR_Id = jp.getString("data.MRId");
 				
 				

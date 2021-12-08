@@ -12,22 +12,20 @@ import io.restassured.response.Response;
 import net.sf.json.JSONObject;
 import org.bson.Document;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * 
- * @ClassName:  admit
- * @Description:主持人处理等候
- * @author: wff
- * @date:   2021年12月7日17:54:50
+ * @ClassName: putInWaitingRoom
+ * @Description:TODO 放入等候室
+ * author: zeng.li
+ * @date: 2021/12/7
  * @Copyright:
  */
-public class admit extends QZ implements API {
+public class putInWaitingRoom extends QZ implements API {
 	
 	public String parameter; //参数集合
-	public String meetingId; //会议Id
-	public String operatedList; //需要校验的用户列表
+	public String meetingId; //解决方案会议室Id
+	public String operated; //与被操作人列表
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -38,21 +36,17 @@ public class admit extends QZ implements API {
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
 
-
-
 		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-		operatedList = MapUtil.getParameter(parameter,"operatedList").trim();
+		operated = MapUtil.getParameter(parameter,"operated").trim();
 		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id;
+			meetingId = meeting_Id; 
 			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
 		}
-		if(!operatedList.equals("") && operatedList.equals("code")){
+		if(!operated.equals("") && operated.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
 			userMap.put("dev", "1");
 			userMap.put("userId", userAccountIdByOther);
-			ArrayList<Object> userList = new ArrayList<Object>();
-			userList.add(JSONObject.fromObject(userMap));
-			parameter = parameter.replace("\"operatedList\":code", "\"operatedList\":"+ userList + "");
+			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) + "");
 		}
 		
 		data.put("parameter", parameter);
@@ -127,7 +121,7 @@ public class admit extends QZ implements API {
 				}
 			}
 			
-			if(msg.equals("success")){
+			if(msg.equals("SUCCESS")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
