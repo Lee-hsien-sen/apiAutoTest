@@ -22,7 +22,7 @@ import java.util.HashMap;
  * @date:   2021年12月9日16:12:00
  * @Copyright:
  */
-public class editMeeting_allParameterIs1 extends QZ implements API {
+public class editMeeting_allParameterIs0 extends QZ implements API {
 	
 	public String parameter; //参数集合
 	public String meetingId; //解决方案会议室Id
