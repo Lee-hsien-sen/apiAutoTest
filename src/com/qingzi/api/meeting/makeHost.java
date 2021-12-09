@@ -49,7 +49,7 @@ public class makeHost extends QZ implements API {
         if(!operated.equals("") && operated.equals("code")){
             HashMap<String, String> userMap = new HashMap<String, String>();
             userMap.put("dev", "1");
-            userMap.put("userId", userAccountId);
+            userMap.put("userId", userAccountIdByOther);
             parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) + "");
         }
 
