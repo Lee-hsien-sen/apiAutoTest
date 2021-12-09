@@ -126,9 +126,6 @@ public class end extends QZ implements API {
                 //pwd
                 pwd_meeting = docs.getString("pwd");
                 System.out.println(meetingId);
-                if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-
-                }
             }
 
         }

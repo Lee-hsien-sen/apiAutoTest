@@ -1,5 +1,6 @@
 package com.qingzi.test;
 
+import com.qingzi.testUtil.*;
 import io.restassured.response.Response;
 
 import java.sql.SQLException;
@@ -18,12 +19,6 @@ import com.qingzi.listener.ProcessTestng;
 import com.qingzi.listener.ResultTestng;
 import com.qingzi.process.BasicsGM;
 import com.qingzi.process.QZ;
-import com.qingzi.testUtil.Log;
-import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.Reflect_api;
-import com.qingzi.testUtil.SheetUtils;
-import com.qingzi.testUtil.StringUtils;
-import com.qingzi.testUtil.XMLread;
 
 @Listeners({ ProcessTestng.class,ResultTestng.class })
 public class ApiTest_qz extends QZ{
@@ -65,6 +60,29 @@ public class ApiTest_qz extends QZ{
 		}
 	  }else{
 		  result = obj.handleOutput(re, data);
+		  if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
+
+			  //先查询该用户创建的个人会议
+//				Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
+//				String personalRoomId = doc.getString("personalRoomId");
+//				System.out.println(personalRoomId);
+			  //删除企业
+//				MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
+			  //删除个人注册后创建的个人会议室
+//				MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
+			  //删除会前注册信息
+//			    MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
+			  //删除会议记录
+			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meeting_Id);
+			  //删除参会表
+			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
+			  //删除其他参会人
+			  if(!userAccountIdByOther.equals("") && userAccountIdByOther !=""){
+				  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountIdByOther);
+			  }
+			  //删除新建会议
+			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+		  }
 	  }
 	  codeORerrcode=getCodeOrErrcode(re);
 	  msgORerrmsy=getMsgOrErrmsg(re);
