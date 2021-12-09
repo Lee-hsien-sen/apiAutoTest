@@ -77,7 +77,7 @@ public class ApiTest_qz extends QZ{
 			  //删除参会表
 			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
 			  //删除其他参会人
-			  if(!userAccountIdByOther.equals("") && userAccountIdByOther !=""){
+			  if(userAccountIdByOther !=""){
 				  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountIdByOther);
 			  }
 			  //删除新建会议
