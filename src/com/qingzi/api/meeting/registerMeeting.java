@@ -130,19 +130,6 @@ public class registerMeeting extends QZ implements API {
 //				if (!isProduct) {
 //					
 //				}
-				
-				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
-					String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-					//删除企业
-					MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
-					//删除个人注册后创建的个人会议室
-					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
-				}
 			}
 			
 		}

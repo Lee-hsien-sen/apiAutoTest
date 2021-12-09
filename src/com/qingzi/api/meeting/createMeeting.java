@@ -164,25 +164,6 @@ public class createMeeting extends QZ implements API {
 				//pwd
 				pwd_meeting = docs.getString("pwd");
 				System.out.println(meetingId);
-				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					
-					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
-					String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-					//删除企业
-					MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
-					//删除个人注册后创建的个人会议室
-					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
-					//删除会议记录
-					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meetingId);
-					//删除参会表
-					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
-					//删除新建会议
-					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title);
-				}
 			}
 			
 		}
