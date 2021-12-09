@@ -57,24 +57,24 @@ public class editMeeting_allParameterIs0 extends QZ implements API {
 
 		if(!participantPermission.equals("") && participantPermission.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("unmute", "1");
-			userMap.put("startVideo", "1");
-			userMap.put("rename", "1");
+			userMap.put("unmute", "0");
+			userMap.put("startVideo", "0");
+			userMap.put("rename", "0");
 			parameter = parameter.replace("\"participantPermission\":code", "\"participantPermission\":"+ JSONObject.fromObject(userMap) );
 		}
 
 		if(!meetingManage.equals("") && meetingManage.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("meetingAudioStatus", "1");
-			userMap.put("meetingVideoStatus", "1");
+			userMap.put("meetingAudioStatus", "0");
+			userMap.put("meetingVideoStatus", "0");
 			parameter = parameter.replace("\"meetingManage\":code", "\"meetingManage\":"+ JSONObject.fromObject(userMap) );
 		}
 
 		if(!meetingPermission.equals("") && meetingPermission.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("lock", "1");
-			userMap.put("waitingRoom", "1");
-			userMap.put("onlyHostShare", "1");
+			userMap.put("lock", "0");
+			userMap.put("waitingRoom", "0");
+			userMap.put("onlyHostShare", "0");
 			parameter = parameter.replace("\"meetingPermission\":code", "\"meetingPermission\":"+ JSONObject.fromObject(userMap) );
 		}
 		

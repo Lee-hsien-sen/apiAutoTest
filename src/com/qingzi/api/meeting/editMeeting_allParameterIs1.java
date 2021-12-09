@@ -16,18 +16,21 @@ import java.util.HashMap;
 
 /**
  *
- * @ClassName:  audioRequest
- * @Description:TODO  询问打开音频
+ * @ClassName:  editMeeting
+ * @Description:TODO  修改会议信息，全部参数值都是1
  * @author: wss
- * @date:   2021年10月19日16:06:024
+ * @date:   2021年12月9日16:12:00
  * @Copyright:
  */
-public class videoRequest extends QZ implements API {
+public class editMeeting_allParameterIs1 extends QZ implements API {
 	
 	public String parameter; //参数集合
 	public String meetingId; //解决方案会议室Id
-	public String enterpriseId; //企业id
+	public String meetingManage; //会议meetingManage，包含meetingAudioStatus 和 meetingVideoStatus
 	public String operated; //与被操作人
+	public String meetingPermission; // meetingPermission,包含lock、waitingRoom、onlyHostShare
+	public String participantPermission; //包含unmute、shartVideo、rename
+	public String title; //会议标题
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -37,24 +40,42 @@ public class videoRequest extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
-		enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
+
 		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-		operated = MapUtil.getParameter(parameter,"operated").trim();
-		if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-			enterpriseId = enterprise_Id; 
-			parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
+		title = MapUtil.getParameter(parameter,"title").trim();
+		participantPermission = MapUtil.getParameter(parameter,"participantPermission").trim();
+		meetingManage = MapUtil.getParameter(parameter,"meetingManage").trim();
+		meetingPermission = MapUtil.getParameter(parameter,"meetingPermission").trim();
+
+		if(!title.equals("") && title.equals("code")){
+			parameter = parameter.replace("\"title\":code", "\"title\":\""+ title + "\"");
 		}
 		if(!meetingId.equals("") && meetingId.equals("code")){
 			meetingId = meeting_Id; 
 			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
 		}
 
-		if(!operated.equals("") && operated.equals("code")){
+		if(!participantPermission.equals("") && participantPermission.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("dev", "1");
-			userMap.put("userAccountId", sdkAccountId);
-			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
+			userMap.put("unmute", "1");
+			userMap.put("startVideo", "1");
+			userMap.put("rename", "1");
+			parameter = parameter.replace("\"participantPermission\":code", "\"participantPermission\":"+ JSONObject.fromObject(userMap) );
+		}
+
+		if(!meetingManage.equals("") && meetingManage.equals("code")){
+			HashMap<String, String> userMap = new HashMap<String, String>();
+			userMap.put("meetingAudioStatus", "1");
+			userMap.put("meetingVideoStatus", "1");
+			parameter = parameter.replace("\"meetingManage\":code", "\"meetingManage\":"+ JSONObject.fromObject(userMap) );
+		}
+
+		if(!meetingPermission.equals("") && meetingPermission.equals("code")){
+			HashMap<String, String> userMap = new HashMap<String, String>();
+			userMap.put("lock", "1");
+			userMap.put("waitingRoom", "1");
+			userMap.put("onlyHostShare", "1");
+			parameter = parameter.replace("\"meetingPermission\":code", "\"meetingPermission\":"+ JSONObject.fromObject(userMap) );
 		}
 		
 		data.put("parameter", parameter);
@@ -71,7 +92,7 @@ public class videoRequest extends QZ implements API {
 		headers.put("dev","1");
 		
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/moms/mtmgr/v1/mcc/editMeeting");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
