@@ -127,12 +127,12 @@ public class roomPage extends QZ implements API {
 //				}
 				//目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
 //				id = jp.getString("data.id");
-				s_UserToken = jp.getString("data.s_UserToken");
+//				s_UserToken = jp.getString("data.s_UserToken");
 				
 				//删除会前注册信息
-				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
-				}
+//				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
+//					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
+//				}
 			}
 			
 		}

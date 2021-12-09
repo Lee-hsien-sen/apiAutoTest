@@ -9,26 +9,13 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import net.sf.json.JSONObject;
 import org.bson.Document;
 
 import java.util.HashMap;
 
-/**
- * @ClassName: audioDisable
- * @Description:TODO 关闭音频
- * @author: yuxiaowei
- * @date: 2021/10/15 下午3:52
- * @Copyright:
- */
-
-public class audioDisable extends QZ implements API {
-
+public class leave extends QZ implements API  {
     public String parameter; //参数集合
     public String meetingId; //解决方案会议室Id
-    public String enterpriseId; //企业id
-    public String operated; //与被操作人
-
     @Override
     public void initialize(HashMap<String, Object> data) {
 
@@ -38,36 +25,24 @@ public class audioDisable extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
         meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-        operated = MapUtil.getParameter(parameter,"operated").trim();
-        if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-            enterpriseId = enterprise_Id;
-            parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
-        }
+
         if(!meetingId.equals("") && meetingId.equals("code")){
             meetingId = meeting_Id;
             parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
         }
-        HashMap<String, String> userMap = new HashMap<String, String>();
-        userMap.put("dev", "1");
-        userMap.put("userAccountId", userAccountId);
-        if(!operated.equals("") && operated.equals("code")){
-            parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
-        }
-
         data.put("parameter", parameter);
         return data;
     }
 
     @Override
-    public Response SendRequest(HashMap<String, Object> data, String Url,
-                                String Request) {
+    public Response SendRequest(HashMap<String, Object> data, String Url, String Request) {
         HashMap<String, String> headers = new HashMap<String, String>();
         //需要调用奇瑞域名才能获取
+      //  headers.put("SUserToken",s_UserToken_Other.get("firstToken"));
         headers.put("SUserToken",s_UserToken);
         headers.put("appId",appId);
-        headers.put("dev","1");
+        headers.put("dev",dev);
 
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl(Url);
@@ -99,8 +74,6 @@ public class audioDisable extends QZ implements API {
         if (json.length() != 0) {
 
             String msg= StringUtils.decodeUnicode(jp.getString("message"));
-            String code= StringUtils.decodeUnicode(jp.getString("code"));
-
 
             if ((data.get("code") != null )
                     && ((jp.getString("code") == null) || (!jp.getString(
@@ -130,7 +103,7 @@ public class audioDisable extends QZ implements API {
                 }
             }
 
-            if(code.equals("200")){
+            if(msg.equals("SUCCESS")){
 
                 //是否是线上环境
 //				if (!isProduct) {
@@ -150,6 +123,25 @@ public class audioDisable extends QZ implements API {
                 //pwd
                 pwd_meeting = docs.getString("pwd");
                 System.out.println(meetingId);
+                if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
+
+                    //先查询该用户创建的个人会议
+                    Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
+                    String personalRoomId = doc.getString("personalRoomId");
+//					System.out.println(personalRoomId);
+                    //删除企业
+                    MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
+                    //删除个人注册后创建的个人会议室
+                    MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
+                    //删除会前注册信息
+                    MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
+                    //删除会议记录
+                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meetingId);
+                    //删除参会表
+                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
+                    //删除新建会议
+                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+                }
             }
 
         }
@@ -159,4 +151,3 @@ public class audioDisable extends QZ implements API {
             return "Fail:" + failReason;
     }
 }
-
