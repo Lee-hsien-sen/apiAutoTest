@@ -267,7 +267,7 @@ public class Mail {
 //    		addr="feifei.wu@matrx.team;";
     	}else{
     		addr="feifei.wu@matrx.team;hongbin.wang@matrx.team;qirui.si@matrx.team;"
-    				+ "yibo.ren@matrx.team;yaguang.jiang@matrx.team;benben.shang@matrx.team;shujie.wang@matrx.team;";
+    				+ "benben.shang@matrx.team;shujie.wang@matrx.team;xiaowei.yu@matrx.team;haitao.wang@matrx.team;zeng.li@matrx.team;hongxia.wei@ctechm.com";
 //    		addr="feifei.wu@matrx.team;";
     	}
     		
