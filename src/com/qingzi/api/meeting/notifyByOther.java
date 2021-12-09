@@ -4,54 +4,52 @@ import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
 
 import java.util.HashMap;
 
 /**
  * 
- * @ClassName:  auth   
- * @Description:TODO 获取解决方案  token（三方服务器转发客户端请求）
- * 
- *
+ * @ClassName:  joinSuccess   
+ * @Description:TODO   非正常形式入会，为测会中接口提供模拟socket入会，不做测试 
  * @author: wff
- * @date:  2021年12月6日16:42:27
+ * @date:   2021年5月14日 上午11:32:02      
  * @Copyright:
  */
-public class getTokenByOther extends QZ implements API {
+public class notifyByOther extends QZ implements API {
 	
 	public String parameter; //参数集合
-	public String BUid; //	用户三方唯一标识
-	public  String userName; //邮箱
+	public String ts; //时间戳
+	public String roomId; //媒体房间id
+	public String peerId; //媒体房间id
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
-		parameter = MapUtil.getValue("parameter", data);
-		userName = MapUtil.getParameter(parameter,"userName").trim();
-		//根据邮箱查询BUid
-		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", userName);
-		BU_id = docs.getObjectId("_id").toString();
-//		System.out.println(BU_id);
+
 	}
 
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
-		BUid = MapUtil.getParameter(parameter,"BUid").trim();
-		if(!BUid.equals("") && BUid.equals("code")){
-			BUid = BU_id;
-			parameter = parameter.replace("\"BUid\":code", "\"BUid\":\""+ BUid + "\"");
+
+		ts = MapUtil.getParameter(parameter,"ts").trim();
+		roomId = MapUtil.getParameter(parameter,"roomId").trim();
+		peerId = MapUtil.getParameter(parameter,"peerId").trim();
+		if(!ts.equals("") && ts.equals("code")){
+			parameter = parameter.replace("\"ts\":code", "\"ts\":\""+ System.currentTimeMillis() + "\"");
 		}
-
-		String[] parameter2 = parameter.split(",");
-
-		data.put("parameter", parameter2[0]);
+		if(!roomId.equals("") && roomId.equals("code")){
+			roomId = sdkRoomId;
+			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
+		}
+		if(!peerId.equals("") && peerId.equals("code")){
+			peerId = sdkAccountIdByOther;
+			parameter = parameter.replace("\"peerId\":code", "\"peerId\":\""+ peerId + "\"");
+		}
+		data.put("parameter", parameter);
 		return data;
 	}
 
@@ -59,12 +57,13 @@ public class getTokenByOther extends QZ implements API {
 	public Response SendRequest(HashMap<String, Object> data, String Url,
 			String Request) {
 		HashMap<String, String> headers = new HashMap<String, String>();
+		//需要调用奇瑞域名才能获取
+		headers.put("SUserToken",s_UserToken_Other.get("firstToken"));
 		headers.put("appId",appId);
-		headers.put("appSecret","");
-		headers.put("dev","phone");
+		headers.put("dev",dev);
 		
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl("/moms/auth/v1/getToken");
+		myRequest.setUrl("/moms/mtmgr/v1/mmc/notify");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
@@ -122,21 +121,27 @@ public class getTokenByOther extends QZ implements API {
 				}
 			}
 			
-			if(msg.equals("success")){
+			if(msg.equals("SUCCESS")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
 //					
 //				}
-				//目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
-				s_UserToken_Other = new HashMap<>();
-				s_UserToken_Other.put("firstToken",jp.getString("data.s_UserToken"));
-				System.out.println("s_UserToken_Other = " + s_UserToken_Other.get("firstToken"));
-				userAccountIdByOther = jp.getString("data.accountId");
-				MR_Id = jp.getString("data.MRId");
+				//接口返回meetingid
+				/*meeting_Id = jp.getString("data.meetingId");
+				sdk_AccountId = jp.getString("data.sdkAccountId");
+				sdk_RoomId = jp.getString("data.sdkRoomId");
 				
-				
-				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
+				//查询新建会议的MRId
+				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+				String meetingId = docs.getString("_id");
+				//mid
+				mId_meeting = docs.getString("mId");
+				//pwd
+				pwd_meeting = docs.getString("pwd");
+				System.out.println(meetingId);
+				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
+					
 					//先查询该用户创建的个人会议
 					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
 					String personalRoomId = doc.getString("personalRoomId");
@@ -145,6 +150,12 @@ public class getTokenByOther extends QZ implements API {
 					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
 					//删除会前注册信息
 					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
+					//删除会议记录
+					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meetingId);
+					//删除参会表
+					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
+					//删除新建会议
+					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				}*/
 			}
 			

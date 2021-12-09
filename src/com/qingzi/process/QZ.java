@@ -18,9 +18,10 @@ public class QZ extends BasicsGM{
 	public static String laravel_session="";//cookie
 	public static String XSRF_token="";// XSRF-token
 	public static String appId = "12345678";//目前开发那边也是写死的值
-	public static String enterprise_Id = "";//企业id  
+	public static String enterprise_Id = "1-EP-48824092482932736";//企业id
 	public static String s_UserToken;//usertoken  getToken接口返回
 	public static String userAccountId;//userAccountId  getToken接口返回
+	public static String userAccountIdByOther;//userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
@@ -30,6 +31,7 @@ public class QZ extends BasicsGM{
 	public static String mId_meeting;//Mid 
 	public static String pwd_meeting;//pwd
 	public static String sdkAccountId; // 媒体  参会人AccountId
+	public static String sdkAccountIdByOther; // 媒体  参会人userAccountId
 	public static String sdkRoomId;//mediaInfo 媒体房间id
 	public static HashMap<String,String> s_UserToken_Other;// 参会人token
 
