@@ -73,12 +73,12 @@ public class ApiTest_qz extends QZ{
 			  //删除会前注册信息
 //			    MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
 			  //删除会议记录
-			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meeting_Id);
+			  MongoDBUtil.deleteByidAll(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meeting_Id);
 			  //删除参会表
 			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
 			  //删除其他参会人
 			  if(userAccountIdByOther !=""){
-				  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountIdByOther);
+				  MongoDBUtil.deleteByidAll(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountIdByOther);
 			  }
 			  //删除新建会议
 			  MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
