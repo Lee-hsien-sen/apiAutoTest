@@ -45,7 +45,7 @@ public class remove extends QZ implements API {
 		if(!operated.equals("") && operated.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
 			userMap.put("dev", "1");
-			userMap.put("userAccountId", sdkAccountId);
+			userMap.put("userAccountId", userAccountIdByOther);
 //			userMap.put("nickName", "昵称-ff-修改");
 			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) + "");
 		}
