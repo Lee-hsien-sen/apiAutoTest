@@ -20,28 +20,28 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 
 public class Mail {
-	public static void main(String[] args) {
-		try {
-			Mail.POP3();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	@Test
-	public static void mailToAll(){
-		try {
-			Mail.POP3();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        try {
+            Mail.POP3();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public static void mailToAll() {
+        try {
+            Mail.POP3();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     // 发件人的 邮箱 和 密码（替换为自己的邮箱和密码）
 //    public static String myEmailAccount = "53055975@qq.com";
 //    public static String myEmailPassword = "qoqfoabljzyzbjdd";
-	
+
     public static String myEmailAccount = "2507796383@qq.com";
     public static String myEmailPassword = "exmucrifufafdhfj";
 
@@ -58,7 +58,7 @@ public class Mail {
         Properties props = new Properties();                    // 参数配置
         props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议（JavaMail规范要求）
         props.setProperty("mail.host", myEmailSMTPHost);        // 发件人的邮箱的 SMTP 服务器地址
-        props.setProperty("mail.smtp.auth", "true");   
+        props.setProperty("mail.smtp.auth", "true");
 //        props.setProperty("mail.stmp.port", "587");   
         props.setProperty("mail.stmp.port", "465");// 端口    
         props.setProperty("mail.smtp.socketFactory.port", "465");
@@ -89,8 +89,8 @@ public class Mail {
     /**
      * 创建一封只包含文本的简单邮件
      *
-     * @param session 和服务器交互的会话
-     * @param sendMail 发件人邮箱
+     * @param session     和服务器交互的会话
+     * @param sendMail    发件人邮箱
      * @param receiveMail 收件人邮箱
      * @return
      * @throws Exception
@@ -104,25 +104,25 @@ public class Mail {
 
         // 3. To: 收件人（可以增加多个收件人、抄送、密送）
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "", "UTF-8"));
-        
-        String overview=ReadHtml.readFile_("overview.html");
+
+        String overview = ReadHtml.readFile_("overview.html");
 //      System.out.println(overview);
-      
-        String TestTitle="";
-        String TestResule="";
-      
-        boolean isTrue=overview.contains("100.00%");
-        int start=overview.indexOf("<td class=\"passRate\">");
+
+        String TestTitle = "";
+        String TestResule = "";
+
+        boolean isTrue = overview.contains("100.00%");
+        int start = overview.indexOf("<td class=\"passRate\">");
         System.out.println(start);
-        String Percentage=overview.substring(start+22, start+41);
+        String Percentage = overview.substring(start + 22, start + 41);
         System.out.println(Percentage);
-        if(isTrue){
-        	message.setRecipients(MimeMessage.RecipientType.CC, parseAddress("onlyTest"));
-        }else{
-        	message.setRecipients(MimeMessage.RecipientType.CC, parseAddress("all"));
+        if (isTrue) {
+            message.setRecipients(MimeMessage.RecipientType.CC, parseAddress("onlyTest"));
+        } else {
+            message.setRecipients(MimeMessage.RecipientType.CC, parseAddress("all"));
         }
-      
-        
+
+
 //        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("wufeifei66504@offcn.com", "", "UTF-8"));
 //        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("liyongyu@offcn.com", "", "UTF-8"));
 //        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("lihong60540@offcn.com", "", "UTF-8"));
@@ -133,15 +133,15 @@ public class Mail {
 //        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("zhanghua54164@offcn.com", "", "UTF-8"));
 
         // 4. Subject: 邮件主题
-        Date date=new Date();
-        String time=new SimpleDateFormat("yyyyMMdd").format(date);
-        message.setSubject("自动化测试报告-"+time, "UTF-8");
+        Date date = new Date();
+        String time = new SimpleDateFormat("yyyyMMdd").format(date);
+        message.setSubject("自动化测试报告-" + time, "UTF-8");
 
         /*
          * 下面是邮件内容的创建:
          */
 //        message.setContent("定时任务--小雨直播接口自动化测试", "text/html;charset=UTF-8");
-        
+
         // 5. 创建图片"节点"
 //        MimeBodyPart image = new MimeBodyPart();
 //        // 读取本地文件
@@ -153,7 +153,7 @@ public class Mail {
 //         
         // 6. 创建文本"节点"
         MimeBodyPart text = new MimeBodyPart();
-        
+
 //        获取邮件内容原位置
 //        String overview=ReadHtml.readFile_("overview.html");
 ////        System.out.println(overview);
@@ -166,20 +166,20 @@ public class Mail {
 //        System.out.println(start);
 //        String Percentage=overview.substring(start+22, start+41);
 //        System.out.println(Percentage);
-        
-        
+
+
 //        System.out.println("isTrue="+isTrue);
-        if(isTrue){
-        	TestTitle=" <font size='6' color='#00FF00'>&nbsp;&nbsp;&nbsp;&nbsp;"
-        			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次测试通过率:"+Percentage+"</font></br></br> ";
-        }else{
-        	TestTitle=" <font size='6' color='#FF0000'>&nbsp;&nbsp;&nbsp;&nbsp;"
-        			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次测试通过率:"+Percentage+"</font> </br></br>";
-        	TestResule=ReadHtml.readFile_("suite1_test1_results.html");
+        if (isTrue) {
+            TestTitle = " <font size='6' color='#00FF00'>&nbsp;&nbsp;&nbsp;&nbsp;"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次测试通过率:" + Percentage + "</font></br></br> ";
+        } else {
+            TestTitle = " <font size='6' color='#FF0000'>&nbsp;&nbsp;&nbsp;&nbsp;"
+                    + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次测试通过率:" + Percentage + "</font> </br></br>";
+            TestResule = ReadHtml.readFile_("suite1_test1_results.html");
         }
-        
+
         // 这里添加图片的方式是将整个图片包含到邮件内容中, 实际上也可以以 http 链接的形式添加网络图片+ReadHtml.readFile_("suite1_test1_results.html")
-        text.setContent(TestTitle+"</br></br>"+ReadHtml.readFile_("overview.html")+"</br></br>"+TestResule, "text/html;charset=UTF-8");
+        text.setContent(TestTitle + "</br></br>" + ReadHtml.readFile_("overview.html") + "</br></br>" + TestResule, "text/html;charset=UTF-8");
 //         
 //        // 7. （文本+图片）设置 文本 和 图片"节点"的关系（将 文本 和 图片"节点"合成一个混合"节点"）
 //        MimeMultipart mm_text_image = new MimeMultipart();
@@ -192,22 +192,22 @@ public class Mail {
 //        // 上面的 mailTestPic 并非 BodyPart, 所有要把 mm_text_image 封装成一个 BodyPart
 //        MimeBodyPart text_image = new MimeBodyPart();
 //        text_image.setContent(mm_text_image);
-        
+
         MimeBodyPart attachment2 = new MimeBodyPart();
-        
+
         File directory = new File(".");
-    	String mailpath="";
+        String mailpath = "";
         try {
-        	mailpath = directory.getCanonicalPath() +File.separator+"test-output"+File.separator+"html\\";
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        
-        if(ZipUtils.ZipTestResult(mailpath)){
-        	DataHandler dh2 = new DataHandler(new FileDataSource(mailpath+"测试报告详细资料.zip"));
-        	attachment2.setDataHandler(dh2);
-        	attachment2.setFileName("测试报告详细资料.zip"); 
+            mailpath = directory.getCanonicalPath() + File.separator + "test-output" + File.separator + "html\\";
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        if (ZipUtils.ZipTestResult(mailpath)) {
+            DataHandler dh2 = new DataHandler(new FileDataSource(mailpath + "测试报告详细资料.zip"));
+            attachment2.setDataHandler(dh2);
+            attachment2.setFileName("测试报告详细资料.zip");
 //        	// 9. 创建附件"节点"
 //        	MimeBodyPart attachment3 = new MimeBodyPart();
 //        	MimeBodyPart attachment4 = new MimeBodyPart();
@@ -236,10 +236,8 @@ public class Mail {
 //        	attachment6.setFileName("suite1_test1_results.html");       
 //        	attachment7.setFileName("suites.html");     
         }
-        	
-        
-        
-         
+
+
         // 10. 设置（文本+图片）和 附件 的关系（合成一个大的混合"节点" / Multipart ）
         MimeMultipart mm = new MimeMultipart();
         mm.addBodyPart(text);
@@ -250,7 +248,7 @@ public class Mail {
 //        mm.addBodyPart(attachment6);     // 如果有多个附件，可以创建多个多次添加
 //        mm.addBodyPart(attachment7);     // 如果有多个附件，可以创建多个多次添加
         mm.setSubType("mixed");         // 混合关系
- 
+
         // 11. 设置整个邮件的关系（将最终的混合"节点"作为邮件的内容添加到邮件对象）
         message.setContent(mm);
         //设置邮件的发送时间,默认立即发送
@@ -258,32 +256,33 @@ public class Mail {
 
         return message;
     }
-    
-    
-    public static InternetAddress[] parseAddress(String personnel){
-    	String addr="";
-    	if("all".equals(personnel)){
-    		addr="qirui.si@matrx.team;feifei.wu@matrx.team;hongbin.wang@matrx.team;benben.shang@matrx.team;shujie.wang@matrx.team;";
+
+
+    public static InternetAddress[] parseAddress(String personnel) {
+        String addr = "";
+        if ("all".equals(personnel)) {
+            addr = "qirui.si@matrx.team;feifei.wu@matrx.team;hongbin.wang@matrx.team;benben.shang@matrx.team;shujie.wang@matrx.team;";
 //    		addr="feifei.wu@matrx.team;";
-    	}else{
-    		addr="feifei.wu@matrx.team;hongbin.wang@matrx.team;qirui.si@matrx.team;"
-    				+ "benben.shang@matrx.team;shujie.wang@matrx.team;xiaowei.yu@matrx.team;haitao.wang@matrx.team;zeng.li@matrx.team;hongxia.wei@ctechm.com";
+        } else {
+            addr = "feifei.wu@matrx.team;hongbin.wang@matrx.team;qirui.si@matrx.team;"
+                    + "benben.shang@matrx.team;shujie.wang@matrx.team;xiaowei.yu@matrx.team;haitao.wang@matrx.team;zeng.li@matrx.team;" +
+                    "hongxia.wei@ctechm.com;wenjing.cheng@matrx.team";
 //    		addr="feifei.wu@matrx.team;";
-    	}
-    		
-	    StringTokenizer token = new StringTokenizer(addr, ";");
-	    InternetAddress[] addrArr = new InternetAddress[token.countTokens()];
-	    int i = 0;
-	    while (token.hasMoreTokens()){
-	    	try{
-	    		addrArr[i] = new InternetAddress(token.nextToken().toString());
-		    }catch (AddressException e1){
-		    	e1.printStackTrace();
-		    	return null;
-		    }
-		    	i++;
-		    }
-	    return addrArr;
+        }
+
+        StringTokenizer token = new StringTokenizer(addr, ";");
+        InternetAddress[] addrArr = new InternetAddress[token.countTokens()];
+        int i = 0;
+        while (token.hasMoreTokens()) {
+            try {
+                addrArr[i] = new InternetAddress(token.nextToken().toString());
+            } catch (AddressException e1) {
+                e1.printStackTrace();
+                return null;
+            }
+            i++;
+        }
+        return addrArr;
     }
-    
+
 }
