@@ -36,15 +36,15 @@ public class createBroad extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-        roomId = MapUtil.getParameter(parameter,"meetingId").trim();
-        peerId = MapUtil.getParameter(parameter,"operated").trim();
+        roomId = MapUtil.getParameter(parameter,"roomId").trim();
+        peerId = MapUtil.getParameter(parameter,"peerId").trim();
 		if(!roomId.equals("") && roomId.equals("code")){
-            roomId = meeting_Id;
-			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ roomId + "\"");
+            roomId = m_Id;
+			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
 		}
         if(!peerId.equals("") && peerId.equals("code")){
-            peerId = userAccountId;
-            parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ peerId + "\"");
+            peerId = userId;
+            parameter = parameter.replace("\"peerId\":code", "\"peerId\":\""+ peerId + "\"");
         }
 
         data.put("parameter", parameter);
