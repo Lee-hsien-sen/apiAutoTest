@@ -20,7 +20,7 @@ public class QZ extends BasicsGM{
 	public static String appId = "12345678";//目前开发那边也是写死的值
 	public static String enterprise_Id = "1-EP-48824092482932736";//企业id
 	public static String s_UserToken;//usertoken  getToken接口返回
-	public static String userAccountId;//userAccountId  getToken接口返回
+	public static String userAccountId = "1-UA-119622539896897536";//userAccountId  getToken接口返回
 	public static String userAccountIdByOther;//userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
