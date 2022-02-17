@@ -9,24 +9,23 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import net.sf.json.JSONObject;
 import org.bson.Document;
 
 import java.util.HashMap;
 
 /**
  *
- * @ClassName:  editName
- * @Description:关闭视频
- * @author: wangshushu
- * @date:   2021年9月28日17:31:27
+ * @ClassName:  syncBoardData
+ * @Description:同步白板数据
+ * @author: zeng
+ * @date:
  * @Copyright:
  */
-public class createBroad extends QZ implements API {
+public class syncBoardData extends QZ implements API {
 
 	public String parameter; //参数集合
 	public String roomId; //会议Id
-	public String peerId; //用户的Id
+	public String boardId; //白板ID
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -37,14 +36,14 @@ public class createBroad extends QZ implements API {
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
         roomId = MapUtil.getParameter(parameter,"roomId").trim();
-        peerId = MapUtil.getParameter(parameter,"peerId").trim();
+		boardId = MapUtil.getParameter(parameter,"boardId").trim();
 		if(!roomId.equals("") && roomId.equals("code")){
             roomId = m_Id;
 			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
 		}
-        if(!peerId.equals("") && peerId.equals("code")){
-            peerId = userId;
-            parameter = parameter.replace("\"peerId\":code", "\"peerId\":\""+ peerId + "\"");
+        if(!boardId.equals("") && boardId.equals("code")){
+
+            parameter = parameter.replace("\"boardId\":code", "\"boardId\":\""+ boardId + "\"");
         }
 
         data.put("parameter", parameter);
@@ -126,8 +125,6 @@ public class createBroad extends QZ implements API {
 //
 //				}
 
-				boardId = jp.getString("data.boardId");
-				System.out.println("boardId = " + boardId);
 				/*//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");

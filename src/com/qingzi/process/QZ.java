@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class QZ extends BasicsGM{
-	
+
 //	public static boolean isProduct = Boolean.valueOf(((system) map.get("qingzi")).getIsProduct());
 	public static String Token = "";//1V1token
 	public static String enterprise_name = "企业-ff" + new Random().nextInt(9000)+ 1000;//企业名称
 	public static String BU_id = "";// BUid
-	public static String App_id = ""; 
-	public static String dev = "1"; 
+	public static String App_id = "";
+	public static String dev = "1";
 	public static String App_secret = "";
 	public static String laravel_session="";//cookie
 	public static String XSRF_token="";// XSRF-token
@@ -30,11 +30,12 @@ public class QZ extends BasicsGM{
 	public static String sdk_RoomId; //主持人房间id  createMeeting接口返回
 	public static String MR_Id;//MRId  会议室id
 	public static String title_meeting = "会议-ff" + new Random().nextInt(9000)+ 1000;
-	public static String mId_meeting;//Mid 
+	public static String mId_meeting;//Mid
 	public static String pwd_meeting;//pwd
 	public static String sdkAccountId; // 媒体  参会人AccountId
 	public static String sdkAccountIdByOther; // 媒体  参会人userAccountId
 	public static String sdkRoomId;//mediaInfo 媒体房间id
+	public static String boardId;//白板ID
 	public static HashMap<String,String> s_UserToken_Other;// 参会人token
 
 
@@ -55,7 +56,7 @@ public class QZ extends BasicsGM{
 						((system)map.get("qingzi_usrmgr")).getSqlname(),
 						((system)map.get("qingzi_usrmgr")).getSqlpwd());
 				stmt = conn.createStatement();
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -68,38 +69,38 @@ public class QZ extends BasicsGM{
 						((system)map.get("qingzi_usrmgr")).getSqlname(),
 						((system)map.get("qingzi_usrmgr")).getSqlpwd());
 				stmt = conn.createStatement();
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}*/
-		
+
 		//初始化数据录入
 		if(!ReadProperties.isBoolean()){
-			
+
 		}
 	}
-	
+
 	//清除map集合Enterprise_users(企业用户)，表名"xyu_users"，列名name，
 		public void cleanEnterprise_usersFromDB() {
 			try {
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		//清除map集合room_nums，表名"xyu_room_users"，列名room_num，
 			public void cleanRoom_numsFromDB() {
 				try {
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		
+
 		//清除map集合Business_Administrator（业务管理员），表名"xyu_users"，列名name，
 		public void cleanBusiness_AdministratorFromDB() {
-			
+
 		}
 }
