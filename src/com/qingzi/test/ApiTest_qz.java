@@ -93,7 +93,7 @@ public class ApiTest_qz extends QZ{
 	  
 	  //数据回写
 	  HashMap<String, Object> ExpectResult=MapUtil.Expect(data);
-	  SheetUtils sheet = new SheetUtils("DataAll.xls", "Output");
+	  SheetUtils sheet = new SheetUtils("DataAllshushu.xls", "Output");
 	  sheet.writeExcel(
 			  		data.get("NO").toString(),
 				  	data.get("TCNO").toString() + "_Step" + data.get("Step").toString(),

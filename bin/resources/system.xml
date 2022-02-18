@@ -22,8 +22,8 @@
 		<client_secret>bestbuy-acceptance</client_secret>
 		<grant_type>client_credentials</grant_type>
 		<isProduct>false</isProduct>
-<!--		 <RM_URI>http://192.168.200.103</RM_URI>  北京-->
-		<RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>  <!-- 香港 -->
+		<RM_URI>http://192.168.200.103</RM_URI>  <!-- 北京开发环境-->
+		<!-- <RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>-->  <!-- 香港 -->
 		<RM_port></RM_port>
 		<RM_basePath></RM_basePath>
 		<!-- <redis_URI>10.10.229.48</redis_URI>
@@ -31,8 +31,9 @@
 		<sqlurl>jdbc:mysql://rm-2ze364spvypz122fw8o.mysql.rds.aliyuncs.com:3306/xyu?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
 		<sqlname>master</sqlname>
 		<sqlpwd>EDCdd22LLZBCADF123</sqlpwd> -->
-<!--		 <mongoUrl>192.168.200.103</mongoUrl> 北京-->
-		<mongoUrl>10.210.10.12</mongoUrl><!--香港  -->
+		 <!--<mongoUrl>192.168.201.10</mongoUrl> 北京测试环境-->
+		<mongoUrl>192.168.201.209</mongoUrl><!--北京开发环境 -->
+		<!--<mongoUrl>10.210.10.12</mongoUrl>--> <!--香港  -->
 		<mongoName>matrx_test</mongoName>
 		<mongoPwd>matrx_test</mongoPwd>
 		<authDb>admin</authDb>
@@ -44,8 +45,9 @@
 		<client_secret>bestbuy-acceptance</client_secret>
 		<grant_type>client_credentials</grant_type>
 		<isProduct>false</isProduct>
-<!--		 <RM_URI>http://192.168.200.103</RM_URI>  北京-->
-		<RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>  <!-- 香港 -->
+<!--		 <RM_URI>192.168.201.10</RM_URI>  北京测试环境-->
+		 <RM_URI>http://192.168.200.103</RM_URI>  北京开发环境-->
+		<!--<RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>-->  <!-- 香港 -->
 		<RM_port></RM_port>
 		<RM_basePath></RM_basePath>
 		<!-- <redis_URI>10.10.229.48</redis_URI>
@@ -53,8 +55,33 @@
 		<sqlurl>jdbc:mysql://rm-2ze364spvypz122fw8o.mysql.rds.aliyuncs.com:3306/xyu?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
 		<sqlname>master</sqlname>
 		<sqlpwd>EDCdd22LLZBCADF123</sqlpwd> -->
-<!--		 <mongoUrl>192.168.200.103</mongoUrl> 北京-->
-		<mongoUrl>10.210.10.12</mongoUrl><!--香港  -->
+		<!--		 <mongoUrl>192.168.201.10</mongoUrl> 北京测试环境-->
+		<mongoUrl>192.168.201.209</mongoUrl><!--北京开发环境 -->
+		<!--<mongoUrl>10.210.10.12</mongoUrl>--> <!--香港  -->
+		<mongoName>matrx_test</mongoName>
+		<mongoPwd>matrx_test</mongoPwd>
+		<authDb>admin</authDb>
+	</system>
+
+	<system name="mediasoup"><!-- matrx -->
+		<access_token_uri>http://106.75.5.205:8082/uaa/oauth/token</access_token_uri>
+		<client_id>bestbuy-acceptance</client_id>
+		<client_secret>bestbuy-acceptance</client_secret>
+		<grant_type>client_credentials</grant_type>
+		<isProduct>false</isProduct>
+		<!--		 <RM_URI>192.168.201.10</RM_URI>  北京测试环境-->
+		<RM_URI>http://192.168.200.103</RM_URI>  北京开发环境-->
+		<!--<RM_URI>https://t-m-hkg.crystalclear.dev</RM_URI>-->  <!-- 香港 -->
+		<RM_port></RM_port>
+		<RM_basePath></RM_basePath>
+		<!-- <redis_URI>10.10.229.48</redis_URI>
+		<redis_db_index>5</redis_db_index>
+		<sqlurl>jdbc:mysql://rm-2ze364spvypz122fw8o.mysql.rds.aliyuncs.com:3306/xyu?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
+		<sqlname>master</sqlname>
+		<sqlpwd>EDCdd22LLZBCADF123</sqlpwd> -->
+		<!--		 <mongoUrl>192.168.201.10</mongoUrl> 北京测试环境-->
+		<mongoUrl>192.168.201.209</mongoUrl><!--北京开发环境 -->
+		<!--<mongoUrl>10.210.10.12</mongoUrl>--> <!--香港  -->
 		<mongoName>matrx_test</mongoName>
 		<mongoPwd>matrx_test</mongoPwd>
 		<authDb>admin</authDb>
