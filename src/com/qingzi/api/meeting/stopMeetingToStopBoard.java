@@ -36,7 +36,7 @@ public class stopMeetingToStopBoard extends QZ implements API {
         parameter = MapUtil.getValue("parameter", data);
         roomId = MapUtil.getParameter(parameter,"roomId").trim();
         if(!roomId.equals("") && roomId.equals("code")){
-            roomId = m_Id;
+            roomId = meeting_Id;
             parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
         }
 
