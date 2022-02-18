@@ -39,7 +39,7 @@ public class createBroad extends QZ implements API {
         roomId = MapUtil.getParameter(parameter,"roomId").trim();
         peerId = MapUtil.getParameter(parameter,"peerId").trim();
 		if(!roomId.equals("") && roomId.equals("code")){
-            roomId = m_Id;
+            roomId = meeting_Id;
 			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
 		}
         if(!peerId.equals("") && peerId.equals("code")){
@@ -119,15 +119,15 @@ public class createBroad extends QZ implements API {
 				}
 			}
 
-			if(msg.equals("SUCCESS")){
+			if(msg.equals("success")){
 
 				//是否是线上环境
 //				if (!isProduct) {
 //
 //				}
 
-				boardId = jp.getString("data.boardId");
-				System.out.println("boardId = " + boardId);
+				board_Id = jp.getString("data.boardId");
+				System.out.println("boardId = " + board_Id);
 				/*//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");

@@ -38,11 +38,11 @@ public class syncBoardData extends QZ implements API {
         roomId = MapUtil.getParameter(parameter,"roomId").trim();
 		boardId = MapUtil.getParameter(parameter,"boardId").trim();
 		if(!roomId.equals("") && roomId.equals("code")){
-            roomId = m_Id;
+            roomId = meeting_Id;
 			parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
 		}
         if(!boardId.equals("") && boardId.equals("code")){
-
+			boardId = board_Id;
             parameter = parameter.replace("\"boardId\":code", "\"boardId\":\""+ boardId + "\"");
         }
 

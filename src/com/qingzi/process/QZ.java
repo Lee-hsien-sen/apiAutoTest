@@ -35,7 +35,7 @@ public class QZ extends BasicsGM{
 	public static String sdkAccountId; // 媒体  参会人AccountId
 	public static String sdkAccountIdByOther; // 媒体  参会人userAccountId
 	public static String sdkRoomId;//mediaInfo 媒体房间id
-	public static String boardId;//白板ID
+	public static String board_Id;//白板ID
 	public static HashMap<String,String> s_UserToken_Other;// 参会人token
 
 
