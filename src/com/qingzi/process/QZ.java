@@ -10,7 +10,7 @@ public class QZ extends BasicsGM{
 
 //	public static boolean isProduct = Boolean.valueOf(((system) map.get("qingzi")).getIsProduct());
 	public static String Token = "";//1V1token
-	public static String enterprise_name = "企业-ff" + new Random().nextInt(9000)+ 1000;//企业名称
+	public static String enterprise_name = "企业-ff" + new Random().nextInt(90000)+ 1000;//企业名称
 	public static String BU_id = "";// BUid
 	public static String App_id = "";
 	public static String dev = "1";
@@ -23,13 +23,13 @@ public class QZ extends BasicsGM{
 	public static String s_UserToken;//usertoken  getToken接口返回
 //	public static String userAccountId = "1-UA-119622539896897536";//开发环境用户 userAccountId  getToken接口返回
 	public static String userAccountId = "1-UA-137252758432178176";//测试环境用户 userAccountId  getToken接口返回
-	public static String userAccountIdByOther;//userAccountId  getToken接口返回
+	public static String userAccountIdByOther = "1-UA-148216587417591808";//userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
 	public static String sdk_RoomId; //主持人房间id  createMeeting接口返回
 	public static String MR_Id;//MRId  会议室id
-	public static String title_meeting = "会议-ff" + new Random().nextInt(9000)+ 1000;
+	public static String title_meeting = "会议-ff" + new Random().nextInt(90000)+ 1000;
 	public static String mId_meeting;//Mid
 	public static String pwd_meeting;//pwd
 	public static String sdkAccountId; // 媒体  参会人AccountId

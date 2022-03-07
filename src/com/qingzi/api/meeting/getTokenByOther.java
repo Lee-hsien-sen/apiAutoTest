@@ -24,34 +24,30 @@ import java.util.HashMap;
  * @Copyright:
  */
 public class getTokenByOther extends QZ implements API {
-	
+
 	public String parameter; //参数集合
-	public String BUid; //	用户三方唯一标识
-	public  String userName; //邮箱
+	public String Uid;
+
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
-		parameter = MapUtil.getValue("parameter", data);
-		userName = MapUtil.getParameter(parameter,"userName").trim();
-		//根据邮箱查询BUid
-		Document docs =  MongoDBUtil.findByid(data, "crystal", "bucUser", "username", userName);
-		BU_id = docs.getObjectId("_id").toString();
-//		System.out.println(BU_id);
+
 	}
 
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
-		BUid = MapUtil.getParameter(parameter,"BUid").trim();
-		if(!BUid.equals("") && BUid.equals("code")){
-			BUid = BU_id;
-			parameter = parameter.replace("\"BUid\":code", "\"BUid\":\""+ BUid + "\"");
+
+		Uid = MapUtil.getParameter(parameter,"Uid").trim();
+
+		if(!Uid.equals("") && Uid.equals("code")){
+			Uid = userAccountIdByOther;
+			parameter = parameter.replace("\"Uid\":code", "\"Uid\":\""+ Uid + "\"");
 		}
 
-		String[] parameter2 = parameter.split(",");
 
-		data.put("parameter", parameter2[0]);
+
+		data.put("parameter", parameter);
 		return data;
 	}
 
@@ -64,7 +60,7 @@ public class getTokenByOther extends QZ implements API {
 		headers.put("dev","phone");
 		
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl("/moms/auth/v1/getToken");
+		myRequest.setUrl("/tas/user/v1/GetToken");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
@@ -93,6 +89,7 @@ public class getTokenByOther extends QZ implements API {
 		if (json.length() != 0) {
 			
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
+			String code= StringUtils.decodeUnicode(jp.getString("code"));
 			
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
@@ -121,8 +118,8 @@ public class getTokenByOther extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
-			if(msg.equals("success")){
+
+			if(code.equals("200")){
 				
 				//是否是线上环境
 //				if (!isProduct) {
@@ -130,10 +127,9 @@ public class getTokenByOther extends QZ implements API {
 //				}
 				//目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
 				s_UserToken_Other = new HashMap<>();
-				s_UserToken_Other.put("firstToken",jp.getString("data.s_UserToken"));
+				s_UserToken_Other.put("firstToken",jp.getString("data.token"));
 				System.out.println("s_UserToken_Other = " + s_UserToken_Other.get("firstToken"));
-				userAccountIdByOther = jp.getString("data.accountId");
-				MR_Id = jp.getString("data.MRId");
+
 				
 				
 				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
