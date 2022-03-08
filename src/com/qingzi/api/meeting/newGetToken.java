@@ -51,15 +51,15 @@ public class newGetToken extends QZ implements API {
     @Override
     public Response SendRequest(HashMap<String, Object> data, String Url,
                                 String Request) {
-        HashMap<String, String> headers = new HashMap<String, String>();
+//        HashMap<String, String> headers = new HashMap<String, String>();
         //需要调用奇瑞域名才能获取
-        headers.put("s_UserToken",s_UserToken);
-        headers.put("appId",appId);
-        headers.put("dev",dev);
+//        headers.put("s_UserToken",s_UserToken);
+//        headers.put("appId",appId);
+//        headers.put("dev",dev);
 
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl("/tas/user/v1/GetToken");
-        myRequest.setHeaders(headers);
+//        myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
 
@@ -126,8 +126,8 @@ public class newGetToken extends QZ implements API {
 //				*//接口返回token
                 s_UserToken = jp.getString("data.token");
                 System.out.println("s_UserToken = " + s_UserToken);
-                userAccountId = jp.getString("data.accountId");
-                MR_Id = jp.getString("data.MRId");
+//                userAccountId = jp.getString("data.accountId");
+//                MR_Id = jp.getString("data.MRId");
 
                 //查询新建会议的MRId
 //                Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
