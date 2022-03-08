@@ -25,30 +25,30 @@ public class ApiTest_qz extends QZ{
 
   @Test(dataProvider = "renmai", dataProviderClass = qingzi_api_testData.class)
   public void f(HashMap<String, Object> data) {
-	  
+
 	  Log.logInfo(data.get("TCNO").toString() + " Step " + data.get("Description").toString() + " is running......");
-	 
+
 	  API obj = new Reflect_api().Reflections(data);
 	  BasicsGM.map=new XMLread().getSystem();
-	  
+
 	  obj.initialize(data);
-	  
+
 	  data = obj.handleInput(data);
 	  String parameter = MapUtil.getValue("parameter", data);
-	 
+
 	  Long startTime=System.currentTimeMillis();
 	  Response re = obj.SendRequest(data, data.get("serviceUrl").toString(), data.get("Request").toString());
 	  Long endTime=System.currentTimeMillis();
-	  
+
 	  String time=(endTime-startTime)+"毫秒";
-	  
+
 	  String body=re.asString();
-	  
+
 	  String codeORerrcode="";
 	  String msgORerrmsy="";
 	  String result = "";
-	  
-	  
+
+
 	  if(body.contains("<title>")){
 		int Alength="<title>".length();
 		int start=body.indexOf("<title>");
@@ -86,26 +86,26 @@ public class ApiTest_qz extends QZ{
 	  }
 	  codeORerrcode=getCodeOrErrcode(re);
 	  msgORerrmsy=getMsgOrErrmsg(re);
-	  
+
 	  Log.logInfo("返回结果="+StringUtils.decodeUnicode(body) + "接口响应时长=" + time +"毫秒");
 	  System.out.println();
-	  
-	  
+
+
 	  //数据回写
-	  HashMap<String, Object> ExpectResult=MapUtil.Expect(data);
-	  SheetUtils sheet = new SheetUtils("DataAll.xls", "Output");
-	  sheet.writeExcel(
-			  		data.get("NO").toString(),
-				  	data.get("TCNO").toString() + "_Step" + data.get("Step").toString(),
-				  	data.get("Description").toString(),
-				  	parameter,
-					JSONObject.fromObject(ExpectResult).toString(),
-					StringUtils.decodeUnicode(re.asString()),
-					codeORerrcode,
-					msgORerrmsy,
-					result,
-					time
-					);
+//	  HashMap<String, Object> ExpectResult=MapUtil.Expect(data);
+//	  SheetUtils sheet = new SheetUtils("DataAll.xls", "Output");
+//	  sheet.writeExcel(
+//			  		data.get("NO").toString(),
+//				  	data.get("TCNO").toString() + "_Step" + data.get("Step").toString(),
+//				  	data.get("Description").toString(),
+//				  	parameter,
+//					JSONObject.fromObject(ExpectResult).toString(),
+//					StringUtils.decodeUnicode(re.asString()),
+//					codeORerrcode,
+//					msgORerrmsy,
+//					result,
+//					time
+//					);
 	  if(result.indexOf("Fail")!=-1){
 		  String Expect1=data.get("code")==null?"":data.get("code").toString();
 		  String Expect2=data.get("msg")==null?"":data.get("msg").toString();
@@ -123,7 +123,7 @@ public class ApiTest_qz extends QZ{
 //		  cleanEnterprise_usersFromDB();//清除企业用户
 //		  cleanBusiness_AdministratorFromDB();//清除企业管理员
 //		  ReadProperties.ClearProperty();//清除环境配置文件
-		  try { 
+		  try {
 				if(stmt!=null){
 					stmt.close();
 				}
@@ -135,7 +135,7 @@ public class ApiTest_qz extends QZ{
 			}
 	  }
 	  Log.logInfo("========测试结束========");
-	  
+
   }
 
 }
