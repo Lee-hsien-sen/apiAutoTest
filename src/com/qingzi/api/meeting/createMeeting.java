@@ -74,6 +74,7 @@ public class createMeeting extends QZ implements API {
 		headers.put("SUserToken",s_UserToken);
 		headers.put("appId",appId);
 		headers.put("dev",dev);
+		System.out.println("s_UserToken:  "+s_UserToken+"appId:   "+appId+"dev:   "+dev);
 		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
