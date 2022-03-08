@@ -54,6 +54,7 @@ public class raiseHand extends QZ implements API {
 		headers.put("SUserToken",s_UserToken);
 		headers.put("appId",appId);
 		headers.put("dev",dev);
+		System.out.println("s_UserToken:  "+s_UserToken+"appId:   "+appId+"dev:   "+dev);
 		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
@@ -126,14 +127,14 @@ public class raiseHand extends QZ implements API {
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
 				
-				//查询新建会议的MRId
-				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				String meetingId = docs.getString("_id");
-				//mid
-				mId_meeting = docs.getString("mId");
-				//pwd
-				pwd_meeting = docs.getString("pwd");
-				System.out.println(meetingId);
+//				//查询新建会议的MRId
+//				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//				String meetingId = docs.getString("_id");
+//				//mid
+//				mId_meeting = docs.getString("mId");
+//				//pwd
+//				pwd_meeting = docs.getString("pwd");
+//				System.out.println(meetingId);
 			}
 			
 		}

@@ -43,8 +43,9 @@ public class lowerHand extends QZ implements API {
 		}
 		if(!operated.equals("") && operated.equals("code")){
 			HashMap<String, String> userMap = new HashMap<String, String>();
-			userMap.put("userId", userAccountId);
 			userMap.put("dev", "1");
+			userMap.put("userId", userId);
+			System.out.println("operated::"+ JSONObject.fromObject(userMap));
 			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) + "");
 		}
 		
@@ -132,14 +133,14 @@ public class lowerHand extends QZ implements API {
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
 				
-				//查询新建会议的MRId
-				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				String meetingId = docs.getString("_id");
-				//mid
-				mId_meeting = docs.getString("mId");
-				//pwd
-				pwd_meeting = docs.getString("pwd");
-				System.out.println(meetingId);
+//				//查询新建会议的MRId
+//				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//				String meetingId = docs.getString("_id");
+//				//mid
+//				mId_meeting = docs.getString("mId");
+//				//pwd
+//				pwd_meeting = docs.getString("pwd");
+//				System.out.println(meetingId);
 			}
 			
 		}

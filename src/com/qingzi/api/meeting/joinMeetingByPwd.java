@@ -156,11 +156,11 @@ public class joinMeetingByPwd extends QZ implements API {
 //				mId = docs.getString("mId");
 //				//pwd
 //				pwd = docs.getString("password");
-//				//mediaInfo  参会人Accountid
-//				sdkAccountId = jp.getString("data.mediaInfo.sdkAccountId");
-//				//mediaInfo 媒体房间id
-//				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
-//				System.out.println(meetingId);
+				//mediaInfo  参会人Accountid
+				sdkAccountId = jp.getString("data.mediaInfo.sdkAccountId");
+				//mediaInfo 媒体房间id
+				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
+
 			}
 			
 		}

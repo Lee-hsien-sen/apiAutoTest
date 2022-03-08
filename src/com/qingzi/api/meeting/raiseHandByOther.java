@@ -50,12 +50,12 @@ public class raiseHandByOther extends QZ implements API {
 			String Request) {
 		HashMap<String, String> headers = new HashMap<String, String>();
 		//需要调用奇瑞域名才能获取
-		headers.put("SUserToken", s_UserToken_Other.get("first"));
+		headers.put("SUserToken", s_UserToken_Other.get("firstToken"));
 		headers.put("appId",appId);
 		headers.put("dev",dev);
 		
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/moms/mtmgr/v1/mcc/raiseHand");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
