@@ -8,9 +8,14 @@ import java.util.Random;
 
 public class QZ extends BasicsGM{
 
-//	public static boolean isProduct = Boolean.valueOf(((system) map.get("qingzi")).getIsProduct());
+    public static String AppID = "1234567";
+    public static String AppKey = "qaTest";
+    public static String nonce  = "1234567";
+    public static String signature = "8a1b260a877df65dd5ec7b0c810724870397223f8b7e2802fefd2b225e1c3d01";
+
+    //	public static boolean isProduct = Boolean.valueOf(((system) map.get("qingzi")).getIsProduct());
 	public static String Token = "";//1V1token
-	public static String enterprise_name = "企业-ff" + new Random().nextInt(90000)+ 1000;//企业名称
+	public static String enterprise_name = "企业-ff" + new Random().nextInt(9000)+ 1000;//企业名称
 	public static String BU_id = "";// BUid
 	public static String App_id = "";
 	public static String dev = "1";
@@ -21,16 +26,17 @@ public class QZ extends BasicsGM{
 //	public static String enterprise_Id = "1-EP-48824092482932736";//开发环境 企业id
 	public static String enterprise_Id = "1-EP-48824092482932736";//测试环境 企业id
 	public static String s_UserToken;//usertoken  getToken接口返回
-//	public static String userAccountId = "1-UA-119622539896897536";//开发环境用户 userAccountId  getToken接口返回
-	public static String userAccountId = "1-UA-155000601285533696";//测试环境用户 userAccountId  getToken接口返回
+	public static String authKey;//usertoken  getToken接口返回
+	public static String userAccountId = "1-UA-134800448460349440";//开发环境用户 userAccountId  getToken接口返回
 	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
-	public static String userAccountIdByOther= "1-UA-148216587417591808";//userAccountId  getToken接口返回
+//	public static String userAccountId = "1-UA-137252758432178176";//测试环境用户 userAccountId  getToken接口返回
+	public static String userAccountIdByOther;//userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
 	public static String sdk_RoomId; //主持人房间id  createMeeting接口返回
 	public static String MR_Id;//MRId  会议室id
-	public static String title_meeting = "会议-ff" + new Random().nextInt(90000)+ 1000;
+	public static String title_meeting = "会议-ff" + new Random().nextInt(9000)+ 1000;
 	public static String mId_meeting;//Mid
 	public static String pwd_meeting;//pwd
 	public static String sdkAccountId; // 媒体  参会人AccountId

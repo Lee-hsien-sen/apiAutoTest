@@ -12,15 +12,15 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 
 /**
- * 
- * @ClassName:  joinSuccess   
- * @Description:TODO   非正常形式入会，为测会中接口提供模拟socket入会，不做测试 
+ *
+ * @ClassName:  joinSuccess
+ * @Description:TODO   非正常形式入会，为测会中接口提供模拟socket入会，不做测试
  * @author: wff
- * @date:   2021年5月14日 上午11:32:02      
+ * @date:   2021年5月14日 上午11:32:02
  * @Copyright:
  */
 public class notify extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String ts; //时间戳
 	public String roomId; //媒体房间id
@@ -54,20 +54,14 @@ public class notify extends QZ implements API {
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		//需要调用奇瑞域名才能获取
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev",dev);
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -90,7 +84,7 @@ public class notify extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
 			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
@@ -110,7 +104,7 @@ public class notify extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -121,18 +115,18 @@ public class notify extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(code.equals("200")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//接口返回meetingid
 				/*meeting_Id = jp.getString("data.meetingId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");
-				
+
 				//查询新建会议的MRId
 				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				String meetingId = docs.getString("_id");
@@ -142,7 +136,7 @@ public class notify extends QZ implements API {
 				pwd_meeting = docs.getString("pwd");
 				System.out.println(meetingId);
 				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					
+
 					//先查询该用户创建的个人会议
 					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
 					String personalRoomId = doc.getString("personalRoomId");
@@ -159,7 +153,7 @@ public class notify extends QZ implements API {
 					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				}*/
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

@@ -3,15 +3,13 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
-import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
-import com.qingzi.testUtil.RequestDataUtils;
-import com.qingzi.testUtil.StringUtils;
+import com.qingzi.testUtil.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.bson.Document;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * @ClassName: createMeeting
@@ -32,6 +30,7 @@ public class newCreateMeeting extends QZ implements API {
     public String duration; //会议时长（秒）
     public String nickName; //邀请人昵称
     public String invitees; //邀请人
+    public String creator; //创建者的userId
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -51,6 +50,7 @@ public class newCreateMeeting extends QZ implements API {
         duration = MapUtil.getParameter(parameter, "duration").trim();
         nickName = MapUtil.getParameter(parameter, "nickName").trim();
         invitees = MapUtil.getParameter(parameter, "invitees").trim();
+        creator = MapUtil.getParameter(parameter, "creator").trim();
         if (!enterpriseId.equals("") && enterpriseId.equals("code")) {
             enterpriseId = enterprise_Id;
             parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\"" + enterpriseId + "\"");
@@ -90,21 +90,20 @@ public class newCreateMeeting extends QZ implements API {
             invitees = "";
             parameter = parameter.replace("\"invitees\":code", "\"invitees\":" + invitees + "");
         }
+        if (!creator.equals("") && creator.equals("code")) {
+            creator = userAccountId;
+            parameter = parameter.replace("\"creator\":code", "\"creator\":\"" + creator + "\"");
+        }
 
         data.put("parameter", parameter);
         return data;
     }
 
     @Override
-    public Response SendRequest(HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
                                 String Request) {
-        HashMap<String, String> headers = new HashMap<String, String>();
-        headers.put("SUserToken", s_UserToken);
-        headers.put("appId", appId);
-        headers.put("dev", dev);
-
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl("/moms/mtmgr/v1/mmc/createMeeting");
+        myRequest.setUrl("/cstcapi/moms/mtmgr/v1/admin/createMeeting");
         myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);

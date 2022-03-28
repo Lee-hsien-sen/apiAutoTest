@@ -13,36 +13,36 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 public class CreateAppid extends QZ implements API {
-	
+
 	public String parameter;  //参数集合
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 //		HashMap<String, String> cookies = new HashMap<String, String>();
 //		cookies.put("laravel_session",QZ.laravel_session);
-		
-		
+
+
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 //		myRequest.setCookies(cookies);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -65,9 +65,9 @@ public class CreateAppid extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -84,7 +84,7 @@ public class CreateAppid extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -95,21 +95,21 @@ public class CreateAppid extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(msg.equals("OK")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
-				
+
 				if(msg.equals("OK")){
 					App_id = jp.getString("data.app_id");
 					App_secret = jp.getString("data.app_secret");
 				}
 			}
-			
-			
+
+
 		}
 		if (result)
 			return "Pass";

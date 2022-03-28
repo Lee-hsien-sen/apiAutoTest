@@ -49,16 +49,10 @@ public class newGetToken extends QZ implements API {
     }
 
     @Override
-    public Response SendRequest(HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
                                 String Request) {
-//        HashMap<String, String> headers = new HashMap<String, String>();
-        //需要调用奇瑞域名才能获取
-//        headers.put("s_UserToken",s_UserToken);
-//        headers.put("appId",appId);
-//        headers.put("dev",dev);
-
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl("/tas/user/v1/GetToken");
+        myRequest.setUrl("/cstcapi/tas/user/v1/GetToken");
 //        myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
@@ -125,6 +119,7 @@ public class newGetToken extends QZ implements API {
 //				}
 //				*//接口返回token
                 s_UserToken = jp.getString("data.token");
+                authKey = jp.getString("data.authKey");
                 System.out.println("s_UserToken = " + s_UserToken);
 //                userAccountId = jp.getString("data.accountId");
 //                MR_Id = jp.getString("data.MRId");

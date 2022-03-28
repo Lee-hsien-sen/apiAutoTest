@@ -16,15 +16,15 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 /**
- * 
+ *
  * @ClassName:  roomPage   (一期不用)
  * @Description:TODO 获取会议室列表------后期可能还得改，目前header中的SUserToken还未传，得等奇瑞外层包装后
  * @author: wff
- * @date:   2021年4月28日 下午3:16:01      
+ * @date:   2021年4月28日 下午3:16:01
  * @Copyright:
  */
 public class roomPage extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String enterpriseId; //企业id
 	public String name; //会议室名称
@@ -40,32 +40,26 @@ public class roomPage extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		enterpriseId = MapUtil.getParameter_get(parameter,"enterpriseId").trim();
 		if ((!enterpriseId.equals("")) && enterpriseId.equals("enterpriseId")) {
 			enterpriseId=enterprise_Id;
 			parameter = parameter.replace("enterpriseId=code", "enterpriseId="+ enterpriseId );
 		}
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("appId",appId);
-		headers.put("appSecret","");
-		headers.put("countryCode","CN");
-		headers.put("countryNum","86");
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -88,9 +82,9 @@ public class roomPage extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -107,7 +101,7 @@ public class roomPage extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -118,23 +112,23 @@ public class roomPage extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(msg.equals("SUCCESS")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
 //				id = jp.getString("data.id");
 //				s_UserToken = jp.getString("data.s_UserToken");
-				
+
 				//删除会前注册信息
 //				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
 //					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
 //				}
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

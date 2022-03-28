@@ -48,15 +48,8 @@ public class getMeetingInfo extends QZ implements API {
     }
 
     @Override
-    public Response SendRequest(HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
                                 String Request) {
-        HashMap<String, String> headers = new HashMap<String, String>();
-        //需要调用奇瑞域名才能获取
-        headers.put("SUserToken",s_UserToken_Other.get("firstToken"));
-        headers.put("appId",appId);
-        headers.put("dev",dev);
-        System.out.println("SUserToken"+s_UserToken_Other.get("firstToken")+"appId"+appId+"dev"+dev);
-
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl(Url);
         myRequest.setHeaders(headers);

@@ -13,32 +13,32 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 public class auth extends QZ implements API {
-	
+
 	public String parameter;  //参数集合
-	public String app_id; //开发者在Crystal后台创建的App对应AppID	
-	public String app_secret; //开发者在Crystal后台创建的App对应AppSecret	
-	public String dev;  //设备类型	
-	public String os_version;  //系统参数	
-	public String uid;  //用户系统用户id	
-	public String app_version;  //当前客户端版本	
+	public String app_id; //开发者在Crystal后台创建的App对应AppID
+	public String app_secret; //开发者在Crystal后台创建的App对应AppSecret
+	public String dev;  //设备类型
+	public String os_version;  //系统参数
+	public String uid;  //用户系统用户id
+	public String app_version;  //当前客户端版本
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		app_id = MapUtil.getParameter(parameter, "app_id").trim();
 		app_secret = MapUtil.getParameter(parameter, "app_secret").trim();
 		dev = MapUtil.getParameter(parameter, "dev").trim();
 		os_version = MapUtil.getParameter(parameter, "os_version").trim();
 		uid = MapUtil.getParameter(parameter, "uid").trim();
 		app_version = MapUtil.getParameter(parameter, "app_version").trim();
-		
+
 		if(!app_id.equals("") && app_id.equals("code")){
 			app_id = App_id;
 			parameter = parameter.replace("\"app_id\":code", "\"app_id\":\""+ app_id + "\"");
@@ -68,18 +68,18 @@ public class auth extends QZ implements API {
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 //		HashMap<String, String> cookies = new HashMap<String, String>();
 //		cookies.put("laravel_session",QZ.laravel_session);
-		
-		
+
+
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 //		myRequest.setCookies(cookies);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -102,9 +102,9 @@ public class auth extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -121,7 +121,7 @@ public class auth extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -132,18 +132,18 @@ public class auth extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(msg.equals("OK")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//存储鉴权token
 				Token = jp.getString("data.token");
 			}
-			
-			
+
+
 		}
 		if (result)
 			return "Pass";
