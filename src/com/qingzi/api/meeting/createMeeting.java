@@ -18,15 +18,15 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 /**
- * 
- * @ClassName:  createMeeting   
+ *
+ * @ClassName:  createMeeting
  * @Description:TODO 创建会议   该接口后期也得修改，userAccountId需要从SUserToken中解析（需要调用奇瑞外层域名）
  * @author: wff
- * @date:   2021年4月28日 下午5:24:29      
+ * @date:   2021年4月28日 下午5:24:29
  * @Copyright:
  */
 public class createMeeting extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String enterpriseId; //企业id
 	public String nickName; //昵称
@@ -42,26 +42,26 @@ public class createMeeting extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
 		avatarUrl = MapUtil.getParameter(parameter,"avatarUrl").trim();
 		nickName = MapUtil.getParameter(parameter,"nickName").trim();
 		title = MapUtil.getParameter(parameter,"title").trim();
 		MRId = MapUtil.getParameter(parameter,"MRId").trim();
 		if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-			enterpriseId = enterprise_Id; 
+			enterpriseId = enterprise_Id;
 			parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
 		}
 		if(!avatarUrl.equals("") && avatarUrl.equals("code")){
-			avatarUrl = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg"; 
+			avatarUrl = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg";
 			parameter = parameter.replace("\"avatarUrl\":code", "\"avatarUrl\":\""+ avatarUrl + "\"");
 		}
 		if(!nickName.equals("") && nickName.equals("code")){
-			nickName = "昵称-ff"; 
+			nickName = "昵称-ff";
 			parameter = parameter.replace("\"nickName\":code", "\"nickName\":\""+ nickName + "\"");
 		}
 		if(!title.equals("") && title.equals("code")){
-			title = title_meeting; 
+			title = title_meeting;
 			parameter = parameter.replace("\"title\":code", "\"title\":\""+ title + "\"");
 		}
 		if(!MRId.equals("") && MRId.equals("code")){
@@ -71,25 +71,20 @@ public class createMeeting extends QZ implements API {
 			MRId = null;
 			parameter = parameter.replace("\"MRId\":code", "\"MRId\":"+ MRId + "");
 		}
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev",dev);
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -112,7 +107,7 @@ public class createMeeting extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
 			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
@@ -132,7 +127,7 @@ public class createMeeting extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -143,19 +138,19 @@ public class createMeeting extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(code.equals("200")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");
 				userId = jp.getString("data.host.userId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");
-				
+
 				//查询新建会议的MRId
 				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title);
 				String meetingId = docs.getString("_id");
@@ -165,7 +160,7 @@ public class createMeeting extends QZ implements API {
 				pwd_meeting = docs.getString("pwd");
 				System.out.println(meetingId);
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

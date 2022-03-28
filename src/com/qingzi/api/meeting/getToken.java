@@ -19,17 +19,17 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 /**
- * 
- * @ClassName:  auth   
+ *
+ * @ClassName:  auth
  * @Description:TODO 获取解决方案  token（三方服务器转发客户端请求）
- * 
+ *
  * //目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
  * @author: wff
- * @date:   2021年4月27日 下午4:03:24      
+ * @date:   2021年4月27日 下午4:03:24
  * @Copyright:
  */
 public class getToken extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String BUid; //	用户三方唯一标识
 	public  String userName; //邮箱
@@ -47,7 +47,7 @@ public class getToken extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		BUid = MapUtil.getParameter(parameter,"BUid").trim();
 		if(!BUid.equals("") && BUid.equals("code")){
 			BUid = BU_id;
@@ -61,19 +61,14 @@ public class getToken extends QZ implements API {
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("appId",appId);
-		headers.put("appSecret","");
-		headers.put("dev","phone");
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -96,7 +91,7 @@ public class getToken extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
 			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
@@ -116,7 +111,7 @@ public class getToken extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -127,20 +122,20 @@ public class getToken extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(code.equals("200")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//目前访问域名直接到奔奔内部接口没有经过奇瑞外部包装（现在返回字段为id），后期会更换域名到时候接口返回字段为s_UserToken
 				s_UserToken = jp.getString("data.s_UserToken");
 				System.out.println("s_UserToken = " + s_UserToken);
 				userAccountId = jp.getString("data.accountId");
 				MR_Id = jp.getString("data.MRId");
-				
-				
+
+
 				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
 					//先查询该用户创建的个人会议
 					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
@@ -152,7 +147,7 @@ public class getToken extends QZ implements API {
 					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
 				}*/
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

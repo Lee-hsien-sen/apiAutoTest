@@ -23,7 +23,7 @@ import java.util.HashMap;
  * @Copyright:
  */
 public class editMeeting_allParameterIs1 extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String meetingId; //解决方案会议室Id
 	public String meetingManage; //会议meetingManage，包含meetingAudioStatus 和 meetingVideoStatus
@@ -51,7 +51,7 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 			parameter = parameter.replace("\"title\":code", "\"title\":\""+ title + "\"");
 		}
 		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id; 
+			meetingId = meeting_Id;
 			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
 		}
 
@@ -77,26 +77,20 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 			userMap.put("onlyHostShare", "1");
 			parameter = parameter.replace("\"meetingPermission\":code", "\"meetingPermission\":"+ JSONObject.fromObject(userMap) );
 		}
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		//需要调用奇瑞域名才能获取
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev","1");
-		
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl("/moms/mtmgr/v1/mcc/editMeeting");
+		myRequest.setUrl("/cstcapi/moms/mtmgr/v1/mcc/editMeeting");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -119,9 +113,9 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -138,7 +132,7 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -149,19 +143,19 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(msg.equals("SUCCESS")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				/*//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
-				
+
 				//查询新建会议的MRId
 				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				String meetingId = docs.getString("_id");
@@ -171,7 +165,7 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 				pwd_meeting = docs.getString("pwd");
 				System.out.println(meetingId);
 				if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					
+
 					//先查询该用户创建的个人会议
 					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
 					String personalRoomId = doc.getString("personalRoomId");
@@ -190,7 +184,7 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 					MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				}
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

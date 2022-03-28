@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 
 public class markLog extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String meetingId; //解决方案会议室Id
 	public String enterpriseId; //企业id
@@ -39,30 +39,24 @@ public class markLog extends QZ implements API {
 
 		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
 		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id; 
+			meetingId = meeting_Id;
 			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
 		}
 
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		//需要调用奇瑞域名才能获取
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev",dev);
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -85,9 +79,9 @@ public class markLog extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			
+
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
 							"code").equals(data.get("code").toString())))) {
@@ -104,7 +98,7 @@ public class markLog extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -115,19 +109,19 @@ public class markLog extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(msg.equals("SUCCESS")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				/*//接口返回meetingid
 				meeting_Id = jp.getString("data.meetingId");
 				m_Id = jp.getString("data.mId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
-				
+
 				//查询新建会议的MRId
 				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
 				String meetingId = docs.getString("_id");
@@ -137,7 +131,7 @@ public class markLog extends QZ implements API {
 				pwd_meeting = docs.getString("pwd");
 				System.out.println(meetingId);
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

@@ -9,24 +9,25 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import net.sf.json.JSONObject;
 import org.bson.Document;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
- * @ClassName:  deviceNotAvailable
- * @Description:TODO  设备不可用
- * @author: zeng
- * @date:   2021年11月24日 下午10:23:20
+ * @ClassName:  checkParticipant
+ * @Description:  取消预约会议
+ * @author: wff
+ * @date:   2022年3月7日10:49:57
  * @Copyright:
  */
-
-public class deviceNotAvailable extends QZ implements API {
+public class cancel extends QZ implements API {
 
 	public String parameter; //参数集合
-	public String meetingId; //解决方案会议室Id
-	public String enterpriseId; //企业id
+	public String mId; //会议短Id
+	public String meetingIdList; //需要校验的用户列表
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -37,13 +38,17 @@ public class deviceNotAvailable extends QZ implements API {
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
 
-		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
 
-		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id;
-			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+
+		mId = MapUtil.getParameter(parameter,"mId").trim();
+		meetingIdList = MapUtil.getParameter(parameter,"meetingIdList").trim();
+		if(!mId.equals("") && mId.equals("code")){
+			mId = m_Id;
+			parameter = parameter.replace("\"mId\":code", "\"mId\":\""+ mId + "\"");
 		}
-
+		if(!meetingIdList.equals("") && meetingIdList.equals("code")){
+			parameter = parameter.replace("\"meetingIdList\":code", "\"meetingIdList\":[\""+ meeting_Id + "\"]");
+		}
 
 		data.put("parameter", parameter);
 		return data;
@@ -111,26 +116,8 @@ public class deviceNotAvailable extends QZ implements API {
 				}
 			}
 
-			if(msg.equals("SUCCESS")){
+			if(msg.equals("success")){
 
-				//是否是线上环境
-//				if (!isProduct) {
-//
-//				}
-				/*//接口返回meetingid
-				meeting_Id = jp.getString("data.meetingId");
-				m_Id = jp.getString("data.mId");
-				sdk_AccountId = jp.getString("data.sdkAccountId");
-				sdk_RoomId = jp.getString("data.sdkRoomId");*/
-
-				//查询新建会议的MRId
-				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				String meetingId = docs.getString("_id");
-				//mid
-				mId_meeting = docs.getString("mId");
-				//pwd
-				pwd_meeting = docs.getString("pwd");
-				System.out.println(meetingId);
 			}
 
 		}

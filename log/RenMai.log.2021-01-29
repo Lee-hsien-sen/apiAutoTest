@@ -1,6 +1,0 @@
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几列数据=13
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : 数据源读取记录：共有几行数据=1
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : 创建用户\房间流程测试_1 Step 流程-打开页面获取token is running......
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : 流程-打开页面获取token,创建用户\房间流程测试_1,http://test-live.offcncloud.com/web/admin,Parameter=
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : 返回结果=页面标题：中公直播-v1.0
-INFO|2021/01/29 20:40|=>TestProject.logInfo()[Log.java:35] : ========测试结束========

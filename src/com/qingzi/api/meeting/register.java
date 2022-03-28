@@ -17,60 +17,54 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 
 /**
- * 
- * @ClassName:  register   
+ *
+ * @ClassName:  register
  * @Description:TODO   注册企业-为会议接口做前置准备，不做测试（没有删除删除接口也没给数据库，单独测试注册企业会有大量脏数据）
  * @author: wff
- * @date:   2021年4月6日 下午5:41:40      
+ * @date:   2021年4月6日 下午5:41:40
  * @Copyright:
  */
 public class register extends QZ implements API {
-	
+
 	public String parameter; //参数集合
 	public String name;  //企业名称
 	public String describe; //企业描述
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
-		
+
 	}
 
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-		
+
 		name = MapUtil.getParameter(parameter,"name").trim();
 		describe = MapUtil.getParameter(parameter,"describe").trim();
 		int random = new Random().nextInt(9000)+ 1000;
-		
+
 		if(!name.equals("") && name.equals("code")){
 			name = enterprise_name;
 			parameter = parameter.replace("\"name\":code", "\"name\":\""+ name + "\"");
 		}
 		if(!describe.equals("") && describe.equals("code")){
-			describe = "测试企业-ff" + random; 
+			describe = "测试企业-ff" + random;
 			parameter = parameter.replace("\"describe\":code", "\"describe\":\""+ describe + "\"");
 		}
-		
+
 		data.put("parameter", parameter);
 		return data;
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev",dev);
-		
-		
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
-		
+
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;
 	}
@@ -93,7 +87,7 @@ public class register extends QZ implements API {
 		}
 
 		if (json.length() != 0) {
-			
+
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
 			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
@@ -113,7 +107,7 @@ public class register extends QZ implements API {
 						+ data.get("msg").toString() + " but actually "
 						+ jp.getString("msg") + ".";
 			}
-			
+
 			if(data.get("custom") != null && jp.getString("data")!=null){
 				String custom=data.get("custom").toString();
 				String[] ArrayString=StringUtils.getArrayString(custom,",");
@@ -124,12 +118,12 @@ public class register extends QZ implements API {
 							+ jp.getString("data") + ".";
 				}
 			}
-			
+
 			if(code.equals("200")){
-				
+
 				//是否是线上环境
 //				if (!isProduct) {
-//					
+//
 //				}
 				//企业id  目前只获取一次
 				enterprise_Id = jp.getString("data.id");
@@ -138,9 +132,9 @@ public class register extends QZ implements API {
 					MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
 				}
 //				System.out.println(enterprise_Id);
-				
+
 			}
-			
+
 		}
 		if (result)
 			return "Pass";

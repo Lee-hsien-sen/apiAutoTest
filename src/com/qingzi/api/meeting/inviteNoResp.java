@@ -4,27 +4,27 @@ import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
+import net.sf.json.JSONObject;
 
 import java.util.HashMap;
 
 /**
- * @ClassName: getMeetingInfo
- * @Description:TODO  获得会议详情
+ * @ClassName: inviteNoResp  呼叫无响应
+ * @Description:
  * @author: yuxiaowei
- * @date: 2021/12/9 10:17
+ * @date: 2022/3/8 下午2:40
  * @Copyright:
  */
 
-public class getMeetingInfo extends QZ implements API {
+public class inviteNoResp extends QZ implements API {
 
     public String parameter; //参数集合
-    public String meetingId; //会议Id
+    public String meetingId; //解决方案会议室Id
+    public String operated; //与被操作人
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -34,13 +34,18 @@ public class getMeetingInfo extends QZ implements API {
     @Override
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
-
-
-
         meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
+        operated = MapUtil.getParameter(parameter,"operated").trim();
         if(!meetingId.equals("") && meetingId.equals("code")){
             meetingId = meeting_Id;
             parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+        }
+        if(!operated.equals("") && operated.equals("code")){
+            HashMap<String, String> userMap = new HashMap<String, String>();
+            userMap.put("dev", "1");
+            userMap.put("userId", userAccountIdByOther);
+            System.out.println("operated::"+ JSONObject.fromObject(userMap));
+            parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) + "");
         }
 
         data.put("parameter", parameter);
@@ -80,7 +85,6 @@ public class getMeetingInfo extends QZ implements API {
         if (json.length() != 0) {
 
             String msg= StringUtils.decodeUnicode(jp.getString("message"));
-            String code= StringUtils.decodeUnicode(jp.getString("code"));
 
             if ((data.get("code") != null )
                     && ((jp.getString("code") == null) || (!jp.getString(
@@ -110,7 +114,7 @@ public class getMeetingInfo extends QZ implements API {
                 }
             }
 
-            if(msg.equals("200")){
+            if(msg.equals("SUCCESS")){
 
                 //是否是线上环境
 //				if (!isProduct) {
@@ -121,29 +125,15 @@ public class getMeetingInfo extends QZ implements API {
 				m_Id = jp.getString("data.mId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
-                //参会人userAccountId
-                sdkAccountIdByOther = jp.getString("data.mediaInfo.sdkAccountId");
-                sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
 
-                if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-
-                    //先查询该用户创建的个人会议
-                    Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", BU_id);
-                    String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-                    //删除企业
-                    MongoDBUtil.deleteByid(data, "crystal", "usrmgrEnterprise", "name", enterprise_name);
-                    //删除个人注册后创建的个人会议室
-                    MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-                    //删除会前注册信息
-                    MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid", BU_id);
-                    //删除会议记录
-                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingAuthLog", "meetingId", meetingId);
-                    //删除参会表
-                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMeetingParticipant", "accountId", userAccountId);
-                    //删除新建会议
-                    MongoDBUtil.deleteByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-                }
+//				//查询新建会议的MRId
+//				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//				String meetingId = docs.getString("_id");
+//				//mid
+//				mId_meeting = docs.getString("mId");
+//				//pwd
+//				pwd_meeting = docs.getString("pwd");
+//				System.out.println(meetingId);
             }
 
         }

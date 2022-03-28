@@ -36,7 +36,7 @@ public class stopMeetingToStopBoard extends QZ implements API {
         parameter = MapUtil.getValue("parameter", data);
         roomId = MapUtil.getParameter(parameter,"roomId").trim();
         if(!roomId.equals("") && roomId.equals("code")){
-            roomId = m_Id;
+            roomId = meeting_Id;
             parameter = parameter.replace("\"roomId\":code", "\"roomId\":\""+ roomId + "\"");
         }
 
@@ -45,14 +45,8 @@ public class stopMeetingToStopBoard extends QZ implements API {
     }
 
     @Override
-    public Response SendRequest(HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
                                 String Request) {
-        HashMap<String, String> headers = new HashMap<String, String>();
-        //需要调用奇瑞域名才能获取
-        headers.put("SUserToken",s_UserToken);
-        headers.put("appId",appId);
-        headers.put("dev",dev);
-
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl(Url);
         myRequest.setHeaders(headers);
@@ -136,4 +130,8 @@ public class stopMeetingToStopBoard extends QZ implements API {
         else
             return "Fail:" + failReason;
     }
+
+
+
+
 }
