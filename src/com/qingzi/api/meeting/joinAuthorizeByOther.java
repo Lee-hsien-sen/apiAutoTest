@@ -4,27 +4,27 @@ import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
 
 import java.util.HashMap;
 
 /**
- * @ClassName: auth
- * @Description:
+ * @ClassName: joinAuthorize
+ * @Description:获取会中授权（三方服务端调用） 参会人使用
  * @author: wff
- * @date: 2021年12月6日16:42:27
+ * @date: 2022年3月29日11:00:26
  * @Copyright:
  */
-public class getTokenByOther extends QZ implements API {
+public class joinAuthorizeByOther extends QZ implements API {
 
     public String parameter; //参数集合
-    public String Uid; //	用户三方唯一标识
-    public String userName; //邮箱
+    public String meetingId; //会议全局唯一id，和mId 必传一个(推荐使用)
+    public String mId; //会议短Id，和meetingId 必传一个
+    public String userId; //crystal的用户id
+
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -35,15 +35,22 @@ public class getTokenByOther extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        Uid = MapUtil.getParameter(parameter, "Uid").trim();
-
-        if (!Uid.equals("") && Uid.equals("code")) {
-            Uid = userAccountIdByOther;
-            parameter = parameter.replace("\"Uid\":code", "\"Uid\":\"" + Uid + "\"");
+        meetingId = MapUtil.getParameter(parameter, "meetingId").trim();
+        mId = MapUtil.getParameter(parameter, "mId").trim();
+        userId = MapUtil.getParameter(parameter, "userId").trim();
+        if (!meetingId.equals("") && meetingId.equals("code")) {
+            meetingId = meeting_Id;
+            parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\"" + meetingId + "\"");
+        }
+        if (!mId.equals("") && mId.equals("code")) {
+            mId = m_Id;
+            parameter = parameter.replace("\"mId\":code", "\"mId\":\"" + mId + "\"");
+        }
+        if (!userId.equals("") && userId.equals("code")) {
+            userId = userAccountIdByOther;
+            parameter = parameter.replace("\"userId\":code", "\"userId\":\"" + userId + "\"");
         }
 
-//		String[] parameter2 = parameter.split(",");
-//		data.put("parameter", parameter2[0]);
         data.put("parameter", parameter);
         return data;
     }
@@ -52,7 +59,8 @@ public class getTokenByOther extends QZ implements API {
     public Response SendRequest(HashMap<String, String> headers, HashMap<String, Object> data, String Url,
                                 String Request) {
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl("/cstcapi/tas/user/v1/GetToken");
+//		myRequest.setUrl(Url + "?userAccountId="+ userAccountId);
+        myRequest.setUrl("/cstcapi/moms/mtmgr/v1/admin/joinAuthorize");
         myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
@@ -113,27 +121,6 @@ public class getTokenByOther extends QZ implements API {
 
             if (code.equals("200")) {
 
-                //是否是线上环境
-//				if (!isProduct) {
-//
-//				}
-//				participants.put("firstToken",jp.getString("data.token"));
-//				participants.put("authKeyByOther",jp.getString("data.authKey"));
-//				System.out.println("participants = " + participants.get("firstToken"));
-                s_UserTokenByOther = jp.getString("data.token");
-                authKeyByOther = jp.getString("data.authKey");
-                System.out.println(authKeyByOther);
-
-				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
-					String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-					//删除个人注册后创建的个人会议室
-					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
-				}*/
             }
 
         }

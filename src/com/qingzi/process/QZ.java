@@ -8,11 +8,6 @@ import java.util.Random;
 
 public class QZ extends BasicsGM{
 
-    public static String AppID = "1234567";
-    public static String AppKey = "qaTest";
-    public static String nonce  = "1234567";
-    public static String signature = "8a1b260a877df65dd5ec7b0c810724870397223f8b7e2802fefd2b225e1c3d01";
-
     //	public static boolean isProduct = Boolean.valueOf(((system) map.get("qingzi")).getIsProduct());
 	public static String Token = "";//1V1token
 	public static String enterprise_name = "企业-ff" + new Random().nextInt(9000)+ 1000;//企业名称
@@ -26,11 +21,11 @@ public class QZ extends BasicsGM{
 //	public static String enterprise_Id = "1-EP-48824092482932736";//开发环境 企业id
 	public static String enterprise_Id = "1-EP-48824092482932736";//测试环境 企业id
 	public static String s_UserToken;//usertoken  getToken接口返回
-	public static String authKey;//usertoken  getToken接口返回
-	public static String userAccountId = "1-UA-134800448460349440";//开发环境用户 userAccountId  getToken接口返回
+	public static String authKey;//秘钥  getToken接口返回
+	public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
 	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
-//	public static String userAccountId = "1-UA-137252758432178176";//测试环境用户 userAccountId  getToken接口返回
-	public static String userAccountIdByOther;//userAccountId  getToken接口返回
+//	public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
+	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
@@ -43,7 +38,8 @@ public class QZ extends BasicsGM{
 	public static String sdkAccountIdByOther; // 媒体  参会人userAccountId
 	public static String sdkRoomId;//mediaInfo 媒体房间id
 	public static String board_Id;//白板ID
-	public static HashMap<String,String> s_UserToken_Other;// 参会人token
+	public static String s_UserTokenByOther;//参会人token
+	public static String authKeyByOther;//参会人秘钥
 
 
 	static{
