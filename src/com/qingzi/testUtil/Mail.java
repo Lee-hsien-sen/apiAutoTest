@@ -59,8 +59,8 @@ public class Mail {
         props.setProperty("mail.transport.protocol", "smtp");   // 使用的协议（JavaMail规范要求）
         props.setProperty("mail.host", myEmailSMTPHost);        // 发件人的邮箱的 SMTP 服务器地址
         props.setProperty("mail.smtp.auth", "true");
-//        props.setProperty("mail.stmp.port", "587");   
-        props.setProperty("mail.stmp.port", "465");// 端口    
+//        props.setProperty("mail.stmp.port", "587");
+        props.setProperty("mail.stmp.port", "465");// 端口
         props.setProperty("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
@@ -149,18 +149,18 @@ public class Mail {
 //        // 将图片数据添加到"节点"
 //        image.setDataHandler(dh);
 //        // 为"节点"设置一个唯一编号（在文本"节点"将引用该ID）
-//        image.setContentID("mailTestPic");    
-//         
+//        image.setContentID("mailTestPic");
+//
         // 6. 创建文本"节点"
         MimeBodyPart text = new MimeBodyPart();
 
 //        获取邮件内容原位置
 //        String overview=ReadHtml.readFile_("overview.html");
 ////        System.out.println(overview);
-//        
+//
 //        String TestTitle="";
 //        String TestResule="";
-//        
+//
 //        boolean isTrue=overview.contains("100.00%");
 //        int start=overview.indexOf("<td class=\"passRate\">");
 //        System.out.println(start);
@@ -180,13 +180,13 @@ public class Mail {
 
         // 这里添加图片的方式是将整个图片包含到邮件内容中, 实际上也可以以 http 链接的形式添加网络图片+ReadHtml.readFile_("suite1_test1_results.html")
         text.setContent(TestTitle + "</br></br>" + ReadHtml.readFile_("overview.html") + "</br></br>" + TestResule, "text/html;charset=UTF-8");
-//         
+//
 //        // 7. （文本+图片）设置 文本 和 图片"节点"的关系（将 文本 和 图片"节点"合成一个混合"节点"）
 //        MimeMultipart mm_text_image = new MimeMultipart();
 //        mm_text_image.addBodyPart(text);
 //        mm_text_image.addBodyPart(image);
 //        mm_text_image.setSubType("related");    // 关联关系
-//         
+//
 //        // 8. 将 文本+图片 的混合"节点"封装成一个普通"节点"
 //        // 最终添加到邮件的 Content 是由多个 BodyPart 组成的 Multipart, 所以我们需要的是 BodyPart,
 //        // 上面的 mailTestPic 并非 BodyPart, 所有要把 mm_text_image 封装成一个 BodyPart
@@ -229,12 +229,12 @@ public class Mail {
 //        	attachment6.setDataHandler(dh6);
 //        	attachment7.setDataHandler(dh7);
 //        	// 设置附件的文件名（需要编码）
-//        	attachment2.setFileName("index.html");       
-//        	attachment3.setFileName("overview.html");       
-//        	attachment4.setFileName("reportng.css");       
-//        	attachment5.setFileName("reportng.js");       
-//        	attachment6.setFileName("suite1_test1_results.html");       
-//        	attachment7.setFileName("suites.html");     
+//        	attachment2.setFileName("index.html");
+//        	attachment3.setFileName("overview.html");
+//        	attachment4.setFileName("reportng.css");
+//        	attachment5.setFileName("reportng.js");
+//        	attachment6.setFileName("suite1_test1_results.html");
+//        	attachment7.setFileName("suites.html");
         }
 
 
@@ -264,9 +264,8 @@ public class Mail {
             addr = "qirui.si@matrx.team;feifei.wu@matrx.team;hongbin.wang@matrx.team;benben.shang@matrx.team;shujie.wang@matrx.team;";
 //    		addr="feifei.wu@matrx.team;";
         } else {
-            addr = "feifei.wu@matrx.team;hongbin.wang@matrx.team;qirui.si@matrx.team;"
-                    + "benben.shang@matrx.team;shujie.wang@matrx.team;xiaowei.yu@matrx.team;haitao.wang@matrx.team;zeng.li@matrx.team;" +
-                    "hongxia.wei@ctechm.com;wenjing.cheng@matrx.team";
+            addr = "feifei.wu@matrx.team;hongbin.wang@matrx.team;qirui.si@matrx.team;chao.tian@matrx.team;"
+                    + "benben.shang@matrx.team;shujie.wang@matrx.team;xiaowei.yu@matrx.team;haitao.wang@matrx.team;zeng.li@matrx.team;wenjing.cheng@matrx.team";
 //    		addr="feifei.wu@matrx.team;";
         }
 

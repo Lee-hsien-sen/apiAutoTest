@@ -23,7 +23,7 @@ import java.util.HashMap;
  * @date:   2021年12月7日18:47:19
  * @Copyright:
  */
-public class admitMeeting extends QZ implements API {
+public class admitMeetingByOther extends QZ implements API {
 
 	public String parameter; //参数集合
 	public String meetingId; //会议Id
@@ -53,7 +53,7 @@ public class admitMeeting extends QZ implements API {
 	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/cstcapi/moms/mtmgr/v1/mmc/admitMeeting");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);

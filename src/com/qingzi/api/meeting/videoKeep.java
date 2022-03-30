@@ -136,13 +136,13 @@ public class videoKeep extends QZ implements API {
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
 
 				//查询新建会议的MRId
-				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				String meetingId = docs.getString("_id");
-				//mid
-				mId_meeting = docs.getString("mId");
-				//pwd
-				pwd_meeting = docs.getString("pwd");
-				System.out.println(meetingId);
+//				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//				String meetingId = docs.getString("_id");
+//				//mid
+//				mId_meeting = docs.getString("mId");
+//				//pwd
+//				pwd_meeting = docs.getString("pwd");
+//				System.out.println(meetingId);
 			}
 
 		}
