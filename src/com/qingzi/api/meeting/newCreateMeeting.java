@@ -75,7 +75,7 @@ public class newCreateMeeting extends QZ implements API {
             parameter = parameter.replace("\"title\":code", "\"title\":\"" + title + "\"");
         }
         if (!startTime.equals("") && startTime.equals("code")) {
-            startTime = String.valueOf(System.currentTimeMillis());
+            startTime = String.valueOf(System.currentTimeMillis()+60000);
             parameter = parameter.replace("\"startTime\":code", "\"startTime\":" + startTime + "");
         }
         if (!duration.equals("") && duration.equals("code")) {
