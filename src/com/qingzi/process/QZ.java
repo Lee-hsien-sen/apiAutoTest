@@ -40,6 +40,7 @@ public class QZ extends BasicsGM{
 	public static String board_Id;//白板ID
 	public static String s_UserTokenByOther;//参会人token
 	public static String authKeyByOther;//参会人秘钥
+	public static String groupId;//群组id
 
 
 	static{

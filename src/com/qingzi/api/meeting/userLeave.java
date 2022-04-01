@@ -1,14 +1,5 @@
 package com.qingzi.api.meeting;
 
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-
-import java.util.HashMap;
-import java.util.Random;
-
-import org.bson.Document;
-
-import com.fasterxml.jackson.core.sym.Name;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
@@ -16,23 +7,25 @@ import com.qingzi.testUtil.MapUtil;
 import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.bson.Document;
+
+import java.util.HashMap;
 
 /**
  *
- * @ClassName:  joinMeetingByPwd
- * @Description:TODO  通过会议室Id和密码进入会议  该接口后期也得修改，userAccountId需要从SUserToken中解析（需要调用奇瑞外层域名）
- * @author: wff
- * @date:   2021年4月30日 上午10:50:42
+ * @ClassName:  user_leave
+ * @Description:TODO  IM会议群组移除/退出用户
+ * @author: WHT
+ * @date:   2021年04月01日16:06:024
  * @Copyright:
  */
-public class joinMeetingByPwd extends QZ implements API {
+public class userLeave extends QZ implements API {
 
 	public String parameter; //参数集合
-	public String enterpriseId; //企业id
-	public String nickName; //昵称
-	public String avatarUrl; //头像
-	public String mId; //会议短Id
-	public String pwd; //来宾密码或主持人密码
+	public String group_id; //群组ID
+	public String user_id; //用户ID
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -42,31 +35,15 @@ public class joinMeetingByPwd extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-
-		enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
-		avatarUrl = MapUtil.getParameter(parameter,"avatarUrl").trim();
-		nickName = MapUtil.getParameter(parameter,"nickName").trim();
-		mId = MapUtil.getParameter(parameter,"mId").trim();
-		pwd = MapUtil.getParameter(parameter,"pwd").trim();
-		if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-			enterpriseId = enterprise_Id;
-			parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
+		group_id = MapUtil.getParameter(parameter,"group_id").trim();
+		user_id = MapUtil.getParameter(parameter,"user_id").trim();
+		if(!group_id.equals("") && group_id.equals("code")){
+			group_id = groupId;
+			parameter = parameter.replace("\"group_id\":code", "\"group_id\":\""+ group_id + "\"");
 		}
-		if(!avatarUrl.equals("") && avatarUrl.equals("code")){
-			avatarUrl = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3101694723,748884042&fm=26&gp=0.jpg";
-			parameter = parameter.replace("\"avatarUrl\":code", "\"avatarUrl\":\""+ avatarUrl + "\"");
-		}
-		if(!nickName.equals("") && nickName.equals("code")){
-			nickName = "昵称-ff";
-			parameter = parameter.replace("\"nickName\":code", "\"nickName\":\""+ nickName + "\"");
-		}
-		if(!mId.equals("") && mId.equals("code")){
-			mId = m_Id;
-			parameter = parameter.replace("\"mId\":code", "\"mId\":\""+ mId + "\"");
-		}
-		if(!pwd.equals("") && pwd.equals("code")){
-			pwd = pwd_meeting;
-			parameter = parameter.replace("\"pwd\":code", "\"password\":\""+ pwd + "\"");
+		if(!user_id.equals("") && user_id.equals("code")){
+			user_id =userAccountId;
+			parameter = parameter.replace("\"user_id\":code", "\"user_id\":\""+ userAccountId + "\"");
 		}
 
 		data.put("parameter", parameter);
@@ -77,8 +54,7 @@ public class joinMeetingByPwd extends QZ implements API {
 	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 		MyRequest myRequest = new MyRequest();
-//		myRequest.setUrl(Url + "?userAccountId="+ userAccountId);
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/cstcapi/cst/im/meeting/user_leave");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
@@ -107,7 +83,6 @@ public class joinMeetingByPwd extends QZ implements API {
 		if (json.length() != 0) {
 
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
@@ -137,18 +112,26 @@ public class joinMeetingByPwd extends QZ implements API {
 				}
 			}
 
-			if(code.equals("200")){
+			if(msg.equals("SUCCESS")){
 
 				//是否是线上环境
 //				if (!isProduct) {
 //
 //				}
-				//mediaInfo  参会人Accountid
-				sdkAccountId = jp.getString("data.mediaInfo.sdkAccountId");
-				//mediaInfo 媒体房间id
-				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
-				//群组ID
-				groupId = jp.getString("data.meetingInfo.imRoomId");
+				/*//接口返回meetingid
+				meeting_Id = jp.getString("data.meetingId");
+				m_Id = jp.getString("data.mId");
+				sdk_AccountId = jp.getString("data.sdkAccountId");
+				sdk_RoomId = jp.getString("data.sdkRoomId");*/
+
+				//查询新建会议的MRId
+				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+				String meetingId = docs.getString("_id");
+				//mid
+				mId_meeting = docs.getString("mId");
+				//pwd
+				pwd_meeting = docs.getString("pwd");
+				System.out.println(meetingId);
 			}
 
 		}
