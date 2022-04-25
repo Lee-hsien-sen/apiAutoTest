@@ -1,8 +1,10 @@
 package com.qingzi.process;
 
 
+import com.qingzi.system.system;
 import com.qingzi.testUtil.ReadProperties;
 
+import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -26,6 +28,7 @@ public class QZ extends BasicsGM{
 	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
 //	public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
 	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
+	public static String userAccountIdByOther2 = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
@@ -52,13 +55,14 @@ public class QZ extends BasicsGM{
 //			Log.logInfo("dns地址正确无需设置");
 //		}
 		String mysql_local_Online= ReadProperties.GetTestPropertyByKey("mysql_local_Online");
+		String system_nane= ReadProperties.GetTestPropertyByKey("system_nane");
 		//本地数据库连接
-		/*if(mysql_local_Online.equals("local")){
+		if(mysql_local_Online.equals("local")){
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection(((system)map.get("qingziUsrmgr")).getSqlurl(),
-						((system)map.get("qingzi_usrmgr")).getSqlname(),
-						((system)map.get("qingzi_usrmgr")).getSqlpwd());
+				conn = DriverManager.getConnection(((system)map.get(system_nane)).getSqlurl(),
+						((system)map.get(system_nane)).getSqlname(),
+						((system)map.get(system_nane)).getSqlpwd());
 				stmt = conn.createStatement();
 
 			} catch (Exception e) {
@@ -69,15 +73,15 @@ public class QZ extends BasicsGM{
 			//线上数据库连接
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection(((system)map.get("qingziUsrmgr")).getSqlurl(),
-						((system)map.get("qingzi_usrmgr")).getSqlname(),
-						((system)map.get("qingzi_usrmgr")).getSqlpwd());
+				conn = DriverManager.getConnection(((system)map.get(system_nane)).getSqlurl(),
+						((system)map.get(system_nane)).getSqlname(),
+						((system)map.get(system_nane)).getSqlpwd());
 				stmt = conn.createStatement();
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}*/
+		}
 
 		//初始化数据录入
 		if(!ReadProperties.isBoolean()){
