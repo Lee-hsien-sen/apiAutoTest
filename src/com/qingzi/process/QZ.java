@@ -24,11 +24,14 @@ public class QZ extends BasicsGM{
 	public static String enterprise_Id = "1-EP-48824092482932736";//测试环境 企业id
 	public static String s_UserToken;//usertoken  getToken接口返回
 	public static String authKey;//秘钥  getToken接口返回
-	public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
-	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
+//	public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
+//	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
+public static String hostNickName = "winff@qq.com";//香港测试环境用户昵称
 //	public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
-	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
+	public static String userAccountId = "1-UA-137330527877390336";//香港测试用户 userAccountId  getToken接口返回
+//	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
 	public static String userAccountIdByOther2 = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
+	public static String userAccountIdByOther = "1-UA-147492636341383168";//香港测试环境参会人 userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回
 	public static String userId; //主持人id   createMeeting接口返回
