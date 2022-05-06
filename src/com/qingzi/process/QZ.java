@@ -30,7 +30,7 @@ public static String hostNickName = "winff@qq.com";//香港测试环境用户昵
 //	public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
 	public static String userAccountId = "1-UA-137330527877390336";//香港测试用户 userAccountId  getToken接口返回
 //	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
-	public static String userAccountIdByOther2 = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
+//	public static String userAccountIdByOther2 = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
 	public static String userAccountIdByOther = "1-UA-147492636341383168";//香港测试环境参会人 userAccountId  getToken接口返回
 	public static String meeting_Id; //会议id   createMeeting接口返回
 	public static String m_Id; //会议短id   createMeeting接口返回

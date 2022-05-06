@@ -75,6 +75,7 @@ public class editMeeting_allParameterIs1 extends QZ implements API {
 			userMap.put("lock", "1");
 			userMap.put("waitingRoom", "1");
 			userMap.put("onlyHostShare", "1");
+			userMap.put("recordPermission", "1");
 			parameter = parameter.replace("\"meetingPermission\":code", "\"meetingPermission\":"+ JSONObject.fromObject(userMap) );
 		}
 
