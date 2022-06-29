@@ -122,13 +122,13 @@ public class audioEnable extends QZ implements API {
 
             if(code.equals("200")){
 
-                Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-                String meetingId = docs.getString("_id");
-                //mid
-                mId_meeting = docs.getString("mId");
-                //pwd
-                pwd_meeting = docs.getString("pwd");
-                System.out.println(meetingId);
+//                Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//                String meetingId = docs.getString("_id");
+//                //mid
+//                mId_meeting = docs.getString("mId");
+//                //pwd
+//                pwd_meeting = docs.getString("pwd");
+//                System.out.println(meetingId);
             }
 
         }

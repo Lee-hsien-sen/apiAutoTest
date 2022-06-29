@@ -9,24 +9,23 @@ import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import net.sf.json.JSONObject;
 import org.bson.Document;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
- * @ClassName:  admit
- * @Description:等候同意后获取会议信息和媒体信息
- * @author: wff
- * @date:   2021年12月7日18:47:19
+ * @ClassName:  user_leave
+ * @Description:TODO  IM会议群组移除/退出用户
+ * @author: WHT
+ * @date:   2021年04月01日16:06:024
  * @Copyright:
  */
-public class admitMeeting extends QZ implements API {
+public class userLeave extends QZ implements API {
 
 	public String parameter; //参数集合
-	public String meetingId; //会议Id
+	public String group_id; //群组ID
+	public String user_id; //用户ID
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -36,13 +35,15 @@ public class admitMeeting extends QZ implements API {
 	@Override
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
-
-
-
-		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-		if(!meetingId.equals("") && meetingId.equals("code")){
-			meetingId = meeting_Id;
-			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+		group_id = MapUtil.getParameter(parameter,"group_id").trim();
+		user_id = MapUtil.getParameter(parameter,"user_id").trim();
+		if(!group_id.equals("") && group_id.equals("code")){
+			group_id = groupId;
+			parameter = parameter.replace("\"group_id\":code", "\"group_id\":\""+ group_id + "\"");
+		}
+		if(!user_id.equals("") && user_id.equals("code")){
+			user_id =userAccountId;
+			parameter = parameter.replace("\"user_id\":code", "\"user_id\":\""+ userAccountId + "\"");
 		}
 
 		data.put("parameter", parameter);
@@ -53,7 +54,7 @@ public class admitMeeting extends QZ implements API {
 	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/cstcapi/cst/im/meeting/user_leave");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
@@ -111,7 +112,7 @@ public class admitMeeting extends QZ implements API {
 				}
 			}
 
-			if(msg.equals("success")){
+			if(msg.equals("SUCCESS")){
 
 				//是否是线上环境
 //				if (!isProduct) {
@@ -122,10 +123,15 @@ public class admitMeeting extends QZ implements API {
 				m_Id = jp.getString("data.mId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
-				//参会人userAccountId
-				sdkAccountIdByOther = jp.getString("data.mediaInfo.sdkAccountId");
-				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
 
+				//查询新建会议的MRId
+				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+				String meetingId = docs.getString("_id");
+				//mid
+				mId_meeting = docs.getString("mId");
+				//pwd
+				pwd_meeting = docs.getString("pwd");
+				System.out.println(meetingId);
 			}
 
 		}

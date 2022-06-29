@@ -23,6 +23,8 @@ import com.qingzi.process.QZ;
 
 @Listeners({ProcessTestng.class, ResultTestng.class})
 public class ApiTest_qz extends QZ {
+    public String token = "";
+    public String key = "";
 
     @Test(dataProvider = "renmai", dataProviderClass = qingzi_api_testData.class)
     public void f(HashMap<String, Object> data) {
@@ -42,23 +44,31 @@ public class ApiTest_qz extends QZ {
         HashMap<String, String> headers = new HashMap<String, String>();
         if (!serviceUrl.contains("/cstcapi")) {
             serviceUrl = "/cstcapi" + serviceUrl;
-			data.put("serviceUrl", serviceUrl);
+            data.put("serviceUrl", serviceUrl);
         }
-//        else if(serviceUrl.contains("/cmmc")){
+//        else if(serviceUrl.contains("/mmc")){
 //
 //        }
+        if(serviceUrl.contains("ByOther")){
+//            token = participants.get("firstToken");
+//            key = participants.get("authKeyByOther");
+            token = s_UserTokenByOther;
+            key = authKeyByOther;
+        }else {
+            token = s_UserToken;
+            key = authKey;
+        }
         long value = System.currentTimeMillis();
-        headers.put("Cst-Token", s_UserToken);
+        headers.put("Cst-Token", token);
         headers.put("Cst-Nonce", value + "");
         headers.put("Cst-Timestamp", value + "");
         if (request.equals("get")) {
-            TreeMap<String, String> treeMap = SignatureUtil.qzGetSign(parameter);
             TreeMap<String, String> args = SignatureUtil.qzGetSign(parameter);
-            String Signature = SignatureUtil.check(authKey, s_UserToken, value + "", value, args, "");
+            String Signature = SignatureUtil.check(key, token, value + "", value, args, "");
             headers.put("Cst-Signature", Signature);
         } else {
             TreeMap<String, String> args = new TreeMap<>();
-            String Signature = SignatureUtil.check(authKey, s_UserToken, value + "", value, args, "{"+parameter+"}");
+            String Signature = SignatureUtil.check(key, token, value + "", value, args, "{"+parameter+"}");
             headers.put("Cst-Signature", Signature);
         }
 
@@ -129,7 +139,7 @@ public class ApiTest_qz extends QZ {
 //					StringUtils.decodeUnicode(re.asString()),
 //					codeORerrcode,
 //					msgORerrmsy,
-//					result,xx
+//					result,
 //					time
 //					);
         if (result.indexOf("Fail") != -1) {

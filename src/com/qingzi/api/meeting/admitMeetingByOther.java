@@ -12,22 +12,21 @@ import io.restassured.response.Response;
 import net.sf.json.JSONObject;
 import org.bson.Document;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
- * @ClassName:  editName
- * @Description:保持视频
- * @author: wangshushu
- * @date:   2021年10月18日16:44:03
+ * @ClassName:  admit
+ * @Description:等候同意后获取会议信息和媒体信息
+ * @author: wff
+ * @date:   2021年12月7日18:47:19
  * @Copyright:
  */
-public class videoKeep extends QZ implements API {
+public class admitMeetingByOther extends QZ implements API {
 
 	public String parameter; //参数集合
-	public String meetingId; //解决方案会议室Id
-	public String enterpriseId; //企业id
-	public String operated; //与被操作人列表
+	public String meetingId; //会议Id
 
 	@Override
 	public void initialize(HashMap<String, Object> data) {
@@ -38,22 +37,12 @@ public class videoKeep extends QZ implements API {
 	public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
 		parameter = MapUtil.getValue("parameter", data);
 
-		enterpriseId = MapUtil.getParameter(parameter,"enterpriseId").trim();
+
+
 		meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-		operated = MapUtil.getParameter(parameter,"operated").trim();
-		if(!enterpriseId.equals("") && enterpriseId.equals("code")){
-			enterpriseId = enterprise_Id;
-			parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\""+ enterpriseId + "\"");
-		}
 		if(!meetingId.equals("") && meetingId.equals("code")){
 			meetingId = meeting_Id;
 			parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
-		}
-		HashMap<String, String> userMap = new HashMap<String, String>();
-		userMap.put("dev", "1");
-		userMap.put("userAccountId", sdkAccountId);
-		if(!operated.equals("") && operated.equals("code")){
-			parameter = parameter.replace("\"operated\":code", "\"operated\":"+ JSONObject.fromObject(userMap) );
 		}
 
 		data.put("parameter", parameter);
@@ -64,7 +53,7 @@ public class videoKeep extends QZ implements API {
 	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
 		MyRequest myRequest = new MyRequest();
-		myRequest.setUrl(Url);
+		myRequest.setUrl("/cstcapi/moms/mtmgr/v1/mmc/admitMeeting");
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
@@ -93,7 +82,6 @@ public class videoKeep extends QZ implements API {
 		if (json.length() != 0) {
 
 			String msg=StringUtils.decodeUnicode(jp.getString("message"));
-			String code=StringUtils.decodeUnicode(jp.getString("code"));
 
 			if ((data.get("code") != null )
 					&& ((jp.getString("code") == null) || (!jp.getString(
@@ -123,7 +111,7 @@ public class videoKeep extends QZ implements API {
 				}
 			}
 
-			if(code.equals("200")){
+			if(msg.equals("success")){
 
 				//是否是线上环境
 //				if (!isProduct) {
@@ -134,15 +122,10 @@ public class videoKeep extends QZ implements API {
 				m_Id = jp.getString("data.mId");
 				sdk_AccountId = jp.getString("data.sdkAccountId");
 				sdk_RoomId = jp.getString("data.sdkRoomId");*/
+				//参会人userAccountId
+				sdkAccountIdByOther = jp.getString("data.mediaInfo.sdkAccountId");
+				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
 
-				//查询新建会议的MRId
-//				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-//				String meetingId = docs.getString("_id");
-//				//mid
-//				mId_meeting = docs.getString("mId");
-//				//pwd
-//				pwd_meeting = docs.getString("pwd");
-//				System.out.println(meetingId);
 			}
 
 		}

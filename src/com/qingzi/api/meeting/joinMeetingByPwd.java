@@ -61,7 +61,7 @@ public class joinMeetingByPwd extends QZ implements API {
 			parameter = parameter.replace("\"nickName\":code", "\"nickName\":\""+ nickName + "\"");
 		}
 		if(!mId.equals("") && mId.equals("code")){
-			mId = mId_meeting;
+			mId = m_Id;
 			parameter = parameter.replace("\"mId\":code", "\"mId\":\""+ mId + "\"");
 		}
 		if(!pwd.equals("") && pwd.equals("code")){
@@ -143,18 +143,12 @@ public class joinMeetingByPwd extends QZ implements API {
 //				if (!isProduct) {
 //
 //				}
-				//查询新建会议的MRId
-				Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
-				String meetingId = docs.getString("_id");
-				//mid
-				mId = docs.getString("mId");
-				//pwd
-				pwd = docs.getString("password");
 				//mediaInfo  参会人Accountid
 				sdkAccountId = jp.getString("data.mediaInfo.sdkAccountId");
 				//mediaInfo 媒体房间id
 				sdkRoomId = jp.getString("data.mediaInfo.sdkRoomId");
-				System.out.println(meetingId);
+				//群组ID
+				groupId = jp.getString("data.meetingInfo.imRoomId");
 			}
 
 		}

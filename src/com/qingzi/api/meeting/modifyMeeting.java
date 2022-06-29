@@ -3,26 +3,28 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
-import com.qingzi.testUtil.*;
+import com.qingzi.testUtil.MapUtil;
+import com.qingzi.testUtil.RequestDataUtils;
+import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
 
 import java.util.HashMap;
-import java.util.TreeMap;
 
 /**
- * @ClassName: createMeeting
- * @Description: 创建会议   及时会议，预约会议
+ * @ClassName: modifyMeeting
+ * @Description: 编辑会议  对于还为开始的会议，可编辑所有信息（），对于正在进行中的会议，仅允许修改标题
  * @author: wff
- * @date: 2022年2月28日17:51:35
+ * @date: 2022年4月21日15:40:23
  * @Copyright:
  */
-public class newCreateMeeting extends QZ implements API {
+public class modifyMeeting extends QZ implements API {
 
     public String parameter; //参数集合
-    public String enterpriseId; //企业id
-    public String vmrId; //会议室id
+    public String meetingId; //会议全局唯一id
+    public String mId; //会议短id
+    public String updator; //修改人
+    public String password; //会议密码
     public String host; //host信息
     public String meetingManage; //默认值见属性
     public String title; //会议标题
@@ -30,7 +32,6 @@ public class newCreateMeeting extends QZ implements API {
     public String duration; //会议时长（秒）
     public String nickName; //邀请人昵称
     public String invitees; //邀请人
-    public String creator; //创建者的userId
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -41,8 +42,9 @@ public class newCreateMeeting extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        enterpriseId = MapUtil.getParameter(parameter, "enterpriseId").trim();
-        vmrId = MapUtil.getParameter(parameter, "vmrId").trim();
+        meetingId = MapUtil.getParameter(parameter, "meetingId").trim();
+        mId = MapUtil.getParameter(parameter, "mId").trim();
+        updator = MapUtil.getParameter(parameter, "updator").trim();
         host = MapUtil.getParameter(parameter, "host").trim();
         meetingManage = MapUtil.getParameter(parameter, "meetingManage").trim();
         title = MapUtil.getParameter(parameter, "title").trim();
@@ -50,28 +52,32 @@ public class newCreateMeeting extends QZ implements API {
         duration = MapUtil.getParameter(parameter, "duration").trim();
         nickName = MapUtil.getParameter(parameter, "nickName").trim();
         invitees = MapUtil.getParameter(parameter, "invitees").trim();
-        creator = MapUtil.getParameter(parameter, "creator").trim();
-        if (!enterpriseId.equals("") && enterpriseId.equals("code")) {
-            enterpriseId = enterprise_Id;
-            parameter = parameter.replace("\"enterpriseId\":code", "\"enterpriseId\":\"" + enterpriseId + "\"");
+        password = MapUtil.getParameter(parameter, "password").trim();
+        if (!meetingId.equals("") && meetingId.equals("code")) {
+            meetingId = meeting_Id;
+            parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\"" + meetingId + "\"");
         }
-        if (!vmrId.equals("") && vmrId.equals("code")) {
+        if (!mId.equals("") && mId.equals("code")) {
             //固定会议室
             //MRId = MR_Id;
             //临时会议
-            vmrId = null;
-            parameter = parameter.replace("\"vmrId\":code", "\"vmrId\":" + vmrId + "");
+            mId = m_Id;
+            parameter = parameter.replace("\"mId\":code", "\"mId\":\"" + mId + "\"");
+        }
+        if (!updator.equals("") && updator.equals("code")) {
+            updator = userAccountId;
+            parameter = parameter.replace("\"updator\":code", "\"updator\":\"" + updator + "\"");
         }
         if (!host.equals("") && host.equals("code")) {
-            host = "";
-            parameter = parameter.replace("\"host\":code", "\"host\":\"" + host + "\"");
+            host = null;
+            parameter = parameter.replace("\"host\":code", "\"host\":" + host + "");
         }
         if (!meetingManage.equals("") && meetingManage.equals("code")) {
-            meetingManage = "";
-            parameter = parameter.replace("\"meetingManage\":code", "\"meetingManage\":\"" + meetingManage + "\"");
+            meetingManage = null;
+            parameter = parameter.replace("\"meetingManage\":code", "\"meetingManage\":" + meetingManage + "");
         }
         if (!title.equals("") && title.equals("code")) {
-            title = title_meeting;
+            title = title_meeting+ "修改";
             parameter = parameter.replace("\"title\":code", "\"title\":\"" + title + "\"");
         }
         if (!startTime.equals("") && startTime.equals("code")) {
@@ -87,12 +93,12 @@ public class newCreateMeeting extends QZ implements API {
             parameter = parameter.replace("\"nickName\":code", "\"nickName\":\"" + nickName + "\"");
         }
         if (!invitees.equals("") && invitees.equals("code")) {
-            invitees = "";
+            invitees = null;
             parameter = parameter.replace("\"invitees\":code", "\"invitees\":" + invitees + "");
         }
-        if (!creator.equals("") && creator.equals("code")) {
-            creator = userAccountId;
-            parameter = parameter.replace("\"creator\":code", "\"creator\":\"" + creator + "\"");
+        if (!password.equals("") && password.equals("code")) {
+            password = "test654321";
+            parameter = parameter.replace("\"password\":code", "\"password\":\"" + password + "\"");
         }
 
         data.put("parameter", parameter);
@@ -103,7 +109,7 @@ public class newCreateMeeting extends QZ implements API {
     public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
                                 String Request) {
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl("/cstcapi/moms/mtmgr/v1/admin/createMeeting");
+        myRequest.setUrl(Url);
         myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);

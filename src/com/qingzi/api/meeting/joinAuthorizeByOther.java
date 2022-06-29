@@ -4,25 +4,27 @@ import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
 
 import java.util.HashMap;
 
 /**
- *@ClassName end
- * @Description:TODO  用户结束会议
- * @Author yuxiaowei
- * @create 2021-09-28 20:13
+ * @ClassName: joinAuthorize
+ * @Description:获取会中授权（三方服务端调用） 参会人使用
+ * @author: wff
+ * @date: 2022年3月29日11:00:26
+ * @Copyright:
  */
-public class end extends QZ implements API {
+public class joinAuthorizeByOther extends QZ implements API {
 
     public String parameter; //参数集合
-    public String meetingId; //解决方案会议室Id
+    public String meetingId; //会议全局唯一id，和mId 必传一个(推荐使用)
+    public String mId; //会议短Id，和meetingId 必传一个
+    public String userId; //crystal的用户id
+
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -33,25 +35,32 @@ public class end extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-
-        meetingId = MapUtil.getParameter(parameter,"meetingId").trim();
-
-
-        if(!meetingId.equals("") && meetingId.equals("code")){
+        meetingId = MapUtil.getParameter(parameter, "meetingId").trim();
+        mId = MapUtil.getParameter(parameter, "mId").trim();
+        userId = MapUtil.getParameter(parameter, "userId").trim();
+        if (!meetingId.equals("") && meetingId.equals("code")) {
             meetingId = meeting_Id;
-            parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\""+ meetingId + "\"");
+            parameter = parameter.replace("\"meetingId\":code", "\"meetingId\":\"" + meetingId + "\"");
         }
-
+        if (!mId.equals("") && mId.equals("code")) {
+            mId = m_Id;
+            parameter = parameter.replace("\"mId\":code", "\"mId\":\"" + mId + "\"");
+        }
+        if (!userId.equals("") && userId.equals("code")) {
+            userId = userAccountIdByOther;
+            parameter = parameter.replace("\"userId\":code", "\"userId\":\"" + userId + "\"");
+        }
 
         data.put("parameter", parameter);
         return data;
     }
 
     @Override
-    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers, HashMap<String, Object> data, String Url,
                                 String Request) {
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl(Url);
+//		myRequest.setUrl(Url + "?userAccountId="+ userAccountId);
+        myRequest.setUrl("/cstcapi/moms/mtmgr/v1/admin/joinAuthorize");
         myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
@@ -79,11 +88,10 @@ public class end extends QZ implements API {
 
         if (json.length() != 0) {
 
-            String msg= StringUtils.decodeUnicode(jp.getString("message"));
-            String code= StringUtils.decodeUnicode(jp.getString("code"));
+            String msg = StringUtils.decodeUnicode(jp.getString("message"));
+            String code = StringUtils.decodeUnicode(jp.getString("code"));
 
-
-            if ((data.get("code") != null )
+            if ((data.get("code") != null)
                     && ((jp.getString("code") == null) || (!jp.getString(
                     "code").equals(data.get("code").toString())))) {
                 result = result && false;
@@ -100,10 +108,10 @@ public class end extends QZ implements API {
                         + jp.getString("msg") + ".";
             }
 
-            if(data.get("custom") != null && jp.getString("data")!=null){
-                String custom=data.get("custom").toString();
-                String[] ArrayString=StringUtils.getArrayString(custom,",");
-                if(!StringUtils.VerificationString(jp.getString("data"),ArrayString)){
+            if (data.get("custom") != null && jp.getString("data") != null) {
+                String custom = data.get("custom").toString();
+                String[] ArrayString = StringUtils.getArrayString(custom, ",");
+                if (!StringUtils.VerificationString(jp.getString("data"), ArrayString)) {
                     result = result && false;
                     failReason = failReason + "custom is expected "
                             + data.get("custom").toString() + " but actually "
@@ -111,7 +119,7 @@ public class end extends QZ implements API {
                 }
             }
 
-            if(code.equals("200")){
+            if (code.equals("200")) {
 
             }
 
@@ -122,5 +130,3 @@ public class end extends QZ implements API {
             return "Fail:" + failReason;
     }
 }
-
-
