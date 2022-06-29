@@ -16,7 +16,7 @@ import java.util.HashMap;
 /**
  *
  * @ClassName:  stopShareBoard
- * @Description:关闭视频
+ * @Description:关闭白板
  * @author: wangshushu
  * @date:   2021年9月28日17:31:27
  * @Copyright:
@@ -51,14 +51,8 @@ public class stopShareBroad extends QZ implements API {
 	}
 
 	@Override
-	public Response SendRequest(HashMap<String, Object> data, String Url,
+	public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
 			String Request) {
-		HashMap<String, String> headers = new HashMap<String, String>();
-		//需要调用奇瑞域名才能获取
-		headers.put("SUserToken",s_UserToken);
-		headers.put("appId",appId);
-		headers.put("dev",dev);
-
 		MyRequest myRequest = new MyRequest();
 		myRequest.setUrl(Url);
 		myRequest.setHeaders(headers);
