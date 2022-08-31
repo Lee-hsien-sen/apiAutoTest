@@ -24,14 +24,19 @@ public class QZ extends BasicsGM {
     public static String appId = "12345678";//目前开发那边也是写死的值
     //	public static String enterprise_Id = "1-EP-48824092482932736";//开发环境 企业id
     public static String enterprise_Id = "1-EP-48824092482932736";//测试环境 企业id
-    public static String s_UserToken;//usertoken  getToken接口返回
-    public static String authKey;//秘钥  exchange接口返回
-    //	public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
-//	public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
+    public static String s_UserToken;//hosttoken
+    public static String s_UserTokenByOther;//参会人token
+    public static String authKey;//host秘钥  exchange接口返回
+    public static String authKeyByOther;//参会人key
+    public static String serverPub;//服务端公钥
+    public static String clientPub;//客户端端公钥
+    public static String clientPri;//客户端端私钥
+//    public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
+//    public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
     public static String hostNickName = "winff@qq.com";//香港测试环境用户昵称
-    //	public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
+//    public static String userAccountId = "1-UA-137252758432178176";//开发环境用户 userAccountId  getToken接口返回
     public static String userAccountId = "1-UA-137330527877390336";//香港测试用户 userAccountId  getToken接口返回
-    //	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
+//	public static String userAccountIdByOther = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
 //	public static String userAccountIdByOther2 = "1-UA-119213892000796672";//测试环境参会人 userAccountId  getToken接口返回
     public static String userAccountIdByOther = "1-UA-147492636341383168";//香港测试环境参会人 userAccountId  getToken接口返回
     public static String meeting_Id; //会议id   createMeeting接口返回
@@ -46,12 +51,9 @@ public class QZ extends BasicsGM {
     public static String sdkAccountIdByOther; // 媒体  参会人userAccountId
     public static String sdkRoomId;//mediaInfo 媒体房间id
     public static String board_Id;//白板ID
-    public static String s_UserTokenByOther;//参会人token
-    public static String authKeyByOther;//参会人秘钥
     public static String groupId;//群组id
-    public static String serverPub;//服务端公要
-    public static String clientPub;//客户端端公要
-    public static String clientPri;//客户端端私要
+
+
 
 
     static {
