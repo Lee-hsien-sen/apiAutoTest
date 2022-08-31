@@ -3,12 +3,10 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
-import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
-import com.qingzi.testUtil.RequestDataUtils;
-import com.qingzi.testUtil.StringUtils;
+import com.qingzi.testUtil.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.apache.commons.codec.DecoderException;
 import org.bson.Document;
 
 import java.util.HashMap;
@@ -35,13 +33,12 @@ public class newGetToken extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        Uid = MapUtil.getParameter(parameter,"Uid").trim();
+        Uid = MapUtil.getParameter(parameter, "Uid").trim();
 
-        if(!Uid.equals("") && Uid.equals("code")){
+        if (!Uid.equals("") && Uid.equals("code")) {
             Uid = userAccountId;
-            parameter = parameter.replace("\"Uid\":code", "\"Uid\":\""+ Uid + "\"");
+            parameter = parameter.replace("\"Uid\":code", "\"Uid\":\"" + Uid + "\"");
         }
-
 
 
         data.put("parameter", parameter);
@@ -49,7 +46,7 @@ public class newGetToken extends QZ implements API {
     }
 
     @Override
-    public Response SendRequest(HashMap<String, String> headers,HashMap<String, Object> data, String Url,
+    public Response SendRequest(HashMap<String, String> headers, HashMap<String, Object> data, String Url,
                                 String Request) {
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl("/cstcapi/tas/user/v1/GetToken");
@@ -80,10 +77,10 @@ public class newGetToken extends QZ implements API {
 
         if (json.length() != 0) {
 
-            String msg= StringUtils.decodeUnicode(jp.getString("message"));
-            String code= StringUtils.decodeUnicode(jp.getString("code"));
+            String msg = StringUtils.decodeUnicode(jp.getString("message"));
+            String code = StringUtils.decodeUnicode(jp.getString("code"));
 
-            if ((data.get("code") != null )
+            if ((data.get("code") != null)
                     && ((jp.getString("code") == null) || (!jp.getString(
                     "code").equals(data.get("code").toString())))) {
                 result = result && false;
@@ -100,10 +97,10 @@ public class newGetToken extends QZ implements API {
                         + jp.getString("msg") + ".";
             }
 
-            if(data.get("custom") != null && jp.getString("data")!=null){
-                String custom=data.get("custom").toString();
-                String[] ArrayString=StringUtils.getArrayString(custom,",");
-                if(!StringUtils.VerificationString(jp.getString("data"),ArrayString)){
+            if (data.get("custom") != null && jp.getString("data") != null) {
+                String custom = data.get("custom").toString();
+                String[] ArrayString = StringUtils.getArrayString(custom, ",");
+                if (!StringUtils.VerificationString(jp.getString("data"), ArrayString)) {
                     result = result && false;
                     failReason = failReason + "custom is expected "
                             + data.get("custom").toString() + " but actually "
@@ -111,7 +108,7 @@ public class newGetToken extends QZ implements API {
                 }
             }
 
-            if(code.equals("200")){
+            if (code.equals("200")) {
 
                 //是否是线上环境
 //				if (!isProduct) {
@@ -119,7 +116,8 @@ public class newGetToken extends QZ implements API {
 //				}
 //				*//接口返回token
                 s_UserToken = jp.getString("data.token");
-                authKey = jp.getString("data.authKey");
+//                authKey = jp.getString("data.authKey");
+
                 System.out.println("s_UserToken = " + s_UserToken);
 //                userAccountId = jp.getString("data.accountId");
 //                MR_Id = jp.getString("data.MRId");

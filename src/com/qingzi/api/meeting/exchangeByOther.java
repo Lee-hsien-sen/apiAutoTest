@@ -3,28 +3,18 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
-import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
-import com.qingzi.testUtil.RequestDataUtils;
-import com.qingzi.testUtil.StringUtils;
+import com.qingzi.testUtil.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
+import org.apache.commons.codec.DecoderException;
 
 import java.util.HashMap;
 
-/**
- * @ClassName: auth
- * @Description:
- * @author: wff
- * @date: 2021年12月6日16:42:27
- * @Copyright:
- */
-public class getTokenByOther extends QZ implements API {
 
+public class exchangeByOther extends QZ implements API {
     public String parameter; //参数集合
-    public String Uid; //	用户三方唯一标识
-    public String userName; //邮箱
+    public String pub;
+
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -35,15 +25,16 @@ public class getTokenByOther extends QZ implements API {
     public HashMap<String, Object> handleInput(HashMap<String, Object> data) {
         parameter = MapUtil.getValue("parameter", data);
 
-        Uid = MapUtil.getParameter(parameter, "Uid").trim();
+        pub = MapUtil.getParameter(parameter, "pub").trim();
 
-        if (!Uid.equals("") && Uid.equals("code")) {
-            Uid = userAccountIdByOther;
-            parameter = parameter.replace("\"Uid\":code", "\"Uid\":\"" + Uid + "\"");
+        if (!pub.equals("") && pub.equals("code")) {
+//            HashMap<String, String> pubMap = new HashMap<String, String>();
+//            pubMap.put("pub", clientPub);
+//            System.out.println("operated::" + JSONObject.fromObject(pubMap));
+            pub = clientPub;
+            parameter = parameter.replace("\"pub\":code", "\"pub\":\"" + pub + "\"");
+//            Log.logInfo("==parameter:"+parameter);
         }
-
-//		String[] parameter2 = parameter.split(",");
-//		data.put("parameter", parameter2[0]);
         data.put("parameter", parameter);
         return data;
     }
@@ -52,10 +43,13 @@ public class getTokenByOther extends QZ implements API {
     public Response SendRequest(HashMap<String, String> headers, HashMap<String, Object> data, String Url,
                                 String Request) {
         MyRequest myRequest = new MyRequest();
-        myRequest.setUrl("/cstcapi/tas/user/v1/GetToken");
-        myRequest.setHeaders(headers);
+        myRequest.setUrl("/cstcapi/key/exchange");
+        HashMap<String, String> header = new HashMap<String, String>();
+        header.put("Cst-Token", s_UserTokenByOther);
+        myRequest.setHeaders(header);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
+        Log.logInfo("==header:"+ header+ "==parameter:"+parameter);
 
         Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
         return re;
@@ -113,27 +107,14 @@ public class getTokenByOther extends QZ implements API {
 
             if (code.equals("200")) {
 
-                //是否是线上环境
-//				if (!isProduct) {
-//
-//				}
-//				participants.put("firstToken",jp.getString("data.token"));
-//				participants.put("authKeyByOther",jp.getString("data.authKey"));
-//				System.out.println("participants = " + participants.get("firstToken"));
-                s_UserTokenByOther = jp.getString("data.token");
-//                authKeyByOther = jp.getString("data.authKey");
-                System.out.println(authKeyByOther);
-
-				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
-					String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-					//删除个人注册后创建的个人会议室
-					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
-				}*/
+//				*//接口返回token
+                serverPub = jp.getString("data.pub");
+                try {
+                    authKeyByOther = EccUtils.doExchange(userAccountId, dev, serverPub,clientPri);
+                } catch (DecoderException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("密钥生成失败");
+                }
             }
 
         }
