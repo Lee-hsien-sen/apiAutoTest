@@ -33,9 +33,9 @@
         <sqlurl>jdbc:mysql://rm-2ze364spvypz122fw8o.mysql.rds.aliyuncs.com:3306/xyu?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</sqlurl>
         <sqlname>master</sqlname>
         <sqlpwd>EDCdd22LLZBCADF123</sqlpwd> -->
-        <mongoUrl>192.168.200.206</mongoUrl> <!--北京测试环境-->
+<!--        <mongoUrl>192.168.200.206</mongoUrl> &lt;!&ndash;北京测试环境&ndash;&gt;-->
         <!--<mongoUrl>192.168.201.209</mongoUrl>&lt;!&ndash;北京开发环境 &ndash;&gt;-->
-        <!--<mongoUrl>10.210.10.12</mongoUrl>--> <!--香港  -->
+        <mongoUrl>10.210.10.12</mongoUrl> 香港
         <mongoName>matrx_test</mongoName>
         <mongoPwd>matrx_test</mongoPwd>
         <authDb>admin</authDb>

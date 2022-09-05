@@ -4,27 +4,25 @@ import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
 import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.bson.Document;
 
 import java.util.HashMap;
 
 /**
- * @ClassName: auth
- * @Description:
- * @author: wff
- * @date: 2021年12月6日16:42:27
+ * @ClassName: newGetTokenByOther
+ * @Description:TODO
+ * @author: yuxiaowei
+ * @date: 2022/2/15 上午11:33
  * @Copyright:
  */
-public class getTokenByOther extends QZ implements API {
 
+public class newGetTokenByOther extends QZ implements API {
     public String parameter; //参数集合
-    public String Uid; //	用户三方唯一标识
-    public String userName; //邮箱
+    public String Uid;
+
 
     @Override
     public void initialize(HashMap<String, Object> data) {
@@ -38,12 +36,11 @@ public class getTokenByOther extends QZ implements API {
         Uid = MapUtil.getParameter(parameter, "Uid").trim();
 
         if (!Uid.equals("") && Uid.equals("code")) {
-            Uid = userAccountIdByOther;
+            Uid = userAccountId;
             parameter = parameter.replace("\"Uid\":code", "\"Uid\":\"" + Uid + "\"");
         }
 
-//		String[] parameter2 = parameter.split(",");
-//		data.put("parameter", parameter2[0]);
+
         data.put("parameter", parameter);
         return data;
     }
@@ -53,7 +50,7 @@ public class getTokenByOther extends QZ implements API {
                                 String Request) {
         MyRequest myRequest = new MyRequest();
         myRequest.setUrl("/cstcapi/tas/user/v1/GetToken");
-        myRequest.setHeaders(headers);
+//        myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
 
@@ -117,23 +114,22 @@ public class getTokenByOther extends QZ implements API {
 //				if (!isProduct) {
 //
 //				}
-//				participants.put("firstToken",jp.getString("data.token"));
-//				participants.put("authKeyByOther",jp.getString("data.authKey"));
-//				System.out.println("participants = " + participants.get("firstToken"));
+//				*//接口返回token
                 s_UserTokenByOther = jp.getString("data.token");
-//                authKeyByOther = jp.getString("data.authKey");
-                System.out.println(authKeyByOther);
+//                authKey = jp.getString("data.authKey");
 
-				/*if (data.get("CleanDB") != "" && data.get("CleanDB").equals("Y")) {
-					//先查询该用户创建的个人会议
-					Document doc =  MongoDBUtil.findByid(data, "crystal", "usrmgrAccount", "BUid", "feifei");
-					String personalRoomId = doc.getString("personalRoomId");
-//					System.out.println(personalRoomId);
-					//删除个人注册后创建的个人会议室
-					MongoDBUtil.deleteByid(data, "crystal", "mcmuMeetingRoom", "_id", personalRoomId);
-					//删除会前注册信息
-					MongoDBUtil.deleteByid(data,"crystal","usrmgrAccount","BUid","feifei");
-				}*/
+                System.out.println(" s_UserTokenByOther = " +  s_UserTokenByOther);
+//                userAccountId = jp.getString("data.accountId");
+//                MR_Id = jp.getString("data.MRId");
+
+                //查询新建会议的MRId
+//                Document docs =  MongoDBUtil.findByid(data, "crystal", "mtmgrMetting", "title", title_meeting);
+//                String meetingId = docs.getString("_id");
+//                //mid
+//                mId_meeting = docs.getString("mId");
+//                //pwd
+//                pwd_meeting = docs.getString("pwd");
+//                System.out.println(meetingId);
             }
 
         }

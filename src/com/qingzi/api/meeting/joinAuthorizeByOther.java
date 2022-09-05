@@ -3,6 +3,7 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
+import com.qingzi.testUtil.Log;
 import com.qingzi.testUtil.MapUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
@@ -64,6 +65,7 @@ public class joinAuthorizeByOther extends QZ implements API {
         myRequest.setHeaders(headers);
         myRequest.setRequest(Request);
         myRequest.setParameter(parameter);
+        Log.logInfo("==header:"+ headers+ "==parameter:"+parameter);
 
         Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
         return re;
