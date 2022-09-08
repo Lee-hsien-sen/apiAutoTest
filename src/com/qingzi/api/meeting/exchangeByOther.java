@@ -31,7 +31,7 @@ public class exchangeByOther extends QZ implements API {
 //            HashMap<String, String> pubMap = new HashMap<String, String>();
 //            pubMap.put("pub", clientPub);
 //            System.out.println("operated::" + JSONObject.fromObject(pubMap));
-            pub = clientPub;
+            pub = clientPubByOther;
             parameter = parameter.replace("\"pub\":code", "\"pub\":\"" + pub + "\"");
 //            Log.logInfo("==parameter:"+parameter);
         }
@@ -110,7 +110,7 @@ public class exchangeByOther extends QZ implements API {
 //				*//接口返回token
                 serverPubByOther = jp.getString("data.pub");
                 try {
-                    authKeyByOther = EccUtils.doExchange(userAccountId, dev, serverPubByOther,clientPri);
+                    authKeyByOther = EccUtils.doExchange(userAccountIdByOther, dev, serverPubByOther,clientPriByOther);
                 } catch (DecoderException e) {
                     e.printStackTrace();
                     throw new RuntimeException("密钥生成失败");

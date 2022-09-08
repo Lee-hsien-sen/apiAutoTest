@@ -38,7 +38,7 @@ public class newGetTokenByOther extends QZ implements API {
         Uid = MapUtil.getParameter(parameter, "Uid").trim();
 
         if (!Uid.equals("") && Uid.equals("code")) {
-            Uid = userAccountId;
+            Uid = userAccountIdByOther;
             parameter = parameter.replace("\"Uid\":code", "\"Uid\":\"" + Uid + "\"");
         }
 
