@@ -127,21 +127,21 @@ public class ApiTest_qz extends QZ {
         System.out.println();
 
 
-        //数据回写
-//	  HashMap<String, Object> ExpectResult=MapUtil.Expect(data);
-//	  SheetUtils sheet = new SheetUtils("DataAll.xls", "Output");
-//	  sheet.writeExcel(
-//			  		data.get("NO").toString(),
-//				  	data.get("TCNO").toString() + "_Step" + data.get("Step").toString(),
-//				  	data.get("Description").toString(),
-//				  	parameter,
-//					JSONObject.fromObject(ExpectResult).toString(),
-//					StringUtils.decodeUnicode(re.asString()),
-//					codeORerrcode,
-//					msgORerrmsy,
-//					result,
-//					time
-//					);
+//        数据回写
+	  HashMap<String, Object> ExpectResult=MapUtil.Expect(data);
+	  SheetUtils sheet = new SheetUtils("DataAllshushu.xls", "Output");
+	  sheet.writeExcel(
+			  		data.get("NO").toString(),
+				  	data.get("TCNO").toString() + "_Step" + data.get("Step").toString(),
+				  	data.get("Description").toString(),
+				  	parameter,
+					JSONObject.fromObject(ExpectResult).toString(),
+					StringUtils.decodeUnicode(re.asString()),
+					codeORerrcode,
+					msgORerrmsy,
+					result,
+					time
+					);
         if (result.indexOf("Fail") != -1) {
             String Expect1 = data.get("code") == null ? "" : data.get("code").toString();
             String Expect2 = data.get("msg") == null ? "" : data.get("msg").toString();

@@ -28,7 +28,8 @@ public class QZ extends BasicsGM {
     public static String s_UserTokenByOther;//参会人token
     public static String authKey;//host秘钥  exchange接口返回
     public static String authKeyByOther;//参会人key
-    public static String serverPub;//服务端公钥
+    public static String serverPub;//host服务端公钥
+    public static String serverPubByOther;//参会人服务端公钥
     public static String clientPub;//客户端端公钥
     public static String clientPri;//客户端端私钥
 //    public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回

@@ -1,5 +1,6 @@
 package com.qingzi.api.meeting;
 
+import com.qingzi.testUtil.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
@@ -12,10 +13,6 @@ import com.fasterxml.jackson.core.sym.Name;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
-import com.qingzi.testUtil.MapUtil;
-import com.qingzi.testUtil.MongoDBUtil;
-import com.qingzi.testUtil.RequestDataUtils;
-import com.qingzi.testUtil.StringUtils;
 
 /**
  *
@@ -82,6 +79,7 @@ public class joinMeetingByPwd extends QZ implements API {
 		myRequest.setHeaders(headers);
 		myRequest.setRequest(Request);
 		myRequest.setParameter(parameter);
+		Log.logInfo("headers:=============="+headers);
 
 		Response re = RequestDataUtils.RestAssuredApi(data, myRequest);
 		return re;

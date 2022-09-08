@@ -108,9 +108,9 @@ public class exchangeByOther extends QZ implements API {
             if (code.equals("200")) {
 
 //				*//接口返回token
-                serverPub = jp.getString("data.pub");
+                serverPubByOther = jp.getString("data.pub");
                 try {
-                    authKeyByOther = EccUtils.doExchange(userAccountId, dev, serverPub,clientPri);
+                    authKeyByOther = EccUtils.doExchange(userAccountId, dev, serverPubByOther,clientPri);
                 } catch (DecoderException e) {
                     e.printStackTrace();
                     throw new RuntimeException("密钥生成失败");
