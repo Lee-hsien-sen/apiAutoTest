@@ -30,8 +30,10 @@ public class QZ extends BasicsGM {
     public static String authKeyByOther;//参会人key
     public static String serverPub;//host服务端公钥
     public static String serverPubByOther;//参会人服务端公钥
-    public static String clientPub;//客户端端公钥
-    public static String clientPri;//客户端端私钥
+    public static String clientPub;//host客户端端公钥
+    public static String clientPri;//host客户端端私钥
+    public static String clientPubByOther;//参会人客户端端公钥
+    public static String clientPriByOther;//参会人客户端端私钥
 //    public static String userAccountId = "1-UA-134800448460349440";//测试环境用户 userAccountId  getToken接口返回
 //    public static String hostNickName = "yxw@qq.com";//开发环境用户 发起者用户昵称
     public static String hostNickName = "winff@qq.com";//香港测试环境用户昵称
@@ -58,9 +60,9 @@ public class QZ extends BasicsGM {
 
 
     static {
-        Map<String, String> pair = EccUtils.getPair();
-        clientPub = pair.get("pub");
-        clientPri = pair.get("pri");
+//        Map<String, String> pair = EccUtils.getPair();
+//        clientPub = pair.get("pub");
+//        clientPri = pair.get("pri");
         //初始环境设置DNS
 //		if(!cmdUtil.run("nslookup www.qq.com").contains("192.168.10.222")){
 //			Log.logInfo("正在设置dns地址为：192.168.10.222,如果失败，请断开有限网络，用无线网络连接");

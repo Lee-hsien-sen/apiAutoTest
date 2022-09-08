@@ -3,6 +3,7 @@ package com.qingzi.api.meeting;
 import com.qingzi.interfaces.API;
 import com.qingzi.process.QZ;
 import com.qingzi.system.MyRequest;
+import com.qingzi.testUtil.EccUtils;
 import com.qingzi.testUtil.MapUtil;
 import com.qingzi.testUtil.RequestDataUtils;
 import com.qingzi.testUtil.StringUtils;
@@ -10,6 +11,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName: newGetTokenByOther
@@ -116,7 +118,9 @@ public class newGetTokenByOther extends QZ implements API {
 //				}
 //				*//接口返回token
                 s_UserTokenByOther = jp.getString("data.token");
-//                authKey = jp.getString("data.authKey");
+                Map<String, String> pair = EccUtils.getPair();
+                clientPubByOther = pair.get("pub");
+                clientPriByOther = pair.get("pri");
 
                 System.out.println(" s_UserTokenByOther = " +  s_UserTokenByOther);
 //                userAccountId = jp.getString("data.accountId");

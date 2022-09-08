@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 import net.sf.json.JSONObject;
@@ -50,8 +51,6 @@ public class ApiTest_qz extends QZ {
 //
 //        }
         if(serviceUrl.contains("ByOther")){
-//            token = participants.get("firstToken");
-//            key = participants.get("authKeyByOther");
             token = s_UserTokenByOther;
             key = authKeyByOther;
         }else {

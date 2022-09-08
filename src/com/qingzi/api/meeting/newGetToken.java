@@ -10,6 +10,7 @@ import org.apache.commons.codec.DecoderException;
 import org.bson.Document;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName: newGetToken
@@ -116,7 +117,9 @@ public class newGetToken extends QZ implements API {
 //				}
 //				*//接口返回token
                 s_UserToken = jp.getString("data.token");
-//                authKey = jp.getString("data.authKey");
+                Map<String, String> pair = EccUtils.getPair();
+                clientPub = pair.get("pub");
+                clientPri = pair.get("pri");
 
                 System.out.println("s_UserToken = " + s_UserToken);
 //                userAccountId = jp.getString("data.accountId");
